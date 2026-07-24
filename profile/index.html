@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View your personalized Harrington Conflict Intelligence Assessment Results Profile.">
+  <meta name="author" content="Robert Harrington Jr.">
+  <title>HCIA Results Profile</title>
+
+  <style>
+    :root {
+      --background: #f4f0e7;
+      --surface: #fffdf8;
+      --surface-soft: #ebe5d9;
+      --surface-dark: #17241f;
+      --primary: #264c40;
+      --primary-dark: #18372f;
+      --primary-soft: #dce7e1;
+      --accent: #b28b4d;
+      --accent-light: #dec48f;
+      --text: #202722;
+      --text-soft: #52605a;
+      --text-light: #f9f6ee;
+      --border: #d8d0c1;
+      --warning-background: #fff5dd;
+      --warning-border: #d5a84e;
+      --warning-text: #654b18;
+      --error-background: #fff0ef;
+      --error-border: #b85a54;
+      --error-text: #7f2e29;
+      --shadow-small: 0 8px 24px rgba(24, 39, 33, 0.07);
+      --shadow-large: 0 24px 70px rgba(24, 39, 33, 0.15);
+      --radius-small: 12px;
+      --radius-medium: 20px;
+      --radius-large: 32px;
+      --content-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    body, button, a { -webkit-font-smoothing: antialiased; }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    button { font: inherit; }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    p { margin-top: 0; }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 1000;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: var(--primary-dark);
+      color: white;
+      text-decoration: none;
+    }
+
+    .skip-link:focus { top: 20px; }
+
+    .container {
+      width: min(calc(100% - 36px), var(--content-width));
+      margin: 0 auto;
+    }
+
+    .pilot-banner {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--warning-border);
+      background: var(--warning-background);
+      color: var(--warning-text);
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(244, 240, 231, 0.97);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 68px;
+      height: 52px;
+      flex: 0 0 auto;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+    }
+
+    .brand-subtitle {
+      margin-top: 5px;
+      color: var(--text-soft);
+      font-size: 0.67rem;
+      font-weight: 750;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-link {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      padding: 16px 0;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    main { padding: 34px 0 82px; }
+
+    .error-panel {
+      display: none;
+      padding: 34px;
+      border: 1px solid var(--error-border);
+      border-radius: var(--radius-medium);
+      background: var(--error-background);
+      color: var(--error-text);
+      box-shadow: var(--shadow-small);
+    }
+
+    .error-panel.visible { display: block; }
+
+    .error-panel h1 {
+      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .error-actions,
+    .action-buttons {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .profile-shell { display: none; }
+
+    .profile-shell.visible { display: block; }
+
+    .profile-hero {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      background: var(--surface-dark);
+      color: var(--text-light);
+      box-shadow: var(--shadow-large);
+    }
+
+    .profile-hero-inner {
+      padding: 52px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+      align-items: center;
+      gap: 48px;
+    }
+
+    .profile-label {
+      margin-bottom: 12px;
+      color: var(--accent-light);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .profile-hero h1 {
+      margin-bottom: 18px;
+      font-size: clamp(2.7rem, 6vw, 5.2rem);
+    }
+
+    .profile-intro {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: #d5ddd8;
+      font-size: 1.06rem;
+    }
+
+    .profile-meta {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta-pill {
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      color: #eef2ef;
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .summary-card {
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-medium);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .summary-card h2 {
+      margin-bottom: 16px;
+      color: var(--accent-light);
+      font-size: 1.7rem;
+    }
+
+    .summary-card p {
+      margin-bottom: 0;
+      color: #dfe6e2;
+    }
+
+    .section {
+      margin-top: 28px;
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: var(--surface);
+      box-shadow: var(--shadow-small);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .section-heading p {
+      margin-bottom: 0;
+      color: var(--text-soft);
+    }
+
+    .pattern-grid,
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pattern-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: #fffefa;
+    }
+
+    .pattern-domain {
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .pattern-card h3 {
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+      font-size: 1.55rem;
+    }
+
+    .primary-result {
+      margin-bottom: 8px;
+      color: var(--primary);
+      font-weight: 850;
+    }
+
+    .secondary-result {
+      margin-bottom: 0;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    .score-bars {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .score-row { display: grid; gap: 7px; }
+
+    .score-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .score-track {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--surface-soft);
+    }
+
+    .score-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), #467364);
+    }
+
+    .insight-card {
+      padding: 24px;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius-medium) var(--radius-medium) 0;
+      background: var(--surface-soft);
+    }
+
+    .insight-card h3 {
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+      font-size: 1.5rem;
+    }
+
+    .insight-card p {
+      margin-bottom: 0;
+      color: var(--text-soft);
+    }
+
+    .growth-panel {
+      padding: 30px;
+      border: 1px solid rgba(178, 139, 77, 0.65);
+      border-radius: var(--radius-medium);
+      background: linear-gradient(135deg, rgba(38, 76, 64, 0.98), rgba(24, 55, 47, 0.98));
+      color: var(--text-light);
+    }
+
+    .growth-panel h3 {
+      margin-bottom: 14px;
+      color: var(--accent-light);
+      font-size: 1.8rem;
+    }
+
+    .growth-panel p { color: #dce4df; }
+
+    .growth-panel ul {
+      margin: 18px 0 0;
+      padding-left: 20px;
+      color: #edf2ef;
+    }
+
+    .growth-panel li + li,
+    .mediation-list li + li,
+    .learning-list li + li {
+      margin-top: 10px;
+    }
+
+    .mediation-list,
+    .learning-list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--text-soft);
+    }
+
+    .action-panel {
+      margin-top: 28px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: var(--surface-soft);
+    }
+
+    .action-panel h2 {
+      margin-bottom: 14px;
+      color: var(--primary-dark);
+      font-size: 2rem;
+    }
+
+    .action-panel p { color: var(--text-soft); }
+
+    .button {
+      min-height: 50px;
+      padding: 13px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: var(--text-light);
+    }
+
+    .button-primary:hover { background: var(--primary-dark); }
+
+    .button-secondary {
+      border-color: var(--primary);
+      background: var(--surface);
+      color: var(--primary);
+    }
+
+    .button-secondary:hover { background: var(--primary-soft); }
+
+    .button-muted {
+      border-color: var(--border);
+      background: transparent;
+      color: var(--text-soft);
+    }
+
+    .pilot-note {
+      margin-top: 28px;
+      padding: 22px;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius-small) var(--radius-small) 0;
+      background: var(--surface-soft);
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    .site-footer {
+      padding: 38px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .footer-inner strong { color: var(--primary); }
+
+    @media (max-width: 860px) {
+      .header-inner {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header-links {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .header-link { text-align: center; }
+
+      .profile-hero-inner,
+      .pattern-grid,
+      .insight-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .profile-hero-inner,
+      .section,
+      .action-panel {
+        padding: 26px 22px;
+      }
+
+      .action-buttons { flex-direction: column; }
+
+      .button { width: 100%; }
+
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media print {
+      .pilot-banner,
+      .site-header,
+      .breadcrumb,
+      .action-panel,
+      .site-footer,
+      .pilot-note,
+      .skip-link {
+        display: none !important;
+      }
+
+      body { background: white; }
+
+      main { padding: 0; }
+
+      .container { width: 100%; }
+
+      .profile-hero,
+      .section {
+        box-shadow: none;
+      }
+
+      .profile-hero { border-radius: 0; }
+
+      .section { break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="pilot-banner">
+    HCIA Public Pilot Beta — Results are educational and remain under evaluation.
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../" aria-label="Return to the HCIA homepage">
+        <span class="brand-logo" aria-hidden="true">
+          <img src="../harrington-bridge-compass-logo.jpeg" alt="">
+        </span>
+
+        <span class="brand-copy">
+          <span class="brand-title">
+            Harrington Conflict Intelligence Assessment
+          </span>
+
+          <span class="brand-subtitle">
+            Understanding Precedes Resolution
+          </span>
+        </span>
+      </a>
+
+      <nav class="header-links" aria-label="Results profile navigation">
+        <a class="header-link" href="../">HCIA Home</a>
+
+        <a class="header-link" href="https://robertharringtonjr.com/">
+          Harrington Mediation
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container breadcrumb">
+    <a href="https://robertharringtonjr.com/">Harrington Mediation</a>
+    &nbsp;›&nbsp;
+    <a href="../">HCIA</a>
+    &nbsp;›&nbsp;
+    Results Profile
+  </div>
+
+  <main id="main-content">
+    <div class="container">
+      <section class="error-panel" id="error-panel" aria-labelledby="error-heading">
+        <h1 id="error-heading">No assessment results were found</h1>
+
+        <p>
+          This page needs completed HCIA assessment results from the same browser.
+          Return to the HCIA homepage and complete an assessment before opening the
+          results page.
+        </p>
+
+        <div class="error-actions">
+          <a class="button button-primary" href="../">Return to HCIA Home</a>
+
+          <a class="button button-secondary" href="../baseline/">
+            Take the Baseline Profile Assessment
+          </a>
+        </div>
+      </section>
+
+      <article class="profile-shell" id="profile-shell">
+        <header class="profile-hero">
+          <div class="profile-hero-inner">
+            <div>
+              <p class="profile-label">Your HCIA Results Profile</p>
+
+              <h1 id="profile-title">HCIA Results Profile</h1>
+
+              <p class="profile-intro" id="profile-intro"></p>
+
+              <div class="profile-meta">
+                <span class="meta-pill" id="assessment-type-pill"></span>
+                <span class="meta-pill" id="completion-date-pill"></span>
+                <span class="meta-pill" id="version-pill"></span>
+              </div>
+            </div>
+
+            <aside class="summary-card">
+              <h2>Profile Summary</h2>
+              <p id="summary-text"></p>
+            </aside>
+          </div>
+        </header>
+
+        <section class="section">
+          <div class="section-heading">
+            <h2>Baseline Pattern Overview</h2>
+            <p>
+              These results describe the strongest patterns reflected across your
+              answers. They are not fixed labels and may shift according to context,
+              relationship, power, safety, and stress.
+            </p>
+          </div>
+
+          <div class="pattern-grid" id="pattern-grid"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <h2>Strengths and Possible Overuse</h2>
+            <p>
+              A constructive pattern may become less effective when relied upon too
+              heavily or used without regard for context.
+            </p>
+          </div>
+
+          <div class="insight-grid">
+            <article class="insight-card">
+              <h3>Likely Strengths</h3>
+              <p id="strengths-text"></p>
+            </article>
+
+            <article class="insight-card">
+              <h3>Possible Overuse</h3>
+              <p id="overuse-text"></p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <h2>Primary Growth Priority</h2>
+            <p>
+              This recommendation is generated from the interaction among your
+              strongest baseline patterns.
+            </p>
+          </div>
+
+          <div class="growth-panel">
+            <h3 id="growth-title"></h3>
+            <p id="growth-text"></p>
+            <ul id="practice-list"></ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <h2>Preparing for Mediation</h2>
+            <p>
+              Your profile can help you prepare to participate more intentionally in
+              mediation or conflict coaching.
+            </p>
+          </div>
+
+          <ul class="mediation-list" id="mediation-list"></ul>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <h2>Continue Learning</h2>
+            <p>
+              These recommendations identify practical areas for continued reflection
+              and skill development.
+            </p>
+          </div>
+
+          <ul class="learning-list" id="learning-list"></ul>
+        </section>
+
+        <section class="action-panel">
+          <h2>Save or Continue</h2>
+
+          <p>
+            You may print this page or use your browser’s print menu to save it as a
+            PDF. Email delivery and secure result sharing will be added during Stage
+            Two.
+          </p>
+
+          <div class="action-buttons">
+            <button class="button button-primary" id="print-button" type="button">
+              Print or Save as PDF
+            </button>
+
+            <a class="button button-secondary" href="../">Return to HCIA Home</a>
+
+            <a class="button button-secondary" href="https://robertharringtonjr.com/">
+              Return to Harrington Mediation
+            </a>
+
+            <button class="button button-muted" id="clear-button" type="button">
+              Clear These Results
+            </button>
+          </div>
+        </section>
+
+        <aside class="pilot-note">
+          <strong>Pilot notice:</strong>
+          This profile was generated from a developmental HCIA assessment. It is
+          educational, nonclinical, and subject to revision as the item bank, scoring
+          system, and interpretation framework are tested.
+        </aside>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Harrington Conflict Intelligence Assessment</strong><br>
+        Understanding Precedes Resolution
+      </div>
+
+      <div>
+        Pilot Beta 1.0<br>
+        © <span id="current-year"></span> Robert Harrington Jr.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const definitions = {
+      "Collaborative Conflict Approach": {
+        strength: "You are likely to look for shared understanding and outcomes that address more than one person’s concerns.",
+        overuse: "Collaboration can become exhausting or inefficient when every issue is treated as requiring full consensus.",
+        growthTitle: "Preserve collaboration while strengthening boundaries",
+        growthText: "Continue inviting understanding, but distinguish between issues that require shared exploration and issues that require a clear boundary or timely decision.",
+        practices: [
+          "State your nonnegotiable concern before beginning collaborative problem-solving.",
+          "Ask whether the situation requires understanding, agreement, or simply a decision."
+        ],
+        mediation: [
+          "Prepare a concise list of your essential interests before the session.",
+          "Separate the outcomes you prefer from the needs you must protect."
+        ],
+        learning: [
+          "Positions versus interests",
+          "Boundary-setting during collaborative dialogue"
+        ]
+      },
+
+      "Directive Conflict Approach": {
+        strength: "You are likely to bring clarity, decisiveness, and momentum when conflict requires direct action.",
+        overuse: "Directness can be experienced as pressure when others need time, context, or participation before moving forward.",
+        growthTitle: "Pair clarity with curiosity",
+        growthText: "Preserve your directness while creating deliberate space for the other person’s perspective before announcing a conclusion or solution.",
+        practices: [
+          "Ask one genuine question before stating your preferred outcome.",
+          "Distinguish urgency from discomfort."
+        ],
+        mediation: [
+          "Prepare your key points in concise language.",
+          "Identify where you can remain flexible before entering the session."
+        ],
+        learning: [
+          "Assertive communication without escalation",
+          "Listening before responding"
+        ]
+      },
+
+      "Accommodating Conflict Approach": {
+        strength: "You are likely to recognize when flexibility, generosity, or relational preservation matters more than winning a point.",
+        overuse: "Accommodation can conceal dissatisfaction or weaken boundaries when you agree outwardly but remain unresolved internally.",
+        growthTitle: "Preserve generosity without disappearing",
+        growthText: "Continue recognizing when flexibility is constructive while becoming more explicit about the needs and limits that should not be silently surrendered.",
+        practices: [
+          "Before agreeing, identify whether you are choosing flexibility or avoiding discomfort.",
+          "Name your own concern before considering compromise."
+        ],
+        mediation: [
+          "Write down the needs you may be tempted to minimize.",
+          "Distinguish voluntary compromise from pressure to preserve harmony."
+        ],
+        learning: [
+          "Self-advocacy and respectful boundaries",
+          "Agreement versus genuine resolution"
+        ]
+      },
+
+      "Reflective Conflict Approach": {
+        strength: "You are likely to observe carefully, think before responding, and avoid impulsive conflict behavior.",
+        overuse: "Reflection can become delay when a necessary conversation remains unstarted while you wait for complete certainty.",
+        growthTitle: "Convert reflection into timely engagement",
+        growthText: "Preserve thoughtful preparation while identifying a reasonable point at which reflection must become communication.",
+        practices: [
+          "Set a specific deadline for initiating a necessary conversation.",
+          "Communicate that you are thinking and identify when you intend to return."
+        ],
+        mediation: [
+          "Prepare written notes before the session.",
+          "Request brief pauses when you need time to process."
+        ],
+        learning: [
+          "Preparing for difficult conversations",
+          "Accountable pauses"
+        ]
+      }
+    };
+
+    const domainNames = {
+      conflictStyle: "Conflict Approach",
+      communicationStyle: "Communication Style",
+      listeningStyle: "Listening Style",
+      decisionStyle: "Decision Style"
+    };
+
+    const fallback = {
+      strength: "Your responses suggest a meaningful pattern that should be interpreted alongside context and lived experience.",
+      overuse: "Any pattern may become less effective when used rigidly or without regard for context.",
+      growthTitle: "Practice flexible and intentional conflict behavior",
+      growthText: "Use this result as a starting point for reflection rather than a fixed conclusion.",
+      practices: [
+        "Notice when this pattern is most useful.",
+        "Identify situations in which another response may be more effective."
+      ],
+      mediation: [
+        "Prepare your main concerns before mediation.",
+        "Notice how your usual pattern may affect participation."
+      ],
+      learning: [
+        "Conflict self-awareness",
+        "Adaptive conflict behavior"
+      ]
+    };
+
+    function getDefinition(label) {
+      return definitions[label] || fallback;
+    }
+
+    function readResults() {
+      try {
+        const raw = localStorage.getItem("hciaCurrentResults");
+        return raw ? JSON.parse(raw) : null;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function formatDate(isoDate) {
+      const date = new Date(isoDate);
+
+      if (Number.isNaN(date.getTime())) {
+        return "Date unavailable";
+      }
+
+      return date.toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+    }
+
+    function normalize(score, ranking) {
+      const max = Math.max(...ranking.map(item => item.score));
+      return max ? Math.round((score / max) * 100) : 0;
+    }
+
+    function renderPatternCard(domainKey, domainResult) {
+      const card = document.createElement("article");
+      card.className = "pattern-card";
+
+      const domain = document.createElement("p");
+      domain.className = "pattern-domain";
+      domain.textContent = domainNames[domainKey] || domainKey;
+
+      const heading = document.createElement("h3");
+      heading.textContent = domainResult.primary.label;
+
+      const primary = document.createElement("p");
+      primary.className = "primary-result";
+      primary.textContent = "Primary pattern";
+
+      const secondary = document.createElement("p");
+      secondary.className = "secondary-result";
+      secondary.textContent = "Supporting pattern: " + domainResult.secondary.label;
+
+      const bars = document.createElement("div");
+      bars.className = "score-bars";
+
+      domainResult.ranking.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "score-row";
+
+        const copy = document.createElement("div");
+        copy.className = "score-copy";
+
+        const label = document.createElement("span");
+        label.textContent = item.label;
+
+        const score = document.createElement("span");
+        score.textContent = String(item.score);
+
+        copy.append(label, score);
+
+        const track = document.createElement("div");
+        track.className = "score-track";
+
+        const fill = document.createElement("div");
+        fill.className = "score-fill";
+        fill.style.width = normalize(item.score, domainResult.ranking) + "%";
+
+        track.appendChild(fill);
+        row.append(copy, track);
+        bars.appendChild(row);
+      });
+
+      card.append(domain, heading, primary, secondary, bars);
+      return card;
+    }
+
+    function buildSummary(results) {
+      const conflict = results.domains.conflictStyle.primary.label;
+      const communication = results.domains.communicationStyle.primary.label;
+      const listening = results.domains.listeningStyle.primary.label;
+      const decision = results.domains.decisionStyle.primary.label;
+
+      return (
+        "Your baseline responses suggest a " +
+        conflict +
+        " supported by " +
+        communication +
+        ", " +
+        listening +
+        ", and " +
+        decision +
+        ". This combination describes how you are most likely to approach ordinary disagreement before intense stress significantly changes your behavior."
+      );
+    }
+
+    function addListItems(elementId, items) {
+      const list = document.getElementById(elementId);
+      list.innerHTML = "";
+
+      [...new Set(items)].forEach(text => {
+        const item = document.createElement("li");
+        item.textContent = text;
+        list.appendChild(item);
+      });
+    }
+
+    function renderProfile(results) {
+      const name = results.participantName || "Participant";
+
+      document.getElementById("profile-title").textContent =
+        "HCIA Results Profile for " + name;
+
+      document.getElementById("profile-intro").textContent =
+        "This profile summarizes the strongest patterns reflected in your " +
+        results.assessmentTitle +
+        " responses.";
+
+      document.getElementById("assessment-type-pill").textContent =
+        results.assessmentTitle;
+
+      document.getElementById("completion-date-pill").textContent =
+        "Completed " + formatDate(results.completedAt);
+
+      document.getElementById("version-pill").textContent =
+        "Version " + results.assessmentVersion;
+
+      document.getElementById("summary-text").textContent =
+        buildSummary(results);
+
+      const patternGrid = document.getElementById("pattern-grid");
+      patternGrid.innerHTML = "";
+
+      Object.entries(results.domains).forEach(([key, value]) => {
+        patternGrid.appendChild(renderPatternCard(key, value));
+      });
+
+      const conflict = getDefinition(results.domains.conflictStyle.primary.label);
+      const communication = getDefinition(results.domains.communicationStyle.primary.label);
+      const listening = getDefinition(results.domains.listeningStyle.primary.label);
+      const decision = getDefinition(results.domains.decisionStyle.primary.label);
+
+      document.getElementById("strengths-text").textContent =
+        [conflict.strength, communication.strength, listening.strength, decision.strength].join(" ");
+
+      document.getElementById("overuse-text").textContent =
+        [conflict.overuse, communication.overuse, listening.overuse, decision.overuse].join(" ");
+
+      document.getElementById("growth-title").textContent =
+        conflict.growthTitle;
+
+      document.getElementById("growth-text").textContent =
+        conflict.growthText;
+
+      addListItems("practice-list", [
+        conflict.practices[0],
+        communication.practices[0],
+        listening.practices[0]
+      ]);
+
+      addListItems("mediation-list", [
+        conflict.mediation[0],
+        communication.mediation[0],
+        listening.mediation[0],
+        decision.mediation[0]
+      ]);
+
+      addListItems("learning-list", [
+        conflict.learning[0],
+        communication.learning[0],
+        listening.learning[0],
+        decision.learning[0]
+      ]);
+
+      document.getElementById("profile-shell").classList.add("visible");
+    }
+
+    const results = readResults();
+
+    if (!results || !results.domains || !results.assessmentTitle) {
+      document.getElementById("error-panel").classList.add("visible");
+    } else {
+      renderProfile(results);
+    }
+
+    document.getElementById("print-button").addEventListener("click", () => {
+      window.print();
+    });
+
+    document.getElementById("clear-button").addEventListener("click", () => {
+      const confirmed = window.confirm(
+        "Clear the HCIA results stored in this browser?"
+      );
+
+      if (!confirmed) {
+        return;
+      }
+
+      localStorage.removeItem("hciaCurrentResults");
+      window.location.href = "../";
+    });
+
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
