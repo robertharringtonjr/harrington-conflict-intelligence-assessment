@@ -1,0 +1,3809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Complete the full Harrington Conflict Intelligence Assessment to explore nine dimensions of conflict behavior, communication, emotional processing, decision-making, stress response, listening, leadership, learning, and growth."
+  >
+
+  <meta
+    name="author"
+    content="Robert Harrington Jr."
+  >
+
+  <title>
+    Complete HCIA Assessment | Harrington Conflict Intelligence Assessment
+  </title>
+
+  <style>
+    :root {
+      --background: #f4f0e7;
+      --surface: #fffdf8;
+      --surface-soft: #ebe5d9;
+      --surface-dark: #17241f;
+
+      --primary: #264c40;
+      --primary-dark: #18372f;
+      --primary-soft: #dce7e1;
+
+      --accent: #b28b4d;
+      --accent-light: #dec48f;
+
+      --text: #202722;
+      --text-soft: #52605a;
+      --text-light: #f9f6ee;
+
+      --border: #d8d0c1;
+
+      --warning-background: #fff5dd;
+      --warning-border: #d5a84e;
+      --warning-text: #654b18;
+
+      --error: #9b342f;
+
+      --shadow:
+        0 18px 55px rgba(24, 39, 33, 0.12);
+
+      --radius-small: 12px;
+      --radius-medium: 20px;
+      --radius-large: 30px;
+
+      --content-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    a,
+    label {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    .container {
+      width: min(
+        calc(100% - 32px),
+        var(--content-width)
+      );
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 1000;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: var(--primary-dark);
+      color: white;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    .pilot-banner {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--warning-border);
+      background: var(--warning-background);
+      color: var(--warning-text);
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(244, 240, 231, 0.97);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 68px;
+      height: 52px;
+      flex: 0 0 auto;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+    }
+
+    .brand-subtitle {
+      margin-top: 5px;
+      color: var(--text-soft);
+      font-size: 0.67rem;
+      font-weight: 750;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-link {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      padding: 16px 0;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 34px 0 80px;
+    }
+
+    .assessment-shell {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .assessment-header {
+      padding: 48px;
+      background: var(--surface-dark);
+      color: var(--text-light);
+    }
+
+    .assessment-label {
+      margin-bottom: 12px;
+      color: var(--accent-light);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .assessment-header h1 {
+      margin-bottom: 18px;
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+    }
+
+    .assessment-header p {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: #d5ddd8;
+      font-size: 1.05rem;
+    }
+
+    .assessment-meta {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta-pill {
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      color: #eef2ef;
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .stage {
+      display: none;
+      padding: 46px;
+    }
+
+    .stage.active {
+      display: block;
+    }
+
+    .stage-heading {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .stage-heading h2 {
+      margin-bottom: 14px;
+      color: var(--primary-dark);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .stage-heading p {
+      margin-bottom: 0;
+      color: var(--text-soft);
+    }
+
+    .domain-grid {
+      margin: 28px 0;
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .domain-chip {
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+      color: var(--primary-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .notice {
+      margin: 24px 0;
+      padding: 22px;
+      border-left: 4px solid var(--accent);
+      border-radius:
+        0
+        var(--radius-small)
+        var(--radius-small)
+        0;
+      background: var(--surface-soft);
+      color: var(--text-soft);
+    }
+
+    .notice strong {
+      color: var(--primary-dark);
+    }
+
+    .field {
+      margin-top: 24px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    .field-hint {
+      margin: -4px 0 9px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .text-input {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: white;
+      color: var(--text);
+    }
+
+    .text-input:focus {
+      outline: 3px solid rgba(178, 139, 77, 0.35);
+      border-color: var(--accent);
+    }
+
+    .checkbox-list {
+      margin-top: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .checkbox-row {
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+    }
+
+    .checkbox-row input {
+      width: 19px;
+      height: 19px;
+      margin-top: 3px;
+      flex: 0 0 auto;
+      accent-color: var(--primary);
+    }
+
+    .checkbox-row label {
+      color: var(--text-soft);
+      cursor: pointer;
+    }
+
+    .checkbox-row strong {
+      color: var(--primary-dark);
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 18px;
+      color: var(--error);
+      font-weight: 750;
+    }
+
+    .error-message.visible {
+      display: block;
+    }
+
+    .progress-region {
+      padding: 25px 46px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+
+    .progress-copy {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .progress-track {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #d6d0c5;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          #467364
+        );
+      transition: width 220ms ease;
+    }
+
+    .section-marker {
+      margin-bottom: 20px;
+      padding: 12px 15px;
+      border-radius: var(--radius-small);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .question-card {
+      min-height: 410px;
+    }
+
+    .question-domain {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .question-text {
+      margin-bottom: 28px;
+      color: var(--primary-dark);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.3;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .answer-option {
+      position: relative;
+      display: block;
+    }
+
+    .answer-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .answer-content {
+      padding: 17px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+      color: var(--text-soft);
+      cursor: pointer;
+      transition:
+        border-color 150ms ease,
+        background-color 150ms ease,
+        transform 150ms ease;
+    }
+
+    .answer-content:hover {
+      transform: translateY(-1px);
+      border-color: rgba(38, 76, 64, 0.5);
+    }
+
+    .answer-letter {
+      width: 30px;
+      height: 30px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .answer-option input:checked + .answer-content {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      box-shadow:
+        0 0 0 3px rgba(38, 76, 64, 0.09);
+    }
+
+    .answer-option input:focus-visible + .answer-content {
+      outline: 3px solid rgba(178, 139, 77, 0.45);
+      outline-offset: 3px;
+    }
+
+    .controls {
+      margin-top: 34px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button {
+      min-height: 50px;
+      padding: 13px 21px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: var(--text-light);
+    }
+
+    .button-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .button-secondary {
+      border-color: var(--primary);
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .button-secondary:hover {
+      background: var(--primary-soft);
+    }
+
+    .button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .review-summary {
+      margin-bottom: 24px;
+      padding: 18px;
+      border-radius: var(--radius-small);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+    }
+
+    .review-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .review-row {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+    }
+
+    .review-row strong {
+      color: var(--primary-dark);
+    }
+
+    .review-row span {
+      color: var(--text-soft);
+    }
+
+    .submission-note {
+      margin-top: 24px;
+      color: var(--text-soft);
+      font-size: 0.86rem;
+    }
+
+    .site-footer {
+      padding: 38px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .footer-inner strong {
+      color: var(--primary);
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header-links {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .header-link {
+        text-align: center;
+      }
+
+      .assessment-header,
+      .stage {
+        padding: 30px 24px;
+      }
+
+      .progress-region {
+        padding: 20px 24px;
+      }
+
+      .domain-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        flex-direction: column-reverse;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .review-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <div class="pilot-banner">
+    HCIA Public Pilot Beta — Participation is currently by invitation.
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a
+        class="brand"
+        href="../"
+        aria-label="Return to the HCIA homepage"
+      >
+        <span class="brand-logo" aria-hidden="true">
+          <img
+            src="../harrington-bridge-compass-logo.jpeg"
+            alt=""
+          >
+        </span>
+
+        <span class="brand-copy">
+          <span class="brand-title">
+            Harrington Conflict Intelligence Assessment
+          </span>
+
+          <span class="brand-subtitle">
+            Understanding Precedes Resolution
+          </span>
+        </span>
+      </a>
+
+      <nav
+        class="header-links"
+        aria-label="Assessment navigation"
+      >
+        <a class="header-link" href="../">
+          HCIA Home
+        </a>
+
+        <a
+          class="header-link"
+          href="https://robertharringtonjr.com/"
+        >
+          Harrington Mediation
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container breadcrumb">
+    <a href="https://robertharringtonjr.com/">
+      Harrington Mediation
+    </a>
+    &nbsp;›&nbsp;
+    <a href="../">
+      HCIA
+    </a>
+    &nbsp;›&nbsp;
+    Complete HCIA
+  </div>
+
+  <main id="main-content">
+    <div class="container">
+      <article class="assessment-shell">
+        <header class="assessment-header">
+          <p class="assessment-label">
+            HCIA Assessment 04
+          </p>
+
+          <h1>
+            Complete HCIA
+          </h1>
+
+          <p>
+            The complete assessment provides a multidimensional
+            view of how you approach conflict before activation,
+            under pressure, in relationships and groups, and
+            through the longer process of learning and growth.
+          </p>
+
+          <div class="assessment-meta">
+            <span class="meta-pill">
+              45 pilot questions
+            </span>
+
+            <span class="meta-pill">
+              Approximately 15–20 minutes
+            </span>
+
+            <span class="meta-pill">
+              Nine profile dimensions
+            </span>
+
+            <span class="meta-pill">
+              Version: Pilot Beta 1.0
+            </span>
+          </div>
+        </header>
+
+        <section
+          class="stage active"
+          id="intro-stage"
+          aria-labelledby="intro-heading"
+        >
+          <div class="stage-heading">
+            <h2 id="intro-heading">
+              Your Complete Conflict Intelligence Profile
+            </h2>
+
+            <p>
+              Answer according to your most common patterns rather
+              than the person you believe you should be. When your
+              behavior differs across settings, choose the answer
+              that best reflects you in conflicts that are
+              personally meaningful.
+            </p>
+          </div>
+
+          <div class="domain-grid" aria-label="Assessment dimensions">
+            <div class="domain-chip">Conflict Style</div>
+            <div class="domain-chip">Communication Style</div>
+            <div class="domain-chip">Emotional Processing</div>
+            <div class="domain-chip">Decision Style</div>
+            <div class="domain-chip">Stress Response</div>
+            <div class="domain-chip">Listening Style</div>
+            <div class="domain-chip">Leadership Orientation</div>
+            <div class="domain-chip">Learning Style</div>
+            <div class="domain-chip">Growth Capacity</div>
+          </div>
+
+          <div class="notice">
+            <strong>Educational-use notice:</strong>
+            The HCIA is an educational self-awareness resource.
+            It is not a psychological diagnosis, clinical
+            evaluation, trauma assessment, legal assessment,
+            employment-selection instrument, or substitute for
+            qualified professional care.
+          </div>
+
+          <div class="field">
+            <label for="preferred-name">
+              Preferred first name
+            </label>
+
+            <p class="field-hint">
+              This name will appear on your HCIA Results Profile.
+            </p>
+
+            <input
+              class="text-input"
+              id="preferred-name"
+              name="preferred-name"
+              type="text"
+              maxlength="60"
+              autocomplete="given-name"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="participant-email">
+              Email address
+              <span aria-hidden="true">(optional)</span>
+            </label>
+
+            <p class="field-hint">
+              Email delivery will be activated during Stage Two.
+              This prototype does not send or upload your email.
+            </p>
+
+            <input
+              class="text-input"
+              id="participant-email"
+              name="participant-email"
+              type="email"
+              maxlength="120"
+              autocomplete="email"
+            >
+          </div>
+
+          <div class="checkbox-list">
+            <div class="checkbox-row">
+              <input
+                id="acknowledge-educational"
+                type="checkbox"
+              >
+
+              <label for="acknowledge-educational">
+                <strong>I understand</strong> that this is an
+                educational self-assessment and not a clinical,
+                diagnostic, legal, trauma, or employment
+                evaluation.
+              </label>
+            </div>
+
+            <div class="checkbox-row">
+              <input
+                id="acknowledge-self-report"
+                type="checkbox"
+              >
+
+              <label for="acknowledge-self-report">
+                <strong>I understand</strong> that results are
+                based on self-report and may vary according to
+                context, relationship, power, safety, stress, and
+                recent experiences.
+              </label>
+            </div>
+
+            <div class="checkbox-row">
+              <input
+                id="acknowledge-pilot"
+                type="checkbox"
+              >
+
+              <label for="acknowledge-pilot">
+                <strong>I understand</strong> that this is a pilot
+                version and that its questions, scoring, and
+                interpretation may be revised.
+              </label>
+            </div>
+
+            <div class="checkbox-row">
+              <input
+                id="acknowledge-time"
+                type="checkbox"
+              >
+
+              <label for="acknowledge-time">
+                <strong>I am prepared</strong> to complete 45
+                questions and understand that closing or refreshing
+                the page before submission may interrupt this
+                prototype session.
+              </label>
+            </div>
+          </div>
+
+          <p
+            class="error-message"
+            id="intro-error"
+            role="alert"
+          >
+            Enter your preferred first name and complete all four
+            acknowledgments before beginning.
+          </p>
+
+          <div class="controls">
+            <a class="button button-secondary" href="../">
+              Return to HCIA Home
+            </a>
+
+            <button
+              class="button button-primary"
+              id="begin-button"
+              type="button"
+            >
+              Begin Complete HCIA
+            </button>
+          </div>
+        </section>
+
+        <div
+          class="progress-region"
+          id="progress-region"
+          hidden
+        >
+          <div class="progress-copy">
+            <span id="progress-label">
+              Question 1 of 45
+            </span>
+
+            <span id="progress-percent">
+              2% complete
+            </span>
+          </div>
+
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="2"
+            aria-labelledby="progress-label"
+          >
+            <div
+              class="progress-fill"
+              id="progress-fill"
+            ></div>
+          </div>
+        </div>
+
+        <section
+          class="stage"
+          id="question-stage"
+          aria-live="polite"
+        >
+          <div class="section-marker" id="section-marker">
+            Dimension 1 of 9
+          </div>
+
+          <div class="question-card">
+            <p
+              class="question-domain"
+              id="question-domain"
+            ></p>
+
+            <h2
+              class="question-text"
+              id="question-text"
+            ></h2>
+
+            <div
+              class="answer-list"
+              id="answer-list"
+            ></div>
+
+            <p
+              class="error-message"
+              id="question-error"
+              role="alert"
+            >
+              Select the answer that most closely reflects you
+              before continuing.
+            </p>
+          </div>
+
+          <div class="controls">
+            <button
+              class="button button-secondary"
+              id="back-button"
+              type="button"
+            >
+              Back
+            </button>
+
+            <button
+              class="button button-primary"
+              id="continue-button"
+              type="button"
+            >
+              Continue
+            </button>
+          </div>
+        </section>
+
+        <section
+          class="stage"
+          id="review-stage"
+          aria-labelledby="review-heading"
+        >
+          <div class="stage-heading">
+            <h2 id="review-heading">
+              Review and Submit
+            </h2>
+
+            <p>
+              Confirm that all 45 questions have been answered.
+              You may return to the final question before
+              submitting.
+            </p>
+          </div>
+
+          <div class="review-summary" id="review-summary">
+            All nine dimensions are complete.
+          </div>
+
+          <div class="review-list" id="review-list"></div>
+
+          <p class="submission-note">
+            After submission, your results will be calculated in
+            this browser and stored temporarily for the shared
+            HCIA Results Profile page. No information is uploaded
+            during this Stage One prototype.
+          </p>
+
+          <div class="controls">
+            <button
+              class="button button-secondary"
+              id="return-to-questions-button"
+              type="button"
+            >
+              Return to Questions
+            </button>
+
+            <button
+              class="button button-primary"
+              id="submit-button"
+              type="button"
+            >
+              Submit Complete HCIA
+            </button>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>
+          Harrington Conflict Intelligence Assessment
+        </strong><br>
+        Understanding Precedes Resolution
+      </div>
+
+      <div>
+        Pilot Beta 1.0<br>
+        © <span id="current-year"></span> Robert Harrington Jr.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+            "domain": "Conflict Style",
+            "text": "When disagreement first appears, I am most likely to:",
+            "options": [
+                  {
+                        "text": "Address it directly and advocate strongly for my position.",
+                        "scores": {
+                              "directCollaborative": 2,
+                              "competitiveProtective": 3,
+                              "accommodatingRelational": 0,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Look for a solution that addresses the concerns of everyone involved.",
+                        "scores": {
+                              "directCollaborative": 3,
+                              "competitiveProtective": 1,
+                              "accommodatingRelational": 1,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Reduce tension by yielding where I can.",
+                        "scores": {
+                              "directCollaborative": 0,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 3,
+                              "avoidantReflective": 1
+                        }
+                  },
+                  {
+                        "text": "Step back until I understand the situation more clearly.",
+                        "scores": {
+                              "directCollaborative": 1,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 0,
+                              "avoidantReflective": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Conflict Style",
+            "text": "When an issue matters deeply to me, I usually:",
+            "options": [
+                  {
+                        "text": "State my needs clearly and invite joint problem-solving.",
+                        "scores": {
+                              "directCollaborative": 3,
+                              "competitiveProtective": 1,
+                              "accommodatingRelational": 0,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Hold my ground until the issue is resolved in my favor.",
+                        "scores": {
+                              "directCollaborative": 1,
+                              "competitiveProtective": 3,
+                              "accommodatingRelational": 0,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Protect the relationship even if I compromise more than I prefer.",
+                        "scores": {
+                              "directCollaborative": 0,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 3,
+                              "avoidantReflective": 1
+                        }
+                  },
+                  {
+                        "text": "Delay engagement until I feel prepared.",
+                        "scores": {
+                              "directCollaborative": 1,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 0,
+                              "avoidantReflective": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Conflict Style",
+            "text": "When another person resists my preferred solution, I tend to:",
+            "options": [
+                  {
+                        "text": "Explore the interests underneath both positions.",
+                        "scores": {
+                              "directCollaborative": 3,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 1,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Present stronger reasons and defend the position.",
+                        "scores": {
+                              "directCollaborative": 1,
+                              "competitiveProtective": 3,
+                              "accommodatingRelational": 0,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Adjust my position to preserve cooperation.",
+                        "scores": {
+                              "directCollaborative": 1,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 3,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Pause the discussion and revisit it later.",
+                        "scores": {
+                              "directCollaborative": 0,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 1,
+                              "avoidantReflective": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Conflict Style",
+            "text": "My most natural way of managing conflict is to:",
+            "options": [
+                  {
+                        "text": "Engage directly while seeking mutual understanding.",
+                        "scores": {
+                              "directCollaborative": 3,
+                              "competitiveProtective": 1,
+                              "accommodatingRelational": 0,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Protect what matters through firmness and persistence.",
+                        "scores": {
+                              "directCollaborative": 1,
+                              "competitiveProtective": 3,
+                              "accommodatingRelational": 0,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Maintain harmony and reduce strain.",
+                        "scores": {
+                              "directCollaborative": 0,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 3,
+                              "avoidantReflective": 1
+                        }
+                  },
+                  {
+                        "text": "Observe, analyze, and engage selectively.",
+                        "scores": {
+                              "directCollaborative": 1,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 0,
+                              "avoidantReflective": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Conflict Style",
+            "text": "When a conflict cannot be avoided, I feel most effective when I can:",
+            "options": [
+                  {
+                        "text": "Create a fair process for everyone to participate.",
+                        "scores": {
+                              "directCollaborative": 3,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 1,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Make sure my position is not minimized.",
+                        "scores": {
+                              "directCollaborative": 1,
+                              "competitiveProtective": 3,
+                              "accommodatingRelational": 0,
+                              "avoidantReflective": 0
+                        }
+                  },
+                  {
+                        "text": "Keep the relationship from being damaged.",
+                        "scores": {
+                              "directCollaborative": 0,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 3,
+                              "avoidantReflective": 1
+                        }
+                  },
+                  {
+                        "text": "Have enough time and distance to think.",
+                        "scores": {
+                              "directCollaborative": 0,
+                              "competitiveProtective": 0,
+                              "accommodatingRelational": 1,
+                              "avoidantReflective": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Communication Style",
+            "text": "During difficult conversations, I communicate most naturally by:",
+            "options": [
+                  {
+                        "text": "Speaking plainly and naming the central issue.",
+                        "scores": {
+                              "directExplicit": 3,
+                              "diplomaticRelational": 1,
+                              "analyticalStructured": 1,
+                              "reservedSelective": 0
+                        }
+                  },
+                  {
+                        "text": "Choosing language carefully to protect the relationship.",
+                        "scores": {
+                              "directExplicit": 1,
+                              "diplomaticRelational": 3,
+                              "analyticalStructured": 0,
+                              "reservedSelective": 1
+                        }
+                  },
+                  {
+                        "text": "Organizing facts, examples, and reasoning before speaking.",
+                        "scores": {
+                              "directExplicit": 1,
+                              "diplomaticRelational": 0,
+                              "analyticalStructured": 3,
+                              "reservedSelective": 1
+                        }
+                  },
+                  {
+                        "text": "Saying only what feels necessary and safe.",
+                        "scores": {
+                              "directExplicit": 0,
+                              "diplomaticRelational": 1,
+                              "analyticalStructured": 1,
+                              "reservedSelective": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Communication Style",
+            "text": "When I need to raise a sensitive concern, I usually:",
+            "options": [
+                  {
+                        "text": "State it directly so there is no confusion.",
+                        "scores": {
+                              "directExplicit": 3,
+                              "diplomaticRelational": 1,
+                              "analyticalStructured": 0,
+                              "reservedSelective": 0
+                        }
+                  },
+                  {
+                        "text": "Begin gently and consider how the message may be received.",
+                        "scores": {
+                              "directExplicit": 1,
+                              "diplomaticRelational": 3,
+                              "analyticalStructured": 0,
+                              "reservedSelective": 1
+                        }
+                  },
+                  {
+                        "text": "Prepare the sequence and evidence before beginning.",
+                        "scores": {
+                              "directExplicit": 1,
+                              "diplomaticRelational": 0,
+                              "analyticalStructured": 3,
+                              "reservedSelective": 1
+                        }
+                  },
+                  {
+                        "text": "Wait until I am certain that speaking will be useful.",
+                        "scores": {
+                              "directExplicit": 0,
+                              "diplomaticRelational": 1,
+                              "analyticalStructured": 1,
+                              "reservedSelective": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Communication Style",
+            "text": "If someone misunderstands me, I am most likely to:",
+            "options": [
+                  {
+                        "text": "Correct the misunderstanding immediately.",
+                        "scores": {
+                              "directExplicit": 3,
+                              "diplomaticRelational": 0,
+                              "analyticalStructured": 1,
+                              "reservedSelective": 0
+                        }
+                  },
+                  {
+                        "text": "Restate the message in a way that feels less threatening.",
+                        "scores": {
+                              "directExplicit": 1,
+                              "diplomaticRelational": 3,
+                              "analyticalStructured": 0,
+                              "reservedSelective": 1
+                        }
+                  },
+                  {
+                        "text": "Clarify the sequence, definitions, or facts.",
+                        "scores": {
+                              "directExplicit": 1,
+                              "diplomaticRelational": 0,
+                              "analyticalStructured": 3,
+                              "reservedSelective": 0
+                        }
+                  },
+                  {
+                        "text": "Withdraw from the explanation if it seems unproductive.",
+                        "scores": {
+                              "directExplicit": 0,
+                              "diplomaticRelational": 1,
+                              "analyticalStructured": 0,
+                              "reservedSelective": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Communication Style",
+            "text": "My communication is strongest when I can:",
+            "options": [
+                  {
+                        "text": "Be candid and concise.",
+                        "scores": {
+                              "directExplicit": 3,
+                              "diplomaticRelational": 1,
+                              "analyticalStructured": 1,
+                              "reservedSelective": 0
+                        }
+                  },
+                  {
+                        "text": "Balance honesty with emotional awareness.",
+                        "scores": {
+                              "directExplicit": 1,
+                              "diplomaticRelational": 3,
+                              "analyticalStructured": 0,
+                              "reservedSelective": 1
+                        }
+                  },
+                  {
+                        "text": "Use a clear structure and sufficient context.",
+                        "scores": {
+                              "directExplicit": 1,
+                              "diplomaticRelational": 0,
+                              "analyticalStructured": 3,
+                              "reservedSelective": 1
+                        }
+                  },
+                  {
+                        "text": "Choose the right moment and limit unnecessary disclosure.",
+                        "scores": {
+                              "directExplicit": 0,
+                              "diplomaticRelational": 1,
+                              "analyticalStructured": 1,
+                              "reservedSelective": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Communication Style",
+            "text": "Under pressure, my communication most often becomes:",
+            "options": [
+                  {
+                        "text": "More blunt and decisive.",
+                        "scores": {
+                              "directExplicit": 3,
+                              "diplomaticRelational": 0,
+                              "analyticalStructured": 1,
+                              "reservedSelective": 0
+                        }
+                  },
+                  {
+                        "text": "More careful and relationship-conscious.",
+                        "scores": {
+                              "directExplicit": 0,
+                              "diplomaticRelational": 3,
+                              "analyticalStructured": 0,
+                              "reservedSelective": 1
+                        }
+                  },
+                  {
+                        "text": "More detailed and explanation-heavy.",
+                        "scores": {
+                              "directExplicit": 1,
+                              "diplomaticRelational": 0,
+                              "analyticalStructured": 3,
+                              "reservedSelective": 1
+                        }
+                  },
+                  {
+                        "text": "More limited, quiet, or guarded.",
+                        "scores": {
+                              "directExplicit": 0,
+                              "diplomaticRelational": 1,
+                              "analyticalStructured": 0,
+                              "reservedSelective": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Emotional Processing",
+            "text": "When strong emotions arise in conflict, I usually:",
+            "options": [
+                  {
+                        "text": "Express them as they occur.",
+                        "scores": {
+                              "externalImmediate": 3,
+                              "internalReflective": 0,
+                              "regulatedIntegrated": 1,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Process them privately before I can explain them.",
+                        "scores": {
+                              "externalImmediate": 0,
+                              "internalReflective": 3,
+                              "regulatedIntegrated": 1,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Name them while deciding how to respond constructively.",
+                        "scores": {
+                              "externalImmediate": 1,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 3,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Set them aside so I can get through the interaction.",
+                        "scores": {
+                              "externalImmediate": 0,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 0,
+                              "suppressedDeferred": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Emotional Processing",
+            "text": "I understand what I am feeling most clearly:",
+            "options": [
+                  {
+                        "text": "While I am talking through it.",
+                        "scores": {
+                              "externalImmediate": 3,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 0,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "After I have had time alone.",
+                        "scores": {
+                              "externalImmediate": 0,
+                              "internalReflective": 3,
+                              "regulatedIntegrated": 1,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "When I deliberately connect the feeling to a need or value.",
+                        "scores": {
+                              "externalImmediate": 1,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 3,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Only after the feeling has become difficult to ignore.",
+                        "scores": {
+                              "externalImmediate": 0,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 0,
+                              "suppressedDeferred": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Emotional Processing",
+            "text": "When I feel hurt during conflict, I tend to:",
+            "options": [
+                  {
+                        "text": "Show it through my words, tone, or expression.",
+                        "scores": {
+                              "externalImmediate": 3,
+                              "internalReflective": 0,
+                              "regulatedIntegrated": 1,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Become quieter while I sort out what happened.",
+                        "scores": {
+                              "externalImmediate": 0,
+                              "internalReflective": 3,
+                              "regulatedIntegrated": 1,
+                              "suppressedDeferred": 1
+                        }
+                  },
+                  {
+                        "text": "Acknowledge the hurt and communicate its significance.",
+                        "scores": {
+                              "externalImmediate": 1,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 3,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Minimize or conceal it.",
+                        "scores": {
+                              "externalImmediate": 0,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 0,
+                              "suppressedDeferred": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Emotional Processing",
+            "text": "My emotional reactions are most useful to me when I:",
+            "options": [
+                  {
+                        "text": "Express them honestly and receive an immediate response.",
+                        "scores": {
+                              "externalImmediate": 3,
+                              "internalReflective": 0,
+                              "regulatedIntegrated": 1,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Examine them privately for meaning.",
+                        "scores": {
+                              "externalImmediate": 0,
+                              "internalReflective": 3,
+                              "regulatedIntegrated": 1,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Treat them as information rather than instructions.",
+                        "scores": {
+                              "externalImmediate": 1,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 3,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Keep them from influencing the situation.",
+                        "scores": {
+                              "externalImmediate": 0,
+                              "internalReflective": 0,
+                              "regulatedIntegrated": 1,
+                              "suppressedDeferred": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Emotional Processing",
+            "text": "After conflict, my feelings usually become clearer through:",
+            "options": [
+                  {
+                        "text": "Conversation and expression.",
+                        "scores": {
+                              "externalImmediate": 3,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 0,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Time, distance, and internal reflection.",
+                        "scores": {
+                              "externalImmediate": 0,
+                              "internalReflective": 3,
+                              "regulatedIntegrated": 1,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "Reflection that connects emotion, meaning, needs, and choices.",
+                        "scores": {
+                              "externalImmediate": 1,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 3,
+                              "suppressedDeferred": 0
+                        }
+                  },
+                  {
+                        "text": "The eventual return of feelings I initially pushed aside.",
+                        "scores": {
+                              "externalImmediate": 0,
+                              "internalReflective": 1,
+                              "regulatedIntegrated": 0,
+                              "suppressedDeferred": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Decision Style",
+            "text": "When conflict requires a decision, I usually prioritize:",
+            "options": [
+                  {
+                        "text": "Logic, consistency, and practical outcomes.",
+                        "scores": {
+                              "logicEvidence": 3,
+                              "valuesRelational": 0,
+                              "balancedDeliberative": 1,
+                              "rapidIntuitive": 1
+                        }
+                  },
+                  {
+                        "text": "Values, relationships, and human impact.",
+                        "scores": {
+                              "logicEvidence": 0,
+                              "valuesRelational": 3,
+                              "balancedDeliberative": 1,
+                              "rapidIntuitive": 1
+                        }
+                  },
+                  {
+                        "text": "A deliberate balance of evidence, values, risks, and consequences.",
+                        "scores": {
+                              "logicEvidence": 1,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 3,
+                              "rapidIntuitive": 0
+                        }
+                  },
+                  {
+                        "text": "A timely judgment based on experience and instinct.",
+                        "scores": {
+                              "logicEvidence": 1,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 0,
+                              "rapidIntuitive": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Decision Style",
+            "text": "When information is incomplete, I am most likely to:",
+            "options": [
+                  {
+                        "text": "Seek more evidence before deciding.",
+                        "scores": {
+                              "logicEvidence": 3,
+                              "valuesRelational": 0,
+                              "balancedDeliberative": 1,
+                              "rapidIntuitive": 0
+                        }
+                  },
+                  {
+                        "text": "Consider which choice best reflects my values and obligations.",
+                        "scores": {
+                              "logicEvidence": 0,
+                              "valuesRelational": 3,
+                              "balancedDeliberative": 1,
+                              "rapidIntuitive": 1
+                        }
+                  },
+                  {
+                        "text": "Compare available evidence, values, uncertainty, and reversibility.",
+                        "scores": {
+                              "logicEvidence": 1,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 3,
+                              "rapidIntuitive": 0
+                        }
+                  },
+                  {
+                        "text": "Make the best immediate judgment and adjust later.",
+                        "scores": {
+                              "logicEvidence": 1,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 0,
+                              "rapidIntuitive": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Decision Style",
+            "text": "When several people are affected by a conflict decision, I tend to:",
+            "options": [
+                  {
+                        "text": "Apply the same standards consistently.",
+                        "scores": {
+                              "logicEvidence": 3,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 1,
+                              "rapidIntuitive": 0
+                        }
+                  },
+                  {
+                        "text": "Consider the distinct needs and relationships involved.",
+                        "scores": {
+                              "logicEvidence": 0,
+                              "valuesRelational": 3,
+                              "balancedDeliberative": 1,
+                              "rapidIntuitive": 0
+                        }
+                  },
+                  {
+                        "text": "Balance fairness, context, impact, and long-term consequences.",
+                        "scores": {
+                              "logicEvidence": 1,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 3,
+                              "rapidIntuitive": 0
+                        }
+                  },
+                  {
+                        "text": "Choose the most workable option quickly.",
+                        "scores": {
+                              "logicEvidence": 1,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 0,
+                              "rapidIntuitive": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Decision Style",
+            "text": "I feel most confident in a conflict decision when:",
+            "options": [
+                  {
+                        "text": "The reasoning is clear and supported.",
+                        "scores": {
+                              "logicEvidence": 3,
+                              "valuesRelational": 0,
+                              "balancedDeliberative": 1,
+                              "rapidIntuitive": 0
+                        }
+                  },
+                  {
+                        "text": "The decision aligns with my values and protects important relationships.",
+                        "scores": {
+                              "logicEvidence": 0,
+                              "valuesRelational": 3,
+                              "balancedDeliberative": 1,
+                              "rapidIntuitive": 0
+                        }
+                  },
+                  {
+                        "text": "I have considered competing factors and tradeoffs.",
+                        "scores": {
+                              "logicEvidence": 1,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 3,
+                              "rapidIntuitive": 0
+                        }
+                  },
+                  {
+                        "text": "My experience tells me the timing and direction are right.",
+                        "scores": {
+                              "logicEvidence": 1,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 0,
+                              "rapidIntuitive": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Decision Style",
+            "text": "Under time pressure, I am most likely to:",
+            "options": [
+                  {
+                        "text": "Reduce the issue to the most relevant facts.",
+                        "scores": {
+                              "logicEvidence": 3,
+                              "valuesRelational": 0,
+                              "balancedDeliberative": 1,
+                              "rapidIntuitive": 1
+                        }
+                  },
+                  {
+                        "text": "Protect the people or values most at risk.",
+                        "scores": {
+                              "logicEvidence": 0,
+                              "valuesRelational": 3,
+                              "balancedDeliberative": 1,
+                              "rapidIntuitive": 1
+                        }
+                  },
+                  {
+                        "text": "Identify the essential tradeoffs before acting.",
+                        "scores": {
+                              "logicEvidence": 1,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 3,
+                              "rapidIntuitive": 1
+                        }
+                  },
+                  {
+                        "text": "Rely on instinct and act.",
+                        "scores": {
+                              "logicEvidence": 0,
+                              "valuesRelational": 1,
+                              "balancedDeliberative": 0,
+                              "rapidIntuitive": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Stress Response",
+            "text": "When conflict becomes highly stressful, my first impulse is to:",
+            "options": [
+                  {
+                        "text": "Move toward the issue and regain control.",
+                        "scores": {
+                              "confrontMobilize": 3,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 1
+                        }
+                  },
+                  {
+                        "text": "Create distance and protect myself.",
+                        "scores": {
+                              "confrontMobilize": 0,
+                              "withdrawProtect": 3,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 1
+                        }
+                  },
+                  {
+                        "text": "Reduce the other person’s distress or demands.",
+                        "scores": {
+                              "confrontMobilize": 0,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 3,
+                              "regulateReengage": 0
+                        }
+                  },
+                  {
+                        "text": "Slow down, regulate, and remain intentionally engaged.",
+                        "scores": {
+                              "confrontMobilize": 1,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Stress Response",
+            "text": "When I feel powerless, I most often recover a sense of control by:",
+            "options": [
+                  {
+                        "text": "Becoming more forceful or assertive.",
+                        "scores": {
+                              "confrontMobilize": 3,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 0
+                        }
+                  },
+                  {
+                        "text": "Reducing my exposure to the interaction.",
+                        "scores": {
+                              "confrontMobilize": 0,
+                              "withdrawProtect": 3,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 1
+                        }
+                  },
+                  {
+                        "text": "Giving ground so the pressure decreases.",
+                        "scores": {
+                              "confrontMobilize": 0,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 3,
+                              "regulateReengage": 0
+                        }
+                  },
+                  {
+                        "text": "Naming what I can control and choosing a deliberate response.",
+                        "scores": {
+                              "confrontMobilize": 1,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Stress Response",
+            "text": "When another person becomes emotionally intense, I tend to:",
+            "options": [
+                  {
+                        "text": "Match or challenge the intensity.",
+                        "scores": {
+                              "confrontMobilize": 3,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 0
+                        }
+                  },
+                  {
+                        "text": "Shut down, leave, or become mentally unavailable.",
+                        "scores": {
+                              "confrontMobilize": 0,
+                              "withdrawProtect": 3,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 0
+                        }
+                  },
+                  {
+                        "text": "Reassure, concede, or calm them.",
+                        "scores": {
+                              "confrontMobilize": 0,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 3,
+                              "regulateReengage": 1
+                        }
+                  },
+                  {
+                        "text": "Lower my pace, maintain boundaries, and focus on the issue.",
+                        "scores": {
+                              "confrontMobilize": 1,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Stress Response",
+            "text": "After becoming activated, I most often re-engage by:",
+            "options": [
+                  {
+                        "text": "Returning quickly to address the issue.",
+                        "scores": {
+                              "confrontMobilize": 3,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 1
+                        }
+                  },
+                  {
+                        "text": "Waiting until I have fully processed alone.",
+                        "scores": {
+                              "confrontMobilize": 0,
+                              "withdrawProtect": 3,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 1
+                        }
+                  },
+                  {
+                        "text": "Waiting for the other person to indicate that tension has passed.",
+                        "scores": {
+                              "confrontMobilize": 0,
+                              "withdrawProtect": 1,
+                              "appeaseStabilize": 3,
+                              "regulateReengage": 0
+                        }
+                  },
+                  {
+                        "text": "Setting a clear time, purpose, and structure for returning.",
+                        "scores": {
+                              "confrontMobilize": 1,
+                              "withdrawProtect": 1,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Stress Response",
+            "text": "When conflict feels unsafe but must be addressed, I am most likely to:",
+            "options": [
+                  {
+                        "text": "Take a strong position so I am not overpowered.",
+                        "scores": {
+                              "confrontMobilize": 3,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 0
+                        }
+                  },
+                  {
+                        "text": "Limit my participation as much as possible.",
+                        "scores": {
+                              "confrontMobilize": 0,
+                              "withdrawProtect": 3,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 0
+                        }
+                  },
+                  {
+                        "text": "Agree enough to lower the threat.",
+                        "scores": {
+                              "confrontMobilize": 0,
+                              "withdrawProtect": 0,
+                              "appeaseStabilize": 3,
+                              "regulateReengage": 0
+                        }
+                  },
+                  {
+                        "text": "Use boundaries, support, or process to remain engaged safely.",
+                        "scores": {
+                              "confrontMobilize": 1,
+                              "withdrawProtect": 1,
+                              "appeaseStabilize": 0,
+                              "regulateReengage": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Listening Style",
+            "text": "When another person explains a conflict, I naturally listen for:",
+            "options": [
+                  {
+                        "text": "The facts, sequence, and inconsistencies.",
+                        "scores": {
+                              "analyticalListening": 3,
+                              "empathicListening": 0,
+                              "solutionListening": 1,
+                              "reflectiveListening": 1
+                        }
+                  },
+                  {
+                        "text": "The emotions, meaning, and experience underneath the words.",
+                        "scores": {
+                              "analyticalListening": 0,
+                              "empathicListening": 3,
+                              "solutionListening": 0,
+                              "reflectiveListening": 1
+                        }
+                  },
+                  {
+                        "text": "The problem that needs to be solved.",
+                        "scores": {
+                              "analyticalListening": 1,
+                              "empathicListening": 0,
+                              "solutionListening": 3,
+                              "reflectiveListening": 0
+                        }
+                  },
+                  {
+                        "text": "What I understand, what I may be missing, and what needs clarification.",
+                        "scores": {
+                              "analyticalListening": 1,
+                              "empathicListening": 1,
+                              "solutionListening": 0,
+                              "reflectiveListening": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Listening Style",
+            "text": "When someone repeats the same concern, I am most likely to:",
+            "options": [
+                  {
+                        "text": "Look for missing facts or contradictions.",
+                        "scores": {
+                              "analyticalListening": 3,
+                              "empathicListening": 0,
+                              "solutionListening": 1,
+                              "reflectiveListening": 0
+                        }
+                  },
+                  {
+                        "text": "Assume they do not yet feel heard or understood.",
+                        "scores": {
+                              "analyticalListening": 0,
+                              "empathicListening": 3,
+                              "solutionListening": 0,
+                              "reflectiveListening": 1
+                        }
+                  },
+                  {
+                        "text": "Move toward a concrete next step.",
+                        "scores": {
+                              "analyticalListening": 1,
+                              "empathicListening": 0,
+                              "solutionListening": 3,
+                              "reflectiveListening": 0
+                        }
+                  },
+                  {
+                        "text": "Reflect back what I heard and ask what remains unresolved.",
+                        "scores": {
+                              "analyticalListening": 1,
+                              "empathicListening": 1,
+                              "solutionListening": 0,
+                              "reflectiveListening": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Listening Style",
+            "text": "When I disagree with someone, listening becomes easier when I:",
+            "options": [
+                  {
+                        "text": "Separate claims from evidence.",
+                        "scores": {
+                              "analyticalListening": 3,
+                              "empathicListening": 0,
+                              "solutionListening": 1,
+                              "reflectiveListening": 0
+                        }
+                  },
+                  {
+                        "text": "Try to understand how the issue feels from their position.",
+                        "scores": {
+                              "analyticalListening": 0,
+                              "empathicListening": 3,
+                              "solutionListening": 0,
+                              "reflectiveListening": 1
+                        }
+                  },
+                  {
+                        "text": "Identify the part of the issue that can still be resolved.",
+                        "scores": {
+                              "analyticalListening": 1,
+                              "empathicListening": 0,
+                              "solutionListening": 3,
+                              "reflectiveListening": 0
+                        }
+                  },
+                  {
+                        "text": "Suspend my response long enough to test my understanding.",
+                        "scores": {
+                              "analyticalListening": 1,
+                              "empathicListening": 1,
+                              "solutionListening": 0,
+                              "reflectiveListening": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Listening Style",
+            "text": "Others are most likely to experience my listening as:",
+            "options": [
+                  {
+                        "text": "Careful, discerning, and detail-oriented.",
+                        "scores": {
+                              "analyticalListening": 3,
+                              "empathicListening": 0,
+                              "solutionListening": 1,
+                              "reflectiveListening": 1
+                        }
+                  },
+                  {
+                        "text": "Warm, validating, and emotionally attentive.",
+                        "scores": {
+                              "analyticalListening": 0,
+                              "empathicListening": 3,
+                              "solutionListening": 0,
+                              "reflectiveListening": 1
+                        }
+                  },
+                  {
+                        "text": "Practical, focused, and oriented toward action.",
+                        "scores": {
+                              "analyticalListening": 1,
+                              "empathicListening": 0,
+                              "solutionListening": 3,
+                              "reflectiveListening": 0
+                        }
+                  },
+                  {
+                        "text": "Patient, clarifying, and responsive.",
+                        "scores": {
+                              "analyticalListening": 1,
+                              "empathicListening": 1,
+                              "solutionListening": 0,
+                              "reflectiveListening": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Listening Style",
+            "text": "My listening is least effective when I:",
+            "options": [
+                  {
+                        "text": "Become preoccupied with errors in the other person’s account.",
+                        "scores": {
+                              "analyticalListening": 3,
+                              "empathicListening": 0,
+                              "solutionListening": 1,
+                              "reflectiveListening": 0
+                        }
+                  },
+                  {
+                        "text": "Absorb the other person’s emotions without enough distance.",
+                        "scores": {
+                              "analyticalListening": 0,
+                              "empathicListening": 3,
+                              "solutionListening": 0,
+                              "reflectiveListening": 1
+                        }
+                  },
+                  {
+                        "text": "Move to solutions before the person feels understood.",
+                        "scores": {
+                              "analyticalListening": 0,
+                              "empathicListening": 1,
+                              "solutionListening": 3,
+                              "reflectiveListening": 0
+                        }
+                  },
+                  {
+                        "text": "Reflect so long that I delay necessary direction or response.",
+                        "scores": {
+                              "analyticalListening": 1,
+                              "empathicListening": 1,
+                              "solutionListening": 0,
+                              "reflectiveListening": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Leadership Orientation",
+            "text": "When a group is in conflict, I naturally contribute by:",
+            "options": [
+                  {
+                        "text": "Creating participation, shared ownership, and mutual understanding.",
+                        "scores": {
+                              "facilitativeServant": 3,
+                              "directiveDecisive": 0,
+                              "protectiveSteward": 1,
+                              "visionaryTransformative": 1
+                        }
+                  },
+                  {
+                        "text": "Setting direction and making timely decisions.",
+                        "scores": {
+                              "facilitativeServant": 0,
+                              "directiveDecisive": 3,
+                              "protectiveSteward": 1,
+                              "visionaryTransformative": 1
+                        }
+                  },
+                  {
+                        "text": "Protecting standards, people, and institutional trust.",
+                        "scores": {
+                              "facilitativeServant": 1,
+                              "directiveDecisive": 1,
+                              "protectiveSteward": 3,
+                              "visionaryTransformative": 0
+                        }
+                  },
+                  {
+                        "text": "Helping the group see a larger possibility or new direction.",
+                        "scores": {
+                              "facilitativeServant": 1,
+                              "directiveDecisive": 1,
+                              "protectiveSteward": 0,
+                              "visionaryTransformative": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Leadership Orientation",
+            "text": "When people look to me during uncertainty, I am most likely to:",
+            "options": [
+                  {
+                        "text": "Invite their perspectives and help organize collective action.",
+                        "scores": {
+                              "facilitativeServant": 3,
+                              "directiveDecisive": 0,
+                              "protectiveSteward": 1,
+                              "visionaryTransformative": 1
+                        }
+                  },
+                  {
+                        "text": "Provide a clear decision and immediate direction.",
+                        "scores": {
+                              "facilitativeServant": 0,
+                              "directiveDecisive": 3,
+                              "protectiveSteward": 1,
+                              "visionaryTransformative": 1
+                        }
+                  },
+                  {
+                        "text": "Stabilize the situation and protect essential responsibilities.",
+                        "scores": {
+                              "facilitativeServant": 1,
+                              "directiveDecisive": 1,
+                              "protectiveSteward": 3,
+                              "visionaryTransformative": 0
+                        }
+                  },
+                  {
+                        "text": "Frame the uncertainty as an opportunity for reinvention.",
+                        "scores": {
+                              "facilitativeServant": 1,
+                              "directiveDecisive": 1,
+                              "protectiveSteward": 0,
+                              "visionaryTransformative": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Leadership Orientation",
+            "text": "My strongest leadership contribution is usually:",
+            "options": [
+                  {
+                        "text": "Helping people feel heard and capable of participating.",
+                        "scores": {
+                              "facilitativeServant": 3,
+                              "directiveDecisive": 0,
+                              "protectiveSteward": 1,
+                              "visionaryTransformative": 1
+                        }
+                  },
+                  {
+                        "text": "Making hard choices and maintaining momentum.",
+                        "scores": {
+                              "facilitativeServant": 0,
+                              "directiveDecisive": 3,
+                              "protectiveSteward": 1,
+                              "visionaryTransformative": 1
+                        }
+                  },
+                  {
+                        "text": "Maintaining integrity, continuity, and responsible stewardship.",
+                        "scores": {
+                              "facilitativeServant": 1,
+                              "directiveDecisive": 1,
+                              "protectiveSteward": 3,
+                              "visionaryTransformative": 0
+                        }
+                  },
+                  {
+                        "text": "Connecting present conflict to a more compelling future.",
+                        "scores": {
+                              "facilitativeServant": 1,
+                              "directiveDecisive": 1,
+                              "protectiveSteward": 0,
+                              "visionaryTransformative": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Leadership Orientation",
+            "text": "When conflict threatens group performance, I tend to:",
+            "options": [
+                  {
+                        "text": "Facilitate a process that restores participation and accountability.",
+                        "scores": {
+                              "facilitativeServant": 3,
+                              "directiveDecisive": 0,
+                              "protectiveSteward": 1,
+                              "visionaryTransformative": 1
+                        }
+                  },
+                  {
+                        "text": "Intervene firmly and establish expectations.",
+                        "scores": {
+                              "facilitativeServant": 0,
+                              "directiveDecisive": 3,
+                              "protectiveSteward": 1,
+                              "visionaryTransformative": 0
+                        }
+                  },
+                  {
+                        "text": "Protect the mission, boundaries, and people most at risk.",
+                        "scores": {
+                              "facilitativeServant": 1,
+                              "directiveDecisive": 1,
+                              "protectiveSteward": 3,
+                              "visionaryTransformative": 0
+                        }
+                  },
+                  {
+                        "text": "Use the conflict to redesign how the group works.",
+                        "scores": {
+                              "facilitativeServant": 1,
+                              "directiveDecisive": 1,
+                              "protectiveSteward": 0,
+                              "visionaryTransformative": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Leadership Orientation",
+            "text": "I judge leadership success primarily by whether:",
+            "options": [
+                  {
+                        "text": "People grow in agency, participation, and capacity.",
+                        "scores": {
+                              "facilitativeServant": 3,
+                              "directiveDecisive": 0,
+                              "protectiveSteward": 1,
+                              "visionaryTransformative": 1
+                        }
+                  },
+                  {
+                        "text": "The necessary decision is made and implemented.",
+                        "scores": {
+                              "facilitativeServant": 0,
+                              "directiveDecisive": 3,
+                              "protectiveSteward": 1,
+                              "visionaryTransformative": 0
+                        }
+                  },
+                  {
+                        "text": "Trust, standards, and responsibilities are preserved.",
+                        "scores": {
+                              "facilitativeServant": 1,
+                              "directiveDecisive": 1,
+                              "protectiveSteward": 3,
+                              "visionaryTransformative": 0
+                        }
+                  },
+                  {
+                        "text": "The group becomes capable of a better future than before.",
+                        "scores": {
+                              "facilitativeServant": 1,
+                              "directiveDecisive": 1,
+                              "protectiveSteward": 0,
+                              "visionaryTransformative": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Learning Style",
+            "text": "I learn conflict skills most effectively through:",
+            "options": [
+                  {
+                        "text": "Direct practice and real experience.",
+                        "scores": {
+                              "experientialPractice": 3,
+                              "conceptualAnalytical": 0,
+                              "observationalModeling": 1,
+                              "reflectiveIntegrative": 1
+                        }
+                  },
+                  {
+                        "text": "Frameworks, theories, and structured explanation.",
+                        "scores": {
+                              "experientialPractice": 0,
+                              "conceptualAnalytical": 3,
+                              "observationalModeling": 1,
+                              "reflectiveIntegrative": 1
+                        }
+                  },
+                  {
+                        "text": "Watching skilled people handle real situations.",
+                        "scores": {
+                              "experientialPractice": 1,
+                              "conceptualAnalytical": 1,
+                              "observationalModeling": 3,
+                              "reflectiveIntegrative": 0
+                        }
+                  },
+                  {
+                        "text": "Reflection that connects experience, theory, and feedback.",
+                        "scores": {
+                              "experientialPractice": 1,
+                              "conceptualAnalytical": 1,
+                              "observationalModeling": 0,
+                              "reflectiveIntegrative": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Learning Style",
+            "text": "When developing a new skill, I prefer to:",
+            "options": [
+                  {
+                        "text": "Try it, notice what happens, and adjust.",
+                        "scores": {
+                              "experientialPractice": 3,
+                              "conceptualAnalytical": 0,
+                              "observationalModeling": 1,
+                              "reflectiveIntegrative": 1
+                        }
+                  },
+                  {
+                        "text": "Understand the model before applying it.",
+                        "scores": {
+                              "experientialPractice": 0,
+                              "conceptualAnalytical": 3,
+                              "observationalModeling": 1,
+                              "reflectiveIntegrative": 1
+                        }
+                  },
+                  {
+                        "text": "See a strong example before attempting it.",
+                        "scores": {
+                              "experientialPractice": 1,
+                              "conceptualAnalytical": 1,
+                              "observationalModeling": 3,
+                              "reflectiveIntegrative": 0
+                        }
+                  },
+                  {
+                        "text": "Practice, reflect, seek feedback, and revise.",
+                        "scores": {
+                              "experientialPractice": 1,
+                              "conceptualAnalytical": 1,
+                              "observationalModeling": 0,
+                              "reflectiveIntegrative": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Learning Style",
+            "text": "Feedback helps me learn best when it is:",
+            "options": [
+                  {
+                        "text": "Immediate and connected to something I just practiced.",
+                        "scores": {
+                              "experientialPractice": 3,
+                              "conceptualAnalytical": 0,
+                              "observationalModeling": 1,
+                              "reflectiveIntegrative": 1
+                        }
+                  },
+                  {
+                        "text": "Specific, reasoned, and connected to a clear framework.",
+                        "scores": {
+                              "experientialPractice": 0,
+                              "conceptualAnalytical": 3,
+                              "observationalModeling": 1,
+                              "reflectiveIntegrative": 1
+                        }
+                  },
+                  {
+                        "text": "Demonstrated through an example I can compare with my own behavior.",
+                        "scores": {
+                              "experientialPractice": 1,
+                              "conceptualAnalytical": 1,
+                              "observationalModeling": 3,
+                              "reflectiveIntegrative": 0
+                        }
+                  },
+                  {
+                        "text": "Combined with time to reflect and plan another attempt.",
+                        "scores": {
+                              "experientialPractice": 1,
+                              "conceptualAnalytical": 1,
+                              "observationalModeling": 0,
+                              "reflectiveIntegrative": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Learning Style",
+            "text": "When a conflict lesson is complex, I understand it most deeply by:",
+            "options": [
+                  {
+                        "text": "Applying it in a realistic situation.",
+                        "scores": {
+                              "experientialPractice": 3,
+                              "conceptualAnalytical": 0,
+                              "observationalModeling": 1,
+                              "reflectiveIntegrative": 1
+                        }
+                  },
+                  {
+                        "text": "Breaking it into concepts, principles, and distinctions.",
+                        "scores": {
+                              "experientialPractice": 0,
+                              "conceptualAnalytical": 3,
+                              "observationalModeling": 1,
+                              "reflectiveIntegrative": 1
+                        }
+                  },
+                  {
+                        "text": "Observing how several people apply it differently.",
+                        "scores": {
+                              "experientialPractice": 1,
+                              "conceptualAnalytical": 1,
+                              "observationalModeling": 3,
+                              "reflectiveIntegrative": 0
+                        }
+                  },
+                  {
+                        "text": "Connecting it to patterns from my own experience.",
+                        "scores": {
+                              "experientialPractice": 1,
+                              "conceptualAnalytical": 1,
+                              "observationalModeling": 0,
+                              "reflectiveIntegrative": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Learning Style",
+            "text": "My learning becomes sustainable when I:",
+            "options": [
+                  {
+                        "text": "Repeat the skill in increasingly difficult situations.",
+                        "scores": {
+                              "experientialPractice": 3,
+                              "conceptualAnalytical": 0,
+                              "observationalModeling": 1,
+                              "reflectiveIntegrative": 1
+                        }
+                  },
+                  {
+                        "text": "Understand the principles well enough to transfer them.",
+                        "scores": {
+                              "experientialPractice": 0,
+                              "conceptualAnalytical": 3,
+                              "observationalModeling": 1,
+                              "reflectiveIntegrative": 1
+                        }
+                  },
+                  {
+                        "text": "Continue observing strong models and comparing approaches.",
+                        "scores": {
+                              "experientialPractice": 1,
+                              "conceptualAnalytical": 1,
+                              "observationalModeling": 3,
+                              "reflectiveIntegrative": 0
+                        }
+                  },
+                  {
+                        "text": "Use an ongoing cycle of practice, reflection, feedback, and revision.",
+                        "scores": {
+                              "experientialPractice": 1,
+                              "conceptualAnalytical": 1,
+                              "observationalModeling": 0,
+                              "reflectiveIntegrative": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Growth Capacity",
+            "text": "When I receive difficult feedback, I am most likely to:",
+            "options": [
+                  {
+                        "text": "Defend my intentions and explain why the feedback is incomplete.",
+                        "scores": {
+                              "defensiveFixed": 3,
+                              "cautiousEmerging": 1,
+                              "openAccountable": 0,
+                              "integrativeSustained": 0
+                        }
+                  },
+                  {
+                        "text": "Consider it carefully while remaining guarded.",
+                        "scores": {
+                              "defensiveFixed": 1,
+                              "cautiousEmerging": 3,
+                              "openAccountable": 1,
+                              "integrativeSustained": 0
+                        }
+                  },
+                  {
+                        "text": "Look for what I can learn and take responsibility for.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 1,
+                              "openAccountable": 3,
+                              "integrativeSustained": 1
+                        }
+                  },
+                  {
+                        "text": "Examine intent, impact, pattern, and a concrete plan for change.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 0,
+                              "openAccountable": 1,
+                              "integrativeSustained": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Growth Capacity",
+            "text": "After conflict, I examine my own contribution by:",
+            "options": [
+                  {
+                        "text": "Focusing mainly on what the other person did.",
+                        "scores": {
+                              "defensiveFixed": 3,
+                              "cautiousEmerging": 0,
+                              "openAccountable": 0,
+                              "integrativeSustained": 0
+                        }
+                  },
+                  {
+                        "text": "Reviewing specific moments I might have handled differently.",
+                        "scores": {
+                              "defensiveFixed": 1,
+                              "cautiousEmerging": 3,
+                              "openAccountable": 1,
+                              "integrativeSustained": 0
+                        }
+                  },
+                  {
+                        "text": "Identifying choices, assumptions, and reactions that were mine.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 1,
+                              "openAccountable": 3,
+                              "integrativeSustained": 1
+                        }
+                  },
+                  {
+                        "text": "Examining my role within the wider relationship and system.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 0,
+                              "openAccountable": 1,
+                              "integrativeSustained": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Growth Capacity",
+            "text": "When I realize that I caused harm, I am most likely to:",
+            "options": [
+                  {
+                        "text": "Explain that the harm was not intentional.",
+                        "scores": {
+                              "defensiveFixed": 3,
+                              "cautiousEmerging": 1,
+                              "openAccountable": 0,
+                              "integrativeSustained": 0
+                        }
+                  },
+                  {
+                        "text": "Apologize and hope time helps.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 3,
+                              "openAccountable": 1,
+                              "integrativeSustained": 0
+                        }
+                  },
+                  {
+                        "text": "Acknowledge the impact and ask what repair may be needed.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 1,
+                              "openAccountable": 3,
+                              "integrativeSustained": 1
+                        }
+                  },
+                  {
+                        "text": "Repair the impact and change the pattern that produced it.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 0,
+                              "openAccountable": 1,
+                              "integrativeSustained": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Growth Capacity",
+            "text": "When I decide to change a conflict habit, I usually:",
+            "options": [
+                  {
+                        "text": "Rely on intention and motivation.",
+                        "scores": {
+                              "defensiveFixed": 3,
+                              "cautiousEmerging": 1,
+                              "openAccountable": 0,
+                              "integrativeSustained": 0
+                        }
+                  },
+                  {
+                        "text": "Try the new approach while the lesson is fresh.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 3,
+                              "openAccountable": 1,
+                              "integrativeSustained": 0
+                        }
+                  },
+                  {
+                        "text": "Create a specific practice or accountability step.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 1,
+                              "openAccountable": 3,
+                              "integrativeSustained": 1
+                        }
+                  },
+                  {
+                        "text": "Build a cycle of practice, feedback, reflection, and revision.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 0,
+                              "openAccountable": 1,
+                              "integrativeSustained": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "domain": "Growth Capacity",
+            "text": "When I repeat an old pattern after making progress, I tend to:",
+            "options": [
+                  {
+                        "text": "Assume the change did not work or was unrealistic.",
+                        "scores": {
+                              "defensiveFixed": 3,
+                              "cautiousEmerging": 1,
+                              "openAccountable": 0,
+                              "integrativeSustained": 0
+                        }
+                  },
+                  {
+                        "text": "Try again when I feel ready.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 3,
+                              "openAccountable": 1,
+                              "integrativeSustained": 0
+                        }
+                  },
+                  {
+                        "text": "Review the trigger and adjust the practice.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 1,
+                              "openAccountable": 3,
+                              "integrativeSustained": 1
+                        }
+                  },
+                  {
+                        "text": "Treat the setback as information within a longer growth process.",
+                        "scores": {
+                              "defensiveFixed": 0,
+                              "cautiousEmerging": 0,
+                              "openAccountable": 1,
+                              "integrativeSustained": 3
+                        }
+                  }
+            ]
+      }
+];
+
+    const labels = {
+      "directCollaborative": "Direct–Collaborative",
+      "competitiveProtective": "Competitive–Protective",
+      "accommodatingRelational": "Accommodating–Relational",
+      "avoidantReflective": "Avoidant–Reflective",
+      "directExplicit": "Direct and Explicit",
+      "diplomaticRelational": "Diplomatic and Relational",
+      "analyticalStructured": "Analytical and Structured",
+      "reservedSelective": "Reserved and Selective",
+      "externalImmediate": "External and Immediate",
+      "internalReflective": "Internal and Reflective",
+      "regulatedIntegrated": "Regulated and Integrated",
+      "suppressedDeferred": "Suppressed or Deferred",
+      "logicEvidence": "Logic and Evidence",
+      "valuesRelational": "Values and Relationships",
+      "balancedDeliberative": "Balanced and Deliberative",
+      "rapidIntuitive": "Rapid and Intuitive",
+      "confrontMobilize": "Confront and Mobilize",
+      "withdrawProtect": "Withdraw and Protect",
+      "appeaseStabilize": "Appease and Stabilize",
+      "regulateReengage": "Regulate and Re-Engage",
+      "analyticalListening": "Analytical Listening",
+      "empathicListening": "Empathic Listening",
+      "solutionListening": "Solution-Oriented Listening",
+      "reflectiveListening": "Reflective Listening",
+      "facilitativeServant": "Facilitative and Servant-Oriented",
+      "directiveDecisive": "Directive and Decisive",
+      "protectiveSteward": "Protective and Stewardship-Oriented",
+      "visionaryTransformative": "Visionary and Transformative",
+      "experientialPractice": "Experiential Practice",
+      "conceptualAnalytical": "Conceptual and Analytical",
+      "observationalModeling": "Observational Modeling",
+      "reflectiveIntegrative": "Reflective and Integrative",
+      "defensiveFixed": "Defensive or Fixed",
+      "cautiousEmerging": "Cautious and Emerging",
+      "openAccountable": "Open and Accountable",
+      "integrativeSustained": "Integrative and Sustained"
+};
+
+    const domainDefinitions = {
+      "conflictStyle": {
+            "displayName": "Conflict Style",
+            "keys": [
+                  "directCollaborative",
+                  "competitiveProtective",
+                  "accommodatingRelational",
+                  "avoidantReflective"
+            ]
+      },
+      "communicationStyle": {
+            "displayName": "Communication Style",
+            "keys": [
+                  "directExplicit",
+                  "diplomaticRelational",
+                  "analyticalStructured",
+                  "reservedSelective"
+            ]
+      },
+      "emotionalProcessing": {
+            "displayName": "Emotional Processing",
+            "keys": [
+                  "externalImmediate",
+                  "internalReflective",
+                  "regulatedIntegrated",
+                  "suppressedDeferred"
+            ]
+      },
+      "decisionStyle": {
+            "displayName": "Decision Style",
+            "keys": [
+                  "logicEvidence",
+                  "valuesRelational",
+                  "balancedDeliberative",
+                  "rapidIntuitive"
+            ]
+      },
+      "stressResponse": {
+            "displayName": "Stress Response",
+            "keys": [
+                  "confrontMobilize",
+                  "withdrawProtect",
+                  "appeaseStabilize",
+                  "regulateReengage"
+            ]
+      },
+      "listeningStyle": {
+            "displayName": "Listening Style",
+            "keys": [
+                  "analyticalListening",
+                  "empathicListening",
+                  "solutionListening",
+                  "reflectiveListening"
+            ]
+      },
+      "leadershipOrientation": {
+            "displayName": "Leadership Orientation",
+            "keys": [
+                  "facilitativeServant",
+                  "directiveDecisive",
+                  "protectiveSteward",
+                  "visionaryTransformative"
+            ]
+      },
+      "learningStyle": {
+            "displayName": "Learning Style",
+            "keys": [
+                  "experientialPractice",
+                  "conceptualAnalytical",
+                  "observationalModeling",
+                  "reflectiveIntegrative"
+            ]
+      },
+      "growthCapacity": {
+            "displayName": "Growth Capacity",
+            "keys": [
+                  "defensiveFixed",
+                  "cautiousEmerging",
+                  "openAccountable",
+                  "integrativeSustained"
+            ]
+      }
+};
+
+    const domainOrder = [
+      "Conflict Style",
+      "Communication Style",
+      "Emotional Processing",
+      "Decision Style",
+      "Stress Response",
+      "Listening Style",
+      "Leadership Orientation",
+      "Learning Style",
+      "Growth Capacity"
+    ];
+
+    let currentQuestion = 0;
+
+    const responses =
+      new Array(questions.length).fill(null);
+
+    const introStage =
+      document.getElementById("intro-stage");
+
+    const questionStage =
+      document.getElementById("question-stage");
+
+    const reviewStage =
+      document.getElementById("review-stage");
+
+    const progressRegion =
+      document.getElementById("progress-region");
+
+    const preferredNameInput =
+      document.getElementById("preferred-name");
+
+    const participantEmailInput =
+      document.getElementById("participant-email");
+
+    const introError =
+      document.getElementById("intro-error");
+
+    const questionError =
+      document.getElementById("question-error");
+
+    const questionDomain =
+      document.getElementById("question-domain");
+
+    const questionText =
+      document.getElementById("question-text");
+
+    const answerList =
+      document.getElementById("answer-list");
+
+    const progressLabel =
+      document.getElementById("progress-label");
+
+    const progressPercent =
+      document.getElementById("progress-percent");
+
+    const progressFill =
+      document.getElementById("progress-fill");
+
+    const progressTrack =
+      document.querySelector(".progress-track");
+
+    const sectionMarker =
+      document.getElementById("section-marker");
+
+    const backButton =
+      document.getElementById("back-button");
+
+    const continueButton =
+      document.getElementById("continue-button");
+
+    function showStage(stage) {
+      [introStage, questionStage, reviewStage]
+        .forEach(function (section) {
+          section.classList.remove("active");
+        });
+
+      stage.classList.add("active");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function validateIntroduction() {
+      const nameIsPresent =
+        preferredNameInput.value.trim().length > 0;
+
+      const acknowledgmentsAreComplete =
+        document.getElementById(
+          "acknowledge-educational"
+        ).checked &&
+        document.getElementById(
+          "acknowledge-self-report"
+        ).checked &&
+        document.getElementById(
+          "acknowledge-pilot"
+        ).checked &&
+        document.getElementById(
+          "acknowledge-time"
+        ).checked;
+
+      if (
+        !nameIsPresent ||
+        !acknowledgmentsAreComplete
+      ) {
+        introError.classList.add("visible");
+        return false;
+      }
+
+      introError.classList.remove("visible");
+      return true;
+    }
+
+    function getDimensionNumber(domainName) {
+      return domainOrder.indexOf(domainName) + 1;
+    }
+
+    function renderQuestion() {
+      const question =
+        questions[currentQuestion];
+
+      questionDomain.textContent =
+        question.domain;
+
+      questionText.textContent =
+        question.text;
+
+      sectionMarker.textContent =
+        "Dimension " +
+        getDimensionNumber(question.domain) +
+        " of " +
+        domainOrder.length +
+        " — " +
+        question.domain;
+
+      answerList.innerHTML = "";
+
+      question.options.forEach(
+        function (option, optionIndex) {
+          const wrapper =
+            document.createElement("label");
+
+          wrapper.className =
+            "answer-option";
+
+          const radio =
+            document.createElement("input");
+
+          radio.type = "radio";
+          radio.name = "current-answer";
+          radio.value = optionIndex;
+
+          if (
+            responses[currentQuestion] ===
+            optionIndex
+          ) {
+            radio.checked = true;
+          }
+
+          const content =
+            document.createElement("span");
+
+          content.className =
+            "answer-content";
+
+          const letter =
+            document.createElement("span");
+
+          letter.className =
+            "answer-letter";
+
+          letter.textContent =
+            String.fromCharCode(
+              65 + optionIndex
+            );
+
+          const text =
+            document.createElement("span");
+
+          text.textContent =
+            option.text;
+
+          content.appendChild(letter);
+          content.appendChild(text);
+
+          wrapper.appendChild(radio);
+          wrapper.appendChild(content);
+
+          answerList.appendChild(wrapper);
+        }
+      );
+
+      const questionNumber =
+        currentQuestion + 1;
+
+      const percent =
+        Math.round(
+          (
+            questionNumber /
+            questions.length
+          ) * 100
+        );
+
+      progressLabel.textContent =
+        "Question " +
+        questionNumber +
+        " of " +
+        questions.length;
+
+      progressPercent.textContent =
+        percent + "% complete";
+
+      progressFill.style.width =
+        percent + "%";
+
+      progressTrack.setAttribute(
+        "aria-valuenow",
+        String(percent)
+      );
+
+      backButton.disabled =
+        currentQuestion === 0;
+
+      continueButton.textContent =
+        currentQuestion ===
+        questions.length - 1
+          ? "Review Answers"
+          : "Continue";
+
+      questionError.classList.remove(
+        "visible"
+      );
+    }
+
+    function saveCurrentAnswer() {
+      const selected =
+        document.querySelector(
+          'input[name="current-answer"]:checked'
+        );
+
+      if (!selected) {
+        questionError.classList.add(
+          "visible"
+        );
+
+        return false;
+      }
+
+      responses[currentQuestion] =
+        Number(selected.value);
+
+      questionError.classList.remove(
+        "visible"
+      );
+
+      saveDraft();
+
+      return true;
+    }
+
+    function saveDraft() {
+      try {
+        localStorage.setItem(
+          "hciaCompleteDraft",
+          JSON.stringify({
+            participantName:
+              preferredNameInput
+                .value
+                .trim(),
+
+            participantEmail:
+              participantEmailInput
+                .value
+                .trim(),
+
+            currentQuestion:
+              currentQuestion,
+
+            responses:
+              responses,
+
+            savedAt:
+              new Date().toISOString()
+          })
+        );
+      } catch (error) {
+        console.warn(
+          "HCIA draft could not be saved.",
+          error
+        );
+      }
+    }
+
+    function createReview() {
+      const reviewList =
+        document.getElementById(
+          "review-list"
+        );
+
+      reviewList.innerHTML = "";
+
+      domainOrder.forEach(
+        function (domainName) {
+          const answeredInDomain =
+            questions.filter(
+              function (
+                question,
+                questionIndex
+              ) {
+                return (
+                  question.domain === domainName &&
+                  responses[questionIndex] !== null
+                );
+              }
+            ).length;
+
+          const totalInDomain =
+            questions.filter(
+              function (question) {
+                return question.domain === domainName;
+              }
+            ).length;
+
+          const row =
+            document.createElement("div");
+
+          row.className =
+            "review-row";
+
+          const domainLabel =
+            document.createElement(
+              "strong"
+            );
+
+          domainLabel.textContent =
+            domainName;
+
+          const status =
+            document.createElement("span");
+
+          status.textContent =
+            answeredInDomain +
+            " of " +
+            totalInDomain +
+            " questions answered";
+
+          row.appendChild(domainLabel);
+          row.appendChild(status);
+
+          reviewList.appendChild(row);
+        }
+      );
+    }
+
+    function calculateScores() {
+      const scores = {};
+
+      responses.forEach(
+        function (
+          selectedOption,
+          questionIndex
+        ) {
+          const selectedScores =
+            questions[questionIndex]
+              .options[selectedOption]
+              .scores;
+
+          Object.entries(
+            selectedScores
+          ).forEach(
+            function (entry) {
+              const key = entry[0];
+              const value = entry[1];
+
+              scores[key] =
+                (scores[key] || 0) +
+                value;
+            }
+          );
+        }
+      );
+
+      return scores;
+    }
+
+    function rankDomain(
+      scores,
+      domainKeys
+    ) {
+      return domainKeys
+        .map(function (key) {
+          return {
+            key: key,
+            label: labels[key],
+            score: scores[key] || 0
+          };
+        })
+        .sort(function (a, b) {
+          if (b.score !== a.score) {
+            return b.score - a.score;
+          }
+
+          return (
+            domainKeys.indexOf(a.key) -
+            domainKeys.indexOf(b.key)
+          );
+        });
+    }
+
+    function buildResults() {
+      const scores =
+        calculateScores();
+
+      const resultDomains = {};
+
+      Object.entries(
+        domainDefinitions
+      ).forEach(
+        function (entry) {
+          const domainKey =
+            entry[0];
+
+          const definition =
+            entry[1];
+
+          const ranking =
+            rankDomain(
+              scores,
+              definition.keys
+            );
+
+          resultDomains[domainKey] = {
+            displayName:
+              definition.displayName,
+
+            primary:
+              ranking[0],
+
+            secondary:
+              ranking[1],
+
+            ranking:
+              ranking
+          };
+        }
+      );
+
+      return {
+        participantName:
+          preferredNameInput
+            .value
+            .trim(),
+
+        participantEmail:
+          participantEmailInput
+            .value
+            .trim(),
+
+        assessmentType:
+          "complete-hcia",
+
+        assessmentTitle:
+          "Complete HCIA Assessment",
+
+        assessmentVersion:
+          "Pilot Beta 1.0",
+
+        completedAt:
+          new Date().toISOString(),
+
+        questionCount:
+          questions.length,
+
+        scores:
+          scores,
+
+        domains:
+          resultDomains,
+
+        responses:
+          responses.map(
+            function (
+              selectedOption,
+              questionIndex
+            ) {
+              return {
+                questionNumber:
+                  questionIndex + 1,
+
+                domain:
+                  questions[
+                    questionIndex
+                  ].domain,
+
+                question:
+                  questions[
+                    questionIndex
+                  ].text,
+
+                selectedOption:
+                  selectedOption,
+
+                selectedAnswer:
+                  questions[
+                    questionIndex
+                  ].options[
+                    selectedOption
+                  ].text
+              };
+            }
+          )
+      };
+    }
+
+    document.getElementById(
+      "begin-button"
+    ).addEventListener(
+      "click",
+      function () {
+        if (
+          !validateIntroduction()
+        ) {
+          return;
+        }
+
+        currentQuestion = 0;
+
+        progressRegion.hidden =
+          false;
+
+        showStage(
+          questionStage
+        );
+
+        renderQuestion();
+      }
+    );
+
+    continueButton.addEventListener(
+      "click",
+      function () {
+        if (
+          !saveCurrentAnswer()
+        ) {
+          return;
+        }
+
+        if (
+          currentQuestion <
+          questions.length - 1
+        ) {
+          currentQuestion += 1;
+
+          renderQuestion();
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+
+          return;
+        }
+
+        createReview();
+
+        progressRegion.hidden =
+          true;
+
+        showStage(
+          reviewStage
+        );
+      }
+    );
+
+    backButton.addEventListener(
+      "click",
+      function () {
+        if (
+          currentQuestion === 0
+        ) {
+          return;
+        }
+
+        currentQuestion -= 1;
+
+        renderQuestion();
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    );
+
+    document.getElementById(
+      "return-to-questions-button"
+    ).addEventListener(
+      "click",
+      function () {
+        currentQuestion =
+          questions.length - 1;
+
+        progressRegion.hidden =
+          false;
+
+        showStage(
+          questionStage
+        );
+
+        renderQuestion();
+      }
+    );
+
+    document.getElementById(
+      "submit-button"
+    ).addEventListener(
+      "click",
+      function () {
+        const results =
+          buildResults();
+
+        try {
+          localStorage.setItem(
+            "hciaCurrentResults",
+            JSON.stringify(results)
+          );
+
+          localStorage.setItem(
+            "hciaCompleteResults",
+            JSON.stringify(results)
+          );
+
+          localStorage.removeItem(
+            "hciaCompleteDraft"
+          );
+        } catch (error) {
+          alert(
+            "Your browser could not temporarily save the assessment results. Please check your browser storage settings and try again."
+          );
+
+          return;
+        }
+
+        window.location.href =
+          "../profile/?source=complete-hcia";
+      }
+    );
+
+    document.getElementById(
+      "current-year"
+    ).textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
