@@ -815,27 +815,22 @@
       box-shadow: var(--shadow-small);
     }
 
-    .creator-placeholder {
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(178, 139, 77, 0.5);
-      border-radius: 50%;
-      background:
-        radial-gradient(
-          circle at 35% 30%,
-          #365f52,
-          var(--primary-dark)
-        );
-      color: var(--text-light);
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-      font-size: 3rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-    }
+    .creator-photo{
+    width:220px;
+    aspect-ratio:1/1;
+    border-radius:50%;
+    overflow:hidden;
+    border:6px solid #d4c29a;
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+    flex-shrink:0;
+}
+
+.creator-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
 
     .creator-copy h2 {
       margin-bottom: 17px;
@@ -1658,12 +1653,13 @@
     >
       <div class="container">
         <article class="creator-card">
-          <div
-            class="creator-placeholder"
-            aria-label="Robert Harrington Jr. placeholder emblem"
-          >
-            RH
-          </div>
+         <div class="creator-photo">
+    <img
+        src="2026portfolio.jpeg"
+        alt="Portrait of Robert Harrington Jr., creator and project developer of the Harrington Conflict Intelligence Assessment"
+        loading="lazy"
+    >
+</div>
 
           <div class="creator-copy">
             <p class="creator-role">
