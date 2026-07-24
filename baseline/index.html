@@ -1,0 +1,2542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Complete the HCIA Baseline Profile Assessment to explore your ordinary conflict, communication, listening, and decision-making tendencies."
+  >
+
+  <meta
+    name="author"
+    content="Robert Harrington Jr."
+  >
+
+  <title>
+    Baseline Profile Assessment | HCIA
+  </title>
+
+  <style>
+    :root {
+      --background: #f4f0e7;
+      --surface: #fffdf8;
+      --surface-soft: #ebe5d9;
+      --surface-dark: #17241f;
+
+      --primary: #264c40;
+      --primary-dark: #18372f;
+      --primary-soft: #dce7e1;
+
+      --accent: #b28b4d;
+      --accent-light: #dec48f;
+
+      --text: #202722;
+      --text-soft: #52605a;
+      --text-light: #f9f6ee;
+
+      --border: #d8d0c1;
+
+      --warning-background: #fff5dd;
+      --warning-border: #d5a84e;
+      --warning-text: #654b18;
+
+      --error: #9b342f;
+
+      --shadow:
+        0 18px 55px rgba(24, 39, 33, 0.12);
+
+      --radius-small: 12px;
+      --radius-medium: 20px;
+      --radius-large: 30px;
+
+      --content-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    a,
+    label {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    .container {
+      width: min(
+        calc(100% - 32px),
+        var(--content-width)
+      );
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 1000;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: var(--primary-dark);
+      color: white;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    .pilot-banner {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--warning-border);
+      background: var(--warning-background);
+      color: var(--warning-text);
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(244, 240, 231, 0.97);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 68px;
+      height: 52px;
+      flex: 0 0 auto;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+    }
+
+    .brand-subtitle {
+      margin-top: 5px;
+      color: var(--text-soft);
+      font-size: 0.67rem;
+      font-weight: 750;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-link {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      padding: 16px 0;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 34px 0 80px;
+    }
+
+    .assessment-shell {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .assessment-header {
+      padding: 48px;
+      background: var(--surface-dark);
+      color: var(--text-light);
+    }
+
+    .assessment-label {
+      margin-bottom: 12px;
+      color: var(--accent-light);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .assessment-header h1 {
+      margin-bottom: 18px;
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+    }
+
+    .assessment-header p {
+      max-width: 730px;
+      margin-bottom: 0;
+      color: #d5ddd8;
+      font-size: 1.05rem;
+    }
+
+    .assessment-meta {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta-pill {
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      color: #eef2ef;
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .stage {
+      display: none;
+      padding: 46px;
+    }
+
+    .stage.active {
+      display: block;
+    }
+
+    .stage-heading {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .stage-heading h2 {
+      margin-bottom: 14px;
+      color: var(--primary-dark);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .stage-heading p {
+      margin-bottom: 0;
+      color: var(--text-soft);
+    }
+
+    .notice {
+      margin: 24px 0;
+      padding: 22px;
+      border-left: 4px solid var(--accent);
+      border-radius:
+        0
+        var(--radius-small)
+        var(--radius-small)
+        0;
+      background: var(--surface-soft);
+      color: var(--text-soft);
+    }
+
+    .notice strong {
+      color: var(--primary-dark);
+    }
+
+    .field {
+      margin-top: 24px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    .field-hint {
+      margin: -4px 0 9px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .text-input {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: white;
+      color: var(--text);
+    }
+
+    .text-input:focus {
+      outline: 3px solid rgba(178, 139, 77, 0.35);
+      border-color: var(--accent);
+    }
+
+    .checkbox-list {
+      margin-top: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .checkbox-row {
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+    }
+
+    .checkbox-row input {
+      width: 19px;
+      height: 19px;
+      margin-top: 3px;
+      flex: 0 0 auto;
+      accent-color: var(--primary);
+    }
+
+    .checkbox-row label {
+      color: var(--text-soft);
+      cursor: pointer;
+    }
+
+    .checkbox-row strong {
+      color: var(--primary-dark);
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 18px;
+      color: var(--error);
+      font-weight: 750;
+    }
+
+    .error-message.visible {
+      display: block;
+    }
+
+    .progress-region {
+      padding: 25px 46px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+
+    .progress-copy {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .progress-track {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #d6d0c5;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          #467364
+        );
+      transition: width 220ms ease;
+    }
+
+    .question-card {
+      min-height: 410px;
+    }
+
+    .question-domain {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .question-text {
+      margin-bottom: 28px;
+      color: var(--primary-dark);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.3;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .answer-option {
+      position: relative;
+      display: block;
+    }
+
+    .answer-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .answer-content {
+      padding: 17px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+      color: var(--text-soft);
+      cursor: pointer;
+      transition:
+        border-color 150ms ease,
+        background-color 150ms ease,
+        transform 150ms ease;
+    }
+
+    .answer-content:hover {
+      transform: translateY(-1px);
+      border-color: rgba(38, 76, 64, 0.5);
+    }
+
+    .answer-letter {
+      width: 30px;
+      height: 30px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .answer-option input:checked + .answer-content {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      box-shadow:
+        0 0 0 3px rgba(38, 76, 64, 0.09);
+    }
+
+    .answer-option input:focus-visible + .answer-content {
+      outline: 3px solid rgba(178, 139, 77, 0.45);
+      outline-offset: 3px;
+    }
+
+    .controls {
+      margin-top: 34px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button {
+      min-height: 50px;
+      padding: 13px 21px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: var(--text-light);
+    }
+
+    .button-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .button-secondary {
+      border-color: var(--primary);
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .button-secondary:hover {
+      background: var(--primary-soft);
+    }
+
+    .button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .review-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .review-row {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+    }
+
+    .review-row strong {
+      color: var(--primary-dark);
+    }
+
+    .review-row span {
+      color: var(--text-soft);
+      text-align: right;
+    }
+
+    .submission-note {
+      margin-top: 24px;
+      color: var(--text-soft);
+      font-size: 0.86rem;
+    }
+
+    .site-footer {
+      padding: 38px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .footer-inner strong {
+      color: var(--primary);
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header-links {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .header-link {
+        text-align: center;
+      }
+
+      .assessment-header,
+      .stage {
+        padding: 30px 24px;
+      }
+
+      .progress-region {
+        padding: 20px 24px;
+      }
+
+      .controls {
+        flex-direction: column-reverse;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .review-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .review-row span {
+        text-align: left;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <div class="pilot-banner">
+    HCIA Public Pilot Beta — Participation is currently by invitation.
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a
+        class="brand"
+        href="../"
+        aria-label="Return to the HCIA homepage"
+      >
+        <span class="brand-logo" aria-hidden="true">
+          <img
+            src="../harrington-bridge-compass-logo.jpeg"
+            alt=""
+          >
+        </span>
+
+        <span class="brand-copy">
+          <span class="brand-title">
+            Harrington Conflict Intelligence Assessment
+          </span>
+
+          <span class="brand-subtitle">
+            Understanding Precedes Resolution
+          </span>
+        </span>
+      </a>
+
+      <nav
+        class="header-links"
+        aria-label="Assessment navigation"
+      >
+        <a class="header-link" href="../">
+          HCIA Home
+        </a>
+
+        <a
+          class="header-link"
+          href="https://robertharringtonjr.com/"
+        >
+          Harrington Mediation
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container breadcrumb">
+    <a href="https://robertharringtonjr.com/">
+      Harrington Mediation
+    </a>
+    &nbsp;›&nbsp;
+    <a href="../">
+      HCIA
+    </a>
+    &nbsp;›&nbsp;
+    Baseline Profile
+  </div>
+
+  <main id="main-content">
+    <div class="container">
+      <article class="assessment-shell">
+        <header class="assessment-header">
+          <p class="assessment-label">
+            HCIA Assessment 01
+          </p>
+
+          <h1>
+            Baseline Profile
+          </h1>
+
+          <p>
+            Explore how you generally communicate, listen, make
+            decisions, and approach disagreement under ordinary
+            conditions.
+          </p>
+
+          <div class="assessment-meta">
+            <span class="meta-pill">
+              20 pilot questions
+            </span>
+
+            <span class="meta-pill">
+              Approximately 6–8 minutes
+            </span>
+
+            <span class="meta-pill">
+              Version: Pilot Beta 1.0
+            </span>
+          </div>
+        </header>
+
+        <section
+          class="stage active"
+          id="intro-stage"
+          aria-labelledby="intro-heading"
+        >
+          <div class="stage-heading">
+            <h2 id="intro-heading">
+              Before You Begin
+            </h2>
+
+            <p>
+              This assessment is designed to support reflection,
+              not to assign a permanent personality type.
+            </p>
+          </div>
+
+          <div class="notice">
+            <strong>Educational-use notice:</strong>
+            The HCIA is an educational self-awareness resource.
+            It is not a psychological diagnosis, clinical
+            evaluation, legal assessment, employment-selection
+            instrument, or substitute for qualified professional
+            care.
+          </div>
+
+          <div class="field">
+            <label for="preferred-name">
+              Preferred first name
+            </label>
+
+            <p class="field-hint">
+              This name will appear on your HCIA Results Profile.
+            </p>
+
+            <input
+              class="text-input"
+              id="preferred-name"
+              name="preferred-name"
+              type="text"
+              maxlength="60"
+              autocomplete="given-name"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="participant-email">
+              Email address
+              <span aria-hidden="true">(optional)</span>
+            </label>
+
+            <p class="field-hint">
+              Email delivery will be activated during Stage Two.
+              This prototype does not send or upload your email.
+            </p>
+
+            <input
+              class="text-input"
+              id="participant-email"
+              name="participant-email"
+              type="email"
+              maxlength="120"
+              autocomplete="email"
+            >
+          </div>
+
+          <div class="checkbox-list">
+            <div class="checkbox-row">
+              <input
+                id="acknowledge-educational"
+                type="checkbox"
+              >
+
+              <label for="acknowledge-educational">
+                <strong>I understand</strong> that this is an
+                educational self-assessment and not a clinical,
+                legal, or diagnostic evaluation.
+              </label>
+            </div>
+
+            <div class="checkbox-row">
+              <input
+                id="acknowledge-self-report"
+                type="checkbox"
+              >
+
+              <label for="acknowledge-self-report">
+                <strong>I understand</strong> that my results will
+                be based on my self-reported answers and may vary
+                according to context, relationship, stress, power,
+                and recent experiences.
+              </label>
+            </div>
+
+            <div class="checkbox-row">
+              <input
+                id="acknowledge-pilot"
+                type="checkbox"
+              >
+
+              <label for="acknowledge-pilot">
+                <strong>I understand</strong> that this is a pilot
+                version and that its questions, scoring, and
+                interpretation may be revised.
+              </label>
+            </div>
+          </div>
+
+          <p
+            class="error-message"
+            id="intro-error"
+            role="alert"
+          >
+            Enter your preferred first name and complete all three
+            acknowledgments before beginning.
+          </p>
+
+          <div class="controls">
+            <a class="button button-secondary" href="../">
+              Return to HCIA Home
+            </a>
+
+            <button
+              class="button button-primary"
+              id="begin-button"
+              type="button"
+            >
+              Begin Baseline Assessment
+            </button>
+          </div>
+        </section>
+
+        <div
+          class="progress-region"
+          id="progress-region"
+          hidden
+        >
+          <div class="progress-copy">
+            <span id="progress-label">
+              Question 1 of 20
+            </span>
+
+            <span id="progress-percent">
+              5% complete
+            </span>
+          </div>
+
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="5"
+            aria-labelledby="progress-label"
+          >
+            <div
+              class="progress-fill"
+              id="progress-fill"
+            ></div>
+          </div>
+        </div>
+
+        <section
+          class="stage"
+          id="question-stage"
+          aria-live="polite"
+        >
+          <div class="question-card">
+            <p
+              class="question-domain"
+              id="question-domain"
+            ></p>
+
+            <h2
+              class="question-text"
+              id="question-text"
+            ></h2>
+
+            <div
+              class="answer-list"
+              id="answer-list"
+            ></div>
+
+            <p
+              class="error-message"
+              id="question-error"
+              role="alert"
+            >
+              Select the answer that most closely reflects you
+              before continuing.
+            </p>
+          </div>
+
+          <div class="controls">
+            <button
+              class="button button-secondary"
+              id="back-button"
+              type="button"
+            >
+              Back
+            </button>
+
+            <button
+              class="button button-primary"
+              id="continue-button"
+              type="button"
+            >
+              Continue
+            </button>
+          </div>
+        </section>
+
+        <section
+          class="stage"
+          id="review-stage"
+          aria-labelledby="review-heading"
+        >
+          <div class="stage-heading">
+            <h2 id="review-heading">
+              Review and Submit
+            </h2>
+
+            <p>
+              Confirm that all 20 questions have been answered.
+              You may return to the final question before
+              submitting.
+            </p>
+          </div>
+
+          <div class="review-list" id="review-list"></div>
+
+          <p class="submission-note">
+            After submission, your baseline results will be
+            calculated in this browser and saved temporarily for
+            the shared HCIA Results Profile page. No information
+            is uploaded during this Stage One prototype.
+          </p>
+
+          <div class="controls">
+            <button
+              class="button button-secondary"
+              id="return-to-questions-button"
+              type="button"
+            >
+              Return to Questions
+            </button>
+
+            <button
+              class="button button-primary"
+              id="submit-button"
+              type="button"
+            >
+              Submit Baseline Assessment
+            </button>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>
+          Harrington Conflict Intelligence Assessment
+        </strong><br>
+        Understanding Precedes Resolution
+      </div>
+
+      <div>
+        Pilot Beta 1.0<br>
+        © <span id="current-year"></span> Robert Harrington Jr.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        domain: "Conflict Approach",
+        text:
+          "When I first become aware of a meaningful disagreement, I am most likely to:",
+        options: [
+          {
+            text:
+              "Invite discussion so that each person’s concerns can be understood.",
+            scores: {
+              collaborative: 3,
+              directive: 0,
+              accommodating: 0,
+              reflective: 1
+            }
+          },
+          {
+            text:
+              "State my position clearly and focus on what needs to happen.",
+            scores: {
+              collaborative: 0,
+              directive: 3,
+              accommodating: 0,
+              reflective: 0
+            }
+          },
+          {
+            text:
+              "Consider whether preserving harmony matters more than raising the issue immediately.",
+            scores: {
+              collaborative: 0,
+              directive: 0,
+              accommodating: 3,
+              reflective: 1
+            }
+          },
+          {
+            text:
+              "Pause and examine the situation before deciding whether to engage.",
+            scores: {
+              collaborative: 0,
+              directive: 0,
+              accommodating: 0,
+              reflective: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Communication",
+        text:
+          "When I need to communicate a concern, I generally:",
+        options: [
+          {
+            text:
+              "Explain the concern and invite the other person’s perspective.",
+            scores: {
+              collaborative: 3,
+              directCommunication: 1,
+              diplomatic: 1,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Say what I mean directly so that the issue is unmistakable.",
+            scores: {
+              collaborative: 0,
+              directCommunication: 3,
+              diplomatic: 0,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Choose my wording carefully to reduce unnecessary defensiveness.",
+            scores: {
+              collaborative: 1,
+              directCommunication: 0,
+              diplomatic: 3,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Think through my words privately before I speak.",
+            scores: {
+              collaborative: 0,
+              directCommunication: 0,
+              diplomatic: 1,
+              reflectiveCommunication: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Listening",
+        text:
+          "When another person explains why they are upset, I tend to:",
+        options: [
+          {
+            text:
+              "Listen for the feelings, needs, and meaning underneath the words.",
+            scores: {
+              deepListening: 3,
+              analyticalListening: 0,
+              solutionListening: 0,
+              clarifyingListening: 1
+            }
+          },
+          {
+            text:
+              "Evaluate the facts and determine which parts of the explanation are supported.",
+            scores: {
+              deepListening: 0,
+              analyticalListening: 3,
+              solutionListening: 0,
+              clarifyingListening: 1
+            }
+          },
+          {
+            text:
+              "Begin thinking about what could solve the problem.",
+            scores: {
+              deepListening: 0,
+              analyticalListening: 0,
+              solutionListening: 3,
+              clarifyingListening: 0
+            }
+          },
+          {
+            text:
+              "Ask questions until I understand exactly what the person means.",
+            scores: {
+              deepListening: 1,
+              analyticalListening: 1,
+              solutionListening: 0,
+              clarifyingListening: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Decision-Making",
+        text:
+          "When a conflict requires a decision, I am most influenced by:",
+        options: [
+          {
+            text:
+              "Finding an outcome that addresses the major interests of everyone involved.",
+            scores: {
+              analyticalDecision: 0,
+              valuesDecision: 1,
+              relationalDecision: 3,
+              pragmaticDecision: 1
+            }
+          },
+          {
+            text:
+              "The evidence, consistency, and logic supporting each option.",
+            scores: {
+              analyticalDecision: 3,
+              valuesDecision: 0,
+              relationalDecision: 0,
+              pragmaticDecision: 1
+            }
+          },
+          {
+            text:
+              "Whether the decision reflects my principles and sense of fairness.",
+            scores: {
+              analyticalDecision: 0,
+              valuesDecision: 3,
+              relationalDecision: 1,
+              pragmaticDecision: 0
+            }
+          },
+          {
+            text:
+              "Which option is workable and most likely to move the situation forward.",
+            scores: {
+              analyticalDecision: 1,
+              valuesDecision: 0,
+              relationalDecision: 0,
+              pragmaticDecision: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Conflict Approach",
+        text:
+          "When another person strongly disagrees with me, I usually:",
+        options: [
+          {
+            text:
+              "Look for the interests or concerns that may exist beneath both positions.",
+            scores: {
+              collaborative: 3,
+              directive: 0,
+              accommodating: 0,
+              reflective: 1
+            }
+          },
+          {
+            text:
+              "Defend my reasoning and make the strongest case for my position.",
+            scores: {
+              collaborative: 0,
+              directive: 3,
+              accommodating: 0,
+              reflective: 0
+            }
+          },
+          {
+            text:
+              "Consider yielding when the issue matters more to them than it does to me.",
+            scores: {
+              collaborative: 0,
+              directive: 0,
+              accommodating: 3,
+              reflective: 0
+            }
+          },
+          {
+            text:
+              "Take time to determine whether the disagreement requires an immediate response.",
+            scores: {
+              collaborative: 0,
+              directive: 0,
+              accommodating: 0,
+              reflective: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Communication",
+        text:
+          "My ordinary communication style is best described as:",
+        options: [
+          {
+            text:
+              "Engaging and cooperative, with room for shared understanding.",
+            scores: {
+              collaborative: 3,
+              directCommunication: 0,
+              diplomatic: 1,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Clear and candid, even when the subject is uncomfortable.",
+            scores: {
+              collaborative: 0,
+              directCommunication: 3,
+              diplomatic: 0,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Tactful and attentive to how my words may affect the relationship.",
+            scores: {
+              collaborative: 1,
+              directCommunication: 0,
+              diplomatic: 3,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Measured and deliberate, especially when the subject is important.",
+            scores: {
+              collaborative: 0,
+              directCommunication: 0,
+              diplomatic: 1,
+              reflectiveCommunication: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Listening",
+        text:
+          "During a difficult conversation, I feel most useful when I can:",
+        options: [
+          {
+            text:
+              "Help the speaker feel fully heard and understood.",
+            scores: {
+              deepListening: 3,
+              analyticalListening: 0,
+              solutionListening: 0,
+              clarifyingListening: 1
+            }
+          },
+          {
+            text:
+              "Separate assumptions from facts and identify inconsistencies.",
+            scores: {
+              deepListening: 0,
+              analyticalListening: 3,
+              solutionListening: 0,
+              clarifyingListening: 0
+            }
+          },
+          {
+            text:
+              "Help identify the next practical step.",
+            scores: {
+              deepListening: 0,
+              analyticalListening: 0,
+              solutionListening: 3,
+              clarifyingListening: 0
+            }
+          },
+          {
+            text:
+              "Ask questions that make the situation clearer.",
+            scores: {
+              deepListening: 1,
+              analyticalListening: 1,
+              solutionListening: 0,
+              clarifyingListening: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Decision-Making",
+        text:
+          "When several reasonable options are available, I usually choose by:",
+        options: [
+          {
+            text:
+              "Comparing the likely consequences of each option.",
+            scores: {
+              analyticalDecision: 3,
+              valuesDecision: 0,
+              relationalDecision: 0,
+              pragmaticDecision: 1
+            }
+          },
+          {
+            text:
+              "Identifying which option best reflects what I believe is right.",
+            scores: {
+              analyticalDecision: 0,
+              valuesDecision: 3,
+              relationalDecision: 1,
+              pragmaticDecision: 0
+            }
+          },
+          {
+            text:
+              "Considering how each option may affect trust and important relationships.",
+            scores: {
+              analyticalDecision: 0,
+              valuesDecision: 1,
+              relationalDecision: 3,
+              pragmaticDecision: 0
+            }
+          },
+          {
+            text:
+              "Selecting the option that is realistic and can be implemented.",
+            scores: {
+              analyticalDecision: 1,
+              valuesDecision: 0,
+              relationalDecision: 0,
+              pragmaticDecision: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Conflict Approach",
+        text:
+          "When tension is present but nobody has named it, I am most likely to:",
+        options: [
+          {
+            text:
+              "Open the conversation and invite people to discuss what is happening.",
+            scores: {
+              collaborative: 3,
+              directive: 1,
+              accommodating: 0,
+              reflective: 0
+            }
+          },
+          {
+            text:
+              "Name the issue directly so that it does not remain unaddressed.",
+            scores: {
+              collaborative: 1,
+              directive: 3,
+              accommodating: 0,
+              reflective: 0
+            }
+          },
+          {
+            text:
+              "Wait unless raising it appears necessary to preserve the relationship.",
+            scores: {
+              collaborative: 0,
+              directive: 0,
+              accommodating: 3,
+              reflective: 1
+            }
+          },
+          {
+            text:
+              "Observe the situation until I better understand the source of the tension.",
+            scores: {
+              collaborative: 0,
+              directive: 0,
+              accommodating: 0,
+              reflective: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Communication",
+        text:
+          "When I believe I have been misunderstood, I tend to:",
+        options: [
+          {
+            text:
+              "Clarify my meaning while also asking how the other person understood me.",
+            scores: {
+              collaborative: 3,
+              directCommunication: 1,
+              diplomatic: 1,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Correct the misunderstanding immediately and precisely.",
+            scores: {
+              collaborative: 0,
+              directCommunication: 3,
+              diplomatic: 0,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Clarify carefully so that the correction does not sound dismissive.",
+            scores: {
+              collaborative: 1,
+              directCommunication: 0,
+              diplomatic: 3,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Take time to decide how best to explain what I intended.",
+            scores: {
+              collaborative: 0,
+              directCommunication: 0,
+              diplomatic: 1,
+              reflectiveCommunication: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Listening",
+        text:
+          "When someone tells a long or complicated conflict story, I naturally focus on:",
+        options: [
+          {
+            text:
+              "What the experience appears to mean to them emotionally.",
+            scores: {
+              deepListening: 3,
+              analyticalListening: 0,
+              solutionListening: 0,
+              clarifyingListening: 1
+            }
+          },
+          {
+            text:
+              "The sequence of events and whether the details fit together.",
+            scores: {
+              deepListening: 0,
+              analyticalListening: 3,
+              solutionListening: 0,
+              clarifyingListening: 1
+            }
+          },
+          {
+            text:
+              "The point where a practical intervention could improve the situation.",
+            scores: {
+              deepListening: 0,
+              analyticalListening: 0,
+              solutionListening: 3,
+              clarifyingListening: 0
+            }
+          },
+          {
+            text:
+              "The parts of the story that require additional explanation.",
+            scores: {
+              deepListening: 1,
+              analyticalListening: 1,
+              solutionListening: 0,
+              clarifyingListening: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Decision-Making",
+        text:
+          "A decision feels responsible to me when it:",
+        options: [
+          {
+            text:
+              "Can be explained with clear reasoning and reliable information.",
+            scores: {
+              analyticalDecision: 3,
+              valuesDecision: 0,
+              relationalDecision: 0,
+              pragmaticDecision: 1
+            }
+          },
+          {
+            text:
+              "Remains faithful to important values even when that is difficult.",
+            scores: {
+              analyticalDecision: 0,
+              valuesDecision: 3,
+              relationalDecision: 1,
+              pragmaticDecision: 0
+            }
+          },
+          {
+            text:
+              "Takes seriously the people who will be affected by it.",
+            scores: {
+              analyticalDecision: 0,
+              valuesDecision: 1,
+              relationalDecision: 3,
+              pragmaticDecision: 0
+            }
+          },
+          {
+            text:
+              "Can realistically be carried out and sustained.",
+            scores: {
+              analyticalDecision: 1,
+              valuesDecision: 0,
+              relationalDecision: 0,
+              pragmaticDecision: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Conflict Approach",
+        text:
+          "When the other person and I both have legitimate concerns, I usually prefer to:",
+        options: [
+          {
+            text:
+              "Work toward an option that addresses the essential interests on both sides.",
+            scores: {
+              collaborative: 3,
+              directive: 0,
+              accommodating: 0,
+              reflective: 1
+            }
+          },
+          {
+            text:
+              "Determine which concern should take priority and move forward.",
+            scores: {
+              collaborative: 0,
+              directive: 3,
+              accommodating: 0,
+              reflective: 0
+            }
+          },
+          {
+            text:
+              "Make room for the other person when I can do so without violating an important boundary.",
+            scores: {
+              collaborative: 1,
+              directive: 0,
+              accommodating: 3,
+              reflective: 0
+            }
+          },
+          {
+            text:
+              "Spend time understanding the competing concerns before suggesting an outcome.",
+            scores: {
+              collaborative: 1,
+              directive: 0,
+              accommodating: 0,
+              reflective: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Communication",
+        text:
+          "Before entering a difficult conversation, I am most likely to prepare by:",
+        options: [
+          {
+            text:
+              "Thinking about what each person may need from the conversation.",
+            scores: {
+              collaborative: 3,
+              directCommunication: 0,
+              diplomatic: 1,
+              reflectiveCommunication: 1
+            }
+          },
+          {
+            text:
+              "Identifying the key point I need to communicate clearly.",
+            scores: {
+              collaborative: 0,
+              directCommunication: 3,
+              diplomatic: 0,
+              reflectiveCommunication: 1
+            }
+          },
+          {
+            text:
+              "Choosing language that is honest without being unnecessarily harsh.",
+            scores: {
+              collaborative: 1,
+              directCommunication: 0,
+              diplomatic: 3,
+              reflectiveCommunication: 1
+            }
+          },
+          {
+            text:
+              "Organizing my thoughts privately before deciding what to say.",
+            scores: {
+              collaborative: 0,
+              directCommunication: 0,
+              diplomatic: 1,
+              reflectiveCommunication: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Listening",
+        text:
+          "When I disagree with what I am hearing, my first listening goal is usually to:",
+        options: [
+          {
+            text:
+              "Understand the person’s experience before responding to the disagreement.",
+            scores: {
+              deepListening: 3,
+              analyticalListening: 0,
+              solutionListening: 0,
+              clarifyingListening: 1
+            }
+          },
+          {
+            text:
+              "Determine which claims are accurate and which require correction.",
+            scores: {
+              deepListening: 0,
+              analyticalListening: 3,
+              solutionListening: 0,
+              clarifyingListening: 0
+            }
+          },
+          {
+            text:
+              "Identify whether there is a workable solution despite the disagreement.",
+            scores: {
+              deepListening: 0,
+              analyticalListening: 0,
+              solutionListening: 3,
+              clarifyingListening: 1
+            }
+          },
+          {
+            text:
+              "Ask enough questions to ensure I am disagreeing with what they actually mean.",
+            scores: {
+              deepListening: 1,
+              analyticalListening: 1,
+              solutionListening: 0,
+              clarifyingListening: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Decision-Making",
+        text:
+          "When time is limited, I usually rely most heavily on:",
+        options: [
+          {
+            text:
+              "The strongest available evidence.",
+            scores: {
+              analyticalDecision: 3,
+              valuesDecision: 0,
+              relationalDecision: 0,
+              pragmaticDecision: 1
+            }
+          },
+          {
+            text:
+              "The principle I believe should guide the situation.",
+            scores: {
+              analyticalDecision: 0,
+              valuesDecision: 3,
+              relationalDecision: 1,
+              pragmaticDecision: 0
+            }
+          },
+          {
+            text:
+              "How the decision is likely to affect trust and cooperation.",
+            scores: {
+              analyticalDecision: 0,
+              valuesDecision: 1,
+              relationalDecision: 3,
+              pragmaticDecision: 0
+            }
+          },
+          {
+            text:
+              "The most workable option available under the circumstances.",
+            scores: {
+              analyticalDecision: 1,
+              valuesDecision: 0,
+              relationalDecision: 0,
+              pragmaticDecision: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Conflict Approach",
+        text:
+          "When a disagreement is not urgent, I generally prefer to:",
+        options: [
+          {
+            text:
+              "Address it while there is still room for a constructive conversation.",
+            scores: {
+              collaborative: 3,
+              directive: 1,
+              accommodating: 0,
+              reflective: 0
+            }
+          },
+          {
+            text:
+              "Raise it directly rather than allow uncertainty to continue.",
+            scores: {
+              collaborative: 1,
+              directive: 3,
+              accommodating: 0,
+              reflective: 0
+            }
+          },
+          {
+            text:
+              "Let minor matters pass when addressing them may create more harm than benefit.",
+            scores: {
+              collaborative: 0,
+              directive: 0,
+              accommodating: 3,
+              reflective: 1
+            }
+          },
+          {
+            text:
+              "Wait until I have enough perspective to know whether the issue matters.",
+            scores: {
+              collaborative: 0,
+              directive: 0,
+              accommodating: 0,
+              reflective: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Communication",
+        text:
+          "People are most likely to experience me as someone who:",
+        options: [
+          {
+            text:
+              "Creates space for dialogue and shared understanding.",
+            scores: {
+              collaborative: 3,
+              directCommunication: 0,
+              diplomatic: 1,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Communicates expectations and concerns plainly.",
+            scores: {
+              collaborative: 0,
+              directCommunication: 3,
+              diplomatic: 0,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Tries to preserve respect and dignity during disagreement.",
+            scores: {
+              collaborative: 1,
+              directCommunication: 0,
+              diplomatic: 3,
+              reflectiveCommunication: 0
+            }
+          },
+          {
+            text:
+              "Speaks after giving serious thought to what should be said.",
+            scores: {
+              collaborative: 0,
+              directCommunication: 0,
+              diplomatic: 1,
+              reflectiveCommunication: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Listening",
+        text:
+          "After listening to a conflict concern, my most natural response is to:",
+        options: [
+          {
+            text:
+              "Reflect the meaning or impact I heard.",
+            scores: {
+              deepListening: 3,
+              analyticalListening: 0,
+              solutionListening: 0,
+              clarifyingListening: 1
+            }
+          },
+          {
+            text:
+              "Offer my evaluation of the situation.",
+            scores: {
+              deepListening: 0,
+              analyticalListening: 3,
+              solutionListening: 0,
+              clarifyingListening: 0
+            }
+          },
+          {
+            text:
+              "Suggest a practical next step.",
+            scores: {
+              deepListening: 0,
+              analyticalListening: 0,
+              solutionListening: 3,
+              clarifyingListening: 0
+            }
+          },
+          {
+            text:
+              "Ask a follow-up question to improve my understanding.",
+            scores: {
+              deepListening: 1,
+              analyticalListening: 1,
+              solutionListening: 0,
+              clarifyingListening: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Decision-Making",
+        text:
+          "When reflecting on a difficult decision afterward, I am most likely to ask:",
+        options: [
+          {
+            text:
+              "Did the reasoning hold up when all the information was considered?",
+            scores: {
+              analyticalDecision: 3,
+              valuesDecision: 0,
+              relationalDecision: 0,
+              pragmaticDecision: 1
+            }
+          },
+          {
+            text:
+              "Did I act consistently with what I believe is right?",
+            scores: {
+              analyticalDecision: 0,
+              valuesDecision: 3,
+              relationalDecision: 1,
+              pragmaticDecision: 0
+            }
+          },
+          {
+            text:
+              "Did I adequately consider the people and relationships involved?",
+            scores: {
+              analyticalDecision: 0,
+              valuesDecision: 1,
+              relationalDecision: 3,
+              pragmaticDecision: 0
+            }
+          },
+          {
+            text:
+              "Did the decision produce a workable result?",
+            scores: {
+              analyticalDecision: 1,
+              valuesDecision: 0,
+              relationalDecision: 0,
+              pragmaticDecision: 3
+            }
+          }
+        ]
+      }
+    ];
+
+    const labels = {
+      collaborative: "Collaborative Conflict Approach",
+      directive: "Directive Conflict Approach",
+      accommodating: "Accommodating Conflict Approach",
+      reflective: "Reflective Conflict Approach",
+
+      directCommunication: "Direct Communication",
+      diplomatic: "Diplomatic Communication",
+      reflectiveCommunication: "Reflective Communication",
+
+      deepListening: "Deep and Empathic Listening",
+      analyticalListening: "Analytical Listening",
+      solutionListening: "Solution-Focused Listening",
+      clarifyingListening: "Clarifying Listening",
+
+      analyticalDecision: "Analytical Decision-Making",
+      valuesDecision: "Values-Centered Decision-Making",
+      relationalDecision: "Relational Decision-Making",
+      pragmaticDecision: "Pragmatic Decision-Making"
+    };
+
+    const domains = {
+      conflictStyle: [
+        "collaborative",
+        "directive",
+        "accommodating",
+        "reflective"
+      ],
+      communicationStyle: [
+        "collaborative",
+        "directCommunication",
+        "diplomatic",
+        "reflectiveCommunication"
+      ],
+      listeningStyle: [
+        "deepListening",
+        "analyticalListening",
+        "solutionListening",
+        "clarifyingListening"
+      ],
+      decisionStyle: [
+        "analyticalDecision",
+        "valuesDecision",
+        "relationalDecision",
+        "pragmaticDecision"
+      ]
+    };
+
+    let currentQuestion = 0;
+    const responses = new Array(questions.length).fill(null);
+
+    const introStage =
+      document.getElementById("intro-stage");
+
+    const questionStage =
+      document.getElementById("question-stage");
+
+    const reviewStage =
+      document.getElementById("review-stage");
+
+    const progressRegion =
+      document.getElementById("progress-region");
+
+    const preferredNameInput =
+      document.getElementById("preferred-name");
+
+    const participantEmailInput =
+      document.getElementById("participant-email");
+
+    const introError =
+      document.getElementById("intro-error");
+
+    const questionError =
+      document.getElementById("question-error");
+
+    const questionDomain =
+      document.getElementById("question-domain");
+
+    const questionText =
+      document.getElementById("question-text");
+
+    const answerList =
+      document.getElementById("answer-list");
+
+    const progressLabel =
+      document.getElementById("progress-label");
+
+    const progressPercent =
+      document.getElementById("progress-percent");
+
+    const progressFill =
+      document.getElementById("progress-fill");
+
+    const progressTrack =
+      document.querySelector(".progress-track");
+
+    const backButton =
+      document.getElementById("back-button");
+
+    const continueButton =
+      document.getElementById("continue-button");
+
+    function showStage(stage) {
+      [introStage, questionStage, reviewStage]
+        .forEach(function (section) {
+          section.classList.remove("active");
+        });
+
+      stage.classList.add("active");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function validateIntroduction() {
+      const nameIsPresent =
+        preferredNameInput.value.trim().length > 0;
+
+      const acknowledgmentsAreComplete =
+        document.getElementById(
+          "acknowledge-educational"
+        ).checked &&
+        document.getElementById(
+          "acknowledge-self-report"
+        ).checked &&
+        document.getElementById(
+          "acknowledge-pilot"
+        ).checked;
+
+      if (
+        !nameIsPresent ||
+        !acknowledgmentsAreComplete
+      ) {
+        introError.classList.add("visible");
+        return false;
+      }
+
+      introError.classList.remove("visible");
+      return true;
+    }
+
+    function renderQuestion() {
+      const question = questions[currentQuestion];
+
+      questionDomain.textContent =
+        question.domain;
+
+      questionText.textContent =
+        question.text;
+
+      answerList.innerHTML = "";
+
+      question.options.forEach(
+        function (option, optionIndex) {
+          const wrapper =
+            document.createElement("label");
+
+          wrapper.className = "answer-option";
+
+          const radio =
+            document.createElement("input");
+
+          radio.type = "radio";
+          radio.name = "current-answer";
+          radio.value = optionIndex;
+
+          if (
+            responses[currentQuestion] === optionIndex
+          ) {
+            radio.checked = true;
+          }
+
+          const content =
+            document.createElement("span");
+
+          content.className = "answer-content";
+
+          const letter =
+            document.createElement("span");
+
+          letter.className = "answer-letter";
+          letter.textContent =
+            String.fromCharCode(65 + optionIndex);
+
+          const text =
+            document.createElement("span");
+
+          text.textContent = option.text;
+
+          content.appendChild(letter);
+          content.appendChild(text);
+
+          wrapper.appendChild(radio);
+          wrapper.appendChild(content);
+
+          answerList.appendChild(wrapper);
+        }
+      );
+
+      const questionNumber =
+        currentQuestion + 1;
+
+      const percent =
+        Math.round(
+          (questionNumber / questions.length) * 100
+        );
+
+      progressLabel.textContent =
+        "Question " +
+        questionNumber +
+        " of " +
+        questions.length;
+
+      progressPercent.textContent =
+        percent + "% complete";
+
+      progressFill.style.width =
+        percent + "%";
+
+      progressTrack.setAttribute(
+        "aria-valuenow",
+        String(percent)
+      );
+
+      backButton.disabled =
+        currentQuestion === 0;
+
+      continueButton.textContent =
+        currentQuestion === questions.length - 1
+          ? "Review Answers"
+          : "Continue";
+
+      questionError.classList.remove("visible");
+    }
+
+    function saveCurrentAnswer() {
+      const selected =
+        document.querySelector(
+          'input[name="current-answer"]:checked'
+        );
+
+      if (!selected) {
+        questionError.classList.add("visible");
+        return false;
+      }
+
+      responses[currentQuestion] =
+        Number(selected.value);
+
+      questionError.classList.remove("visible");
+      return true;
+    }
+
+    function createReview() {
+      const reviewList =
+        document.getElementById("review-list");
+
+      reviewList.innerHTML = "";
+
+      questions.forEach(
+        function (question, questionIndex) {
+          const row =
+            document.createElement("div");
+
+          row.className = "review-row";
+
+          const questionLabel =
+            document.createElement("strong");
+
+          questionLabel.textContent =
+            "Question " + (questionIndex + 1);
+
+          const answer =
+            document.createElement("span");
+
+          const selectedIndex =
+            responses[questionIndex];
+
+          answer.textContent =
+            question.options[selectedIndex].text;
+
+          row.appendChild(questionLabel);
+          row.appendChild(answer);
+
+          reviewList.appendChild(row);
+        }
+      );
+    }
+
+    function calculateScores() {
+      const scores = {};
+
+      responses.forEach(
+        function (selectedOption, questionIndex) {
+          const selectedScores =
+            questions[questionIndex]
+              .options[selectedOption]
+              .scores;
+
+          Object.entries(selectedScores)
+            .forEach(function (entry) {
+              const key = entry[0];
+              const value = entry[1];
+
+              scores[key] =
+                (scores[key] || 0) + value;
+            });
+        }
+      );
+
+      return scores;
+    }
+
+    function rankDomain(scores, domainKeys) {
+      return domainKeys
+        .map(function (key) {
+          return {
+            key: key,
+            label: labels[key],
+            score: scores[key] || 0
+          };
+        })
+        .sort(function (a, b) {
+          return b.score - a.score;
+        });
+    }
+
+    function buildResults() {
+      const scores = calculateScores();
+
+      const conflictRanking =
+        rankDomain(
+          scores,
+          domains.conflictStyle
+        );
+
+      const communicationRanking =
+        rankDomain(
+          scores,
+          domains.communicationStyle
+        );
+
+      const listeningRanking =
+        rankDomain(
+          scores,
+          domains.listeningStyle
+        );
+
+      const decisionRanking =
+        rankDomain(
+          scores,
+          domains.decisionStyle
+        );
+
+      return {
+        participantName:
+          preferredNameInput.value.trim(),
+
+        participantEmail:
+          participantEmailInput.value.trim(),
+
+        assessmentType: "baseline",
+
+        assessmentTitle:
+          "Baseline Profile Assessment",
+
+        assessmentVersion:
+          "Pilot Beta 1.0",
+
+        completedAt:
+          new Date().toISOString(),
+
+        scores: scores,
+
+        domains: {
+          conflictStyle: {
+            primary: conflictRanking[0],
+            secondary: conflictRanking[1],
+            ranking: conflictRanking
+          },
+
+          communicationStyle: {
+            primary: communicationRanking[0],
+            secondary: communicationRanking[1],
+            ranking: communicationRanking
+          },
+
+          listeningStyle: {
+            primary: listeningRanking[0],
+            secondary: listeningRanking[1],
+            ranking: listeningRanking
+          },
+
+          decisionStyle: {
+            primary: decisionRanking[0],
+            secondary: decisionRanking[1],
+            ranking: decisionRanking
+          }
+        },
+
+        responses: responses.map(
+          function (selectedOption, questionIndex) {
+            return {
+              questionNumber: questionIndex + 1,
+              domain: questions[questionIndex].domain,
+              question:
+                questions[questionIndex].text,
+              selectedOption: selectedOption,
+              selectedAnswer:
+                questions[questionIndex]
+                  .options[selectedOption]
+                  .text
+            };
+          }
+        )
+      };
+    }
+
+    document.getElementById(
+      "begin-button"
+    ).addEventListener(
+      "click",
+      function () {
+        if (!validateIntroduction()) {
+          return;
+        }
+
+        currentQuestion = 0;
+
+        progressRegion.hidden = false;
+
+        showStage(questionStage);
+        renderQuestion();
+      }
+    );
+
+    continueButton.addEventListener(
+      "click",
+      function () {
+        if (!saveCurrentAnswer()) {
+          return;
+        }
+
+        if (
+          currentQuestion <
+          questions.length - 1
+        ) {
+          currentQuestion += 1;
+          renderQuestion();
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+
+          return;
+        }
+
+        createReview();
+        progressRegion.hidden = true;
+        showStage(reviewStage);
+      }
+    );
+
+    backButton.addEventListener(
+      "click",
+      function () {
+        if (currentQuestion === 0) {
+          return;
+        }
+
+        currentQuestion -= 1;
+        renderQuestion();
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    );
+
+    document.getElementById(
+      "return-to-questions-button"
+    ).addEventListener(
+      "click",
+      function () {
+        currentQuestion =
+          questions.length - 1;
+
+        progressRegion.hidden = false;
+
+        showStage(questionStage);
+        renderQuestion();
+      }
+    );
+
+    document.getElementById(
+      "submit-button"
+    ).addEventListener(
+      "click",
+      function () {
+        const results = buildResults();
+
+        try {
+          localStorage.setItem(
+            "hciaCurrentResults",
+            JSON.stringify(results)
+          );
+
+          localStorage.setItem(
+            "hciaBaselineDraft",
+            JSON.stringify({
+              participantName:
+                preferredNameInput.value.trim(),
+
+              participantEmail:
+                participantEmailInput.value.trim(),
+
+              responses: responses
+            })
+          );
+        } catch (error) {
+          alert(
+            "Your browser could not temporarily save the assessment results. Please check your browser storage settings and try again."
+          );
+
+          return;
+        }
+
+        window.location.href =
+          "../profile/?source=baseline";
+      }
+    );
+
+    document.getElementById(
+      "current-year"
+    ).textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
