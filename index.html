@@ -183,25 +183,22 @@
       text-decoration: none;
     }
 
-    .brand-mark {
-      width: 48px;
-      height: 48px;
-      flex: 0 0 auto;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(222, 196, 143, 0.8);
-      border-radius: 50%;
-      background: var(--primary);
-      color: var(--text-light);
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-      font-size: 0.94rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      box-shadow: var(--shadow-small);
-    }
+   .brand-logo {
+  width: 68px;
+  height: 52px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+    
 
     .brand-copy {
       min-width: 0;
@@ -893,10 +890,10 @@
         min-height: 70px;
       }
 
-      .brand-mark {
-        width: 42px;
-        height: 42px;
-      }
+      .brand-logo {
+  width: 56px;
+  height: 44px;
+}
 
       .brand-title {
         font-size: 0.86rem;
@@ -990,12 +987,10 @@
         href="#top"
         aria-label="Harrington Conflict Intelligence Assessment home"
       >
-        <span
-          class="brand-mark"
-          aria-hidden="true"
-        >
-          HCIA
-        </span>
+       <span class="brand-logo" aria-hidden="true">
+    <img src="harrington-bridge-compass-logo.jpeg"
+         alt="Harrington Bridge and Compass Logo">
+</span>
 
         <span class="brand-copy">
           <span class="brand-title">
