@@ -158,6 +158,68 @@
       letter-spacing: 0.015em;
     }
 
+
+    .brand-masthead {
+      padding: 44px 0 38px;
+      border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 253, 248, 0.98),
+          rgba(244, 240, 231, 0.98)
+        );
+      text-align: center;
+    }
+
+    .masthead-logo {
+      width: min(190px, 42vw);
+      margin: 0 auto 18px;
+    }
+
+    .masthead-logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .masthead-title {
+      max-width: 940px;
+      margin: 0 auto;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: clamp(2rem, 5vw, 4.35rem);
+      font-weight: 500;
+      line-height: 1.06;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+    }
+
+    .masthead-title span {
+      display: block;
+    }
+
+    .masthead-kicker {
+      margin: 16px 0 0;
+      color: var(--text-soft);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .masthead-motto {
+      margin: 12px 0 0;
+      color: var(--accent);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+      font-style: italic;
+    }
+
     .site-header {
       position: sticky;
       top: 0;
@@ -238,6 +300,14 @@
     .desktop-nav a:hover,
     .desktop-nav a:focus-visible {
       color: var(--primary);
+    }
+
+    .external-link {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--primary) !important;
     }
 
     .header-status {
@@ -338,7 +408,7 @@
       text-transform: uppercase;
     }
 
-    .hero h1 {
+    .hero h2 {
       margin-bottom: 0;
       font-size: clamp(3.1rem, 7vw, 6.25rem);
       letter-spacing: -0.047em;
@@ -645,19 +715,34 @@
       display: block;
       border: 1px solid var(--border);
       border-radius: 12px;
-      background: var(--surface-soft);
-      color: var(--text-soft);
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
       font-size: 0.84rem;
       font-weight: 800;
       text-align: center;
       text-decoration: none;
-      cursor: not-allowed;
+      transition:
+        background-color 160ms ease,
+        color 160ms ease,
+        transform 160ms ease;
+    }
+
+    .assessment-link:hover {
+      transform: translateY(-1px);
+      background: var(--primary);
+      color: var(--text-light);
     }
 
     .assessment-card-featured .assessment-link {
-      border-color: rgba(255, 255, 255, 0.18);
-      background: rgba(255, 255, 255, 0.09);
-      color: #e8eeea;
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.1);
+      color: #f0f4f1;
+    }
+
+    .assessment-card-featured .assessment-link:hover {
+      background: var(--surface);
+      color: var(--primary-dark);
     }
 
     .principle-grid {
@@ -886,6 +971,19 @@
         font-size: 0.78rem;
       }
 
+      .brand-masthead {
+        padding: 34px 0 30px;
+      }
+
+      .masthead-title {
+        font-size: clamp(1.7rem, 9vw, 2.75rem);
+        letter-spacing: 0.035em;
+      }
+
+      .masthead-kicker {
+        font-size: 0.65rem;
+      }
+
       .header-inner {
         min-height: 70px;
       }
@@ -907,7 +1005,7 @@
         padding: 74px 0 72px;
       }
 
-      .hero h1 {
+      .hero h2 {
         font-size: clamp(2.8rem, 15vw, 4.5rem);
       }
 
@@ -980,6 +1078,30 @@
     for public participation.
   </div>
 
+  <section class="brand-masthead" id="top" aria-labelledby="site-title">
+    <div class="container">
+      <div class="masthead-logo">
+        <img
+          src="harrington-bridge-compass-logo.jpeg"
+          alt="Harrington bridge and compass emblem"
+        >
+      </div>
+
+      <h1 class="masthead-title" id="site-title">
+        <span>Harrington Conflict</span>
+        <span>Intelligence Assessment</span>
+      </h1>
+
+      <p class="masthead-kicker">
+        An Educational Initiative of Harrington Mediation
+      </p>
+
+      <p class="masthead-motto">
+        Understanding Precedes Resolution
+      </p>
+    </div>
+  </section>
+
   <header class="site-header">
     <div class="container header-inner">
       <a
@@ -989,16 +1111,16 @@
       >
        <span class="brand-logo" aria-hidden="true">
     <img src="harrington-bridge-compass-logo.jpeg"
-         alt="Harrington Bridge and Compass Logo">
+         alt="">
 </span>
 
         <span class="brand-copy">
           <span class="brand-title">
-            Harrington Conflict Intelligence Assessment
+            HCIA Home
           </span>
 
           <span class="brand-subtitle">
-            Understanding Precedes Resolution
+            Conflict Intelligence Learning Platform
           </span>
         </span>
       </a>
@@ -1021,6 +1143,13 @@
 
         <a href="#creator">
           Creator
+        </a>
+
+        <a
+          class="external-link"
+          href="https://robertharringtonjr.com/"
+        >
+          Harrington Mediation
         </a>
       </nav>
 
@@ -1060,26 +1189,27 @@
       <a href="#creator">
         Creator
       </a>
+
+      <a href="https://robertharringtonjr.com/">
+        Harrington Mediation
+      </a>
     </nav>
   </header>
 
   <main id="main-content">
-    <section
-      class="hero"
-      id="top"
-    >
+    <section class="hero">
       <div class="container hero-grid">
         <div>
           <p class="eyebrow">
             A guided conflict self-awareness platform
           </p>
 
-          <h1>
+          <h2>
             Understand how you
             <span class="hero-highlight">
               experience conflict.
             </span>
-          </h1>
+          </h2>
 
           <p class="hero-description">
             The Harrington Conflict Intelligence Assessment
@@ -1094,7 +1224,7 @@
               class="button button-primary"
               href="#assessments"
             >
-              Explore the Assessment Pathways
+              Choose Your Assessment
             </a>
 
             <a
@@ -1113,10 +1243,10 @@
 
         <aside
           class="profile-preview"
-          aria-label="Example HCIA Profile structure"
+          aria-label="Example HCIA results profile structure"
         >
           <p class="preview-label">
-            Your HCIA Profile
+            Your HCIA Results Profile
           </p>
 
           <h2>
@@ -1124,9 +1254,9 @@
           </h2>
 
           <p>
-            The HCIA is designed to synthesize patterns across
-            your responses and translate them into a practical
-            learning profile.
+            Your results profile will synthesize patterns across
+            your answers and translate them into a practical
+            conflict-intelligence learning profile.
           </p>
 
           <ul class="profile-list">
@@ -1186,7 +1316,7 @@
             </p>
 
             <p>
-              Results will be presented as a learning profile that
+              Results will be presented through an HCIA Results Profile that
               can support personal reflection, difficult-
               conversation preparation, mediation readiness,
               conflict coaching, leadership development, and
@@ -1208,14 +1338,14 @@
           </p>
 
           <h2>
-            Four ways to explore your conflict intelligence
+            Select the assessment that best matches your goals
           </h2>
 
           <p>
-            Participants will be able to complete one focused
-            module or combine all three modules into the Complete
-            HCIA. Each pathway will generate meaningful feedback
-            related to its specific purpose.
+            Complete one focused assessment or choose the Complete
+            HCIA for the fullest integrated profile. Each option
+            will lead to its own assessment page and then redirect
+            you to your HCIA Results Profile.
           </p>
         </div>
 
@@ -1255,12 +1385,12 @@
               </span>
             </div>
 
-            <span
+            <a
               class="assessment-link"
-              aria-disabled="true"
+              href="./baseline/"
             >
-              Module in Development
-            </span>
+              Open Baseline Profile Assessment
+            </a>
           </article>
 
           <article class="assessment-card">
@@ -1298,12 +1428,12 @@
               </span>
             </div>
 
-            <span
+            <a
               class="assessment-link"
-              aria-disabled="true"
+              href="./conflict-activation/"
             >
-              Module in Development
-            </span>
+              Open Conflict Activation Assessment
+            </a>
           </article>
 
           <article class="assessment-card">
@@ -1341,12 +1471,12 @@
               </span>
             </div>
 
-            <span
+            <a
               class="assessment-link"
-              aria-disabled="true"
+              href="./growth-capacity/"
             >
-              Module in Development
-            </span>
+              Open Growth Capacity Assessment
+            </a>
           </article>
 
           <article
@@ -1365,7 +1495,7 @@
 
             <p>
               Complete all three modules to receive the fullest
-              version of Your Harrington Profile and an integrated
+              version of your HCIA Results Profile and an integrated
               analysis of how your ordinary and activated patterns
               interact.
             </p>
@@ -1387,12 +1517,12 @@
               </span>
             </div>
 
-            <span
+            <a
               class="assessment-link"
-              aria-disabled="true"
+              href="./complete-hcia/"
             >
-              Full Assessment in Development
-            </span>
+              Open the Complete HCIA
+            </a>
           </article>
         </div>
       </div>
@@ -1406,13 +1536,13 @@
           </p>
 
           <h2>
-            A profile designed for understanding and growth
+            A results profile designed for understanding and growth
           </h2>
 
           <p>
             The assessment is being built around several permanent
             principles that govern how questions, scores, and
-            participant reports will be developed.
+            participant results profiles will be developed.
           </p>
         </div>
 
@@ -1447,7 +1577,7 @@
             </h3>
 
             <p>
-              Every profile should move beyond description by
+              Every results profile should move beyond description by
               identifying practical reflection questions,
               exercises, and learning opportunities.
             </p>
