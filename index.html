@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="The Harrington Conflict Intelligence Assessment is an educational self-awareness and conflict-development platform created by Robert Harrington Jr."
+  >
+
+  <meta
+    name="author"
+    content="Robert Harrington Jr."
+  >
+
+  <title>
+    Harrington Conflict Intelligence Assessment
+  </title>
+
+  <style>
+    :root {
+      --background: #f4f0e7;
+      --surface: #fffdf8;
+      --surface-soft: #ebe5d9;
+      --surface-dark: #17241f;
+
+      --primary: #264c40;
+      --primary-dark: #18372f;
+      --primary-soft: #dce7e1;
+
+      --accent: #b28b4d;
+      --accent-light: #dec48f;
+
+      --text: #202722;
+      --text-soft: #52605a;
+      --text-light: #f9f6ee;
+
+      --border: #d8d0c1;
+      --border-dark: rgba(255, 255, 255, 0.14);
+
+      --success: #315f4e;
+      --warning-background: #fff5dd;
+      --warning-border: #d5a84e;
+      --warning-text: #654b18;
+
+      --shadow-small:
+        0 8px 24px rgba(24, 39, 33, 0.07);
+
+      --shadow-large:
+        0 24px 70px rgba(24, 39, 33, 0.15);
+
+      --radius-small: 12px;
+      --radius-medium: 20px;
+      --radius-large: 32px;
+
+      --content-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      line-height: 1.65;
+    }
+
+    body,
+    button,
+    a {
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 1000;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: var(--primary-dark);
+      color: white;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    .container {
+      width: min(
+        calc(100% - 40px),
+        var(--content-width)
+      );
+      margin: 0 auto;
+    }
+
+    .development-banner {
+      padding: 11px 20px;
+      border-bottom: 1px solid var(--warning-border);
+      background: var(--warning-background);
+      color: var(--warning-text);
+      text-align: center;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.015em;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(216, 208, 193, 0.8);
+      background: rgba(244, 240, 231, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(222, 196, 143, 0.8);
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--text-light);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 0.94rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      box-shadow: var(--shadow-small);
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.18;
+    }
+
+    .brand-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      color: var(--text-soft);
+      font-size: 0.71rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .desktop-nav a {
+      color: var(--text-soft);
+      font-size: 0.89rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .desktop-nav a:hover,
+    .desktop-nav a:focus-visible {
+      color: var(--primary);
+    }
+
+    .header-status {
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--primary);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .mobile-menu-button {
+      width: 44px;
+      height: 44px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border);
+      background: var(--background);
+    }
+
+    .mobile-menu.open {
+      display: grid;
+    }
+
+    .mobile-menu a {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-soft);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      padding: 110px 0 100px;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      top: -220px;
+      right: -190px;
+      width: 600px;
+      height: 600px;
+      border: 1px solid rgba(178, 139, 77, 0.24);
+    }
+
+    .hero::after {
+      top: -100px;
+      right: -70px;
+      width: 370px;
+      height: 370px;
+      border: 1px solid rgba(38, 76, 64, 0.18);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(300px, 0.75fr);
+      align-items: center;
+      gap: 74px;
+    }
+
+    .eyebrow {
+      margin-bottom: 18px;
+      color: var(--primary);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin-bottom: 0;
+      font-size: clamp(3.1rem, 7vw, 6.25rem);
+      letter-spacing: -0.047em;
+    }
+
+    .hero-highlight {
+      color: var(--primary);
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin: 30px 0 0;
+      color: #45524c;
+      font-size: clamp(1.06rem, 2vw, 1.27rem);
+    }
+
+    .hero-actions {
+      margin-top: 38px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      min-height: 52px;
+      padding: 14px 23px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      transition:
+        transform 160ms ease,
+        background-color 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button:focus-visible,
+    .assessment-link:focus-visible,
+    .desktop-nav a:focus-visible,
+    .mobile-menu a:focus-visible {
+      outline: 3px solid rgba(178, 139, 77, 0.55);
+      outline-offset: 4px;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: var(--text-light);
+      box-shadow: 0 10px 28px rgba(38, 76, 64, 0.2);
+    }
+
+    .button-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .button-secondary {
+      border-color: var(--primary);
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .button-secondary:hover {
+      background: rgba(38, 76, 64, 0.07);
+    }
+
+    .hero-note {
+      margin: 18px 0 0;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .profile-preview {
+      padding: 34px;
+      border: 1px solid rgba(222, 196, 143, 0.45);
+      border-radius: var(--radius-large);
+      background: var(--surface-dark);
+      color: var(--text-light);
+      box-shadow: var(--shadow-large);
+    }
+
+    .preview-label {
+      margin-bottom: 0;
+      color: var(--accent-light);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .profile-preview h2 {
+      margin: 16px 0 18px;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .profile-preview > p {
+      color: #d3ddd7;
+    }
+
+    .profile-list {
+      margin: 27px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0;
+      list-style: none;
+    }
+
+    .profile-list li {
+      padding: 13px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border-top: 1px solid var(--border-dark);
+      color: #e9eeeb;
+      font-size: 0.9rem;
+    }
+
+    .profile-list strong {
+      color: var(--accent-light);
+      font-size: 0.84rem;
+      text-align: right;
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section-light {
+      background: var(--surface);
+    }
+
+    .section-dark {
+      background: var(--surface-dark);
+      color: var(--text-light);
+    }
+
+    .section-heading {
+      max-width: 790px;
+      margin-bottom: 44px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 0;
+      font-size: clamp(2.35rem, 5vw, 4.25rem);
+      letter-spacing: -0.033em;
+    }
+
+    .section-heading p {
+      margin: 21px 0 0;
+      color: var(--text-soft);
+      font-size: 1.08rem;
+    }
+
+    .section-dark .section-heading p {
+      color: #c9d3cd;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: start;
+      gap: 64px;
+    }
+
+    .intro-statement {
+      padding: 32px;
+      border-left: 4px solid var(--accent);
+      border-radius:
+        0
+        var(--radius-medium)
+        var(--radius-medium)
+        0;
+      background: var(--surface-soft);
+    }
+
+    .intro-statement p {
+      margin: 0;
+      color: var(--primary-dark);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: clamp(1.45rem, 3vw, 2.3rem);
+      line-height: 1.35;
+    }
+
+    .intro-copy p {
+      color: var(--text-soft);
+      font-size: 1.03rem;
+    }
+
+    .intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .assessment-card {
+      min-height: 370px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: var(--surface);
+      box-shadow: var(--shadow-small);
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .assessment-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(38, 76, 64, 0.45);
+      box-shadow: 0 18px 45px rgba(24, 39, 33, 0.11);
+    }
+
+    .assessment-card-featured {
+      border-color: rgba(178, 139, 77, 0.8);
+      background: var(--primary);
+      color: var(--text-light);
+    }
+
+    .assessment-card-featured:hover {
+      border-color: var(--accent-light);
+    }
+
+    .assessment-number {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(38, 76, 64, 0.1);
+      color: var(--primary);
+      font-weight: 850;
+    }
+
+    .assessment-card-featured .assessment-number {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--accent-light);
+    }
+
+    .assessment-card h3 {
+      margin: 25px 0 13px;
+      font-size: 2.05rem;
+    }
+
+    .assessment-card p {
+      color: var(--text-soft);
+    }
+
+    .assessment-card-featured p {
+      color: #d8e1dc;
+    }
+
+    .assessment-details {
+      margin: 20px 0 0;
+      padding-left: 20px;
+      color: var(--text-soft);
+    }
+
+    .assessment-card-featured .assessment-details {
+      color: #e2e8e4;
+    }
+
+    .assessment-meta {
+      margin-top: auto;
+      padding-top: 27px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .meta-pill {
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: #58645e;
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .assessment-card-featured .meta-pill {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #edf2ef;
+    }
+
+    .assessment-link {
+      margin-top: 24px;
+      padding: 13px 16px;
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface-soft);
+      color: var(--text-soft);
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      cursor: not-allowed;
+    }
+
+    .assessment-card-featured .assessment-link {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.09);
+      color: #e8eeea;
+    }
+
+    .principle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 19px;
+    }
+
+    .principle-card {
+      padding: 28px;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-medium);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .principle-card h3 {
+      margin-bottom: 13px;
+      color: var(--accent-light);
+      font-size: 1.5rem;
+    }
+
+    .principle-card p {
+      margin-bottom: 0;
+      color: #cbd5cf;
+    }
+
+    .ethics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+    }
+
+    .ethics-panel {
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: var(--surface);
+      box-shadow: var(--shadow-small);
+    }
+
+    .ethics-panel h3 {
+      margin-bottom: 18px;
+      color: var(--primary);
+      font-size: 1.9rem;
+    }
+
+    .ethics-panel p,
+    .ethics-panel li {
+      color: var(--text-soft);
+    }
+
+    .ethics-panel ul {
+      margin: 20px 0 0;
+      padding-left: 20px;
+    }
+
+    .ethics-panel li + li {
+      margin-top: 10px;
+    }
+
+    .creator-card {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 44px;
+      align-items: center;
+      padding: 42px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      background: var(--surface);
+      box-shadow: var(--shadow-small);
+    }
+
+    .creator-placeholder {
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(178, 139, 77, 0.5);
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #365f52,
+          var(--primary-dark)
+        );
+      color: var(--text-light);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .creator-copy h2 {
+      margin-bottom: 17px;
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+    }
+
+    .creator-role {
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .creator-copy p {
+      color: var(--text-soft);
+    }
+
+    .creator-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .closing-panel {
+      padding: 58px;
+      border: 1px solid rgba(222, 196, 143, 0.43);
+      border-radius: var(--radius-large);
+      background: var(--surface-dark);
+      color: var(--text-light);
+      text-align: center;
+      box-shadow: var(--shadow-large);
+    }
+
+    .closing-panel h2 {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: clamp(2.4rem, 5vw, 4.35rem);
+    }
+
+    .closing-panel p {
+      max-width: 720px;
+      margin: 22px auto 0;
+      color: #ccd6d0;
+      font-size: 1.05rem;
+    }
+
+    .closing-status {
+      margin-top: 28px;
+      display: inline-flex;
+      padding: 9px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      border-radius: 999px;
+      color: var(--accent-light);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .site-footer {
+      padding: 42px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 34px;
+    }
+
+    .footer-brand {
+      max-width: 560px;
+    }
+
+    .footer-brand strong {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--primary);
+    }
+
+    .footer-brand p,
+    .footer-meta {
+      margin-bottom: 0;
+      color: var(--text-soft);
+      font-size: 0.84rem;
+    }
+
+    .footer-meta {
+      text-align: right;
+    }
+
+    @media (max-width: 940px) {
+      .desktop-nav,
+      .header-status {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: inline-flex;
+      }
+
+      .hero-grid,
+      .intro-grid,
+      .creator-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 52px;
+      }
+
+      .profile-preview {
+        max-width: 650px;
+      }
+
+      .principle-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .creator-placeholder {
+        width: 190px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 28px), var(--content-width));
+      }
+
+      .development-banner {
+        padding: 10px 14px;
+        font-size: 0.78rem;
+      }
+
+      .header-inner {
+        min-height: 70px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+      }
+
+      .brand-title {
+        font-size: 0.86rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.63rem;
+      }
+
+      .hero {
+        padding: 74px 0 72px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 15vw, 4.5rem);
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .assessment-grid,
+      .ethics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .assessment-card {
+        min-height: auto;
+      }
+
+      .creator-card {
+        padding: 28px;
+      }
+
+      .creator-placeholder {
+        width: 150px;
+      }
+
+      .closing-panel {
+        padding: 42px 24px;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+      }
+
+      .footer-meta {
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <div class="development-banner">
+    Development Prototype — The assessments are not yet open
+    for public participation.
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a
+        class="brand"
+        href="#top"
+        aria-label="Harrington Conflict Intelligence Assessment home"
+      >
+        <span
+          class="brand-mark"
+          aria-hidden="true"
+        >
+          HCIA
+        </span>
+
+        <span class="brand-copy">
+          <span class="brand-title">
+            Harrington Conflict Intelligence Assessment
+          </span>
+
+          <span class="brand-subtitle">
+            Understanding Precedes Resolution
+          </span>
+        </span>
+      </a>
+
+      <nav
+        class="desktop-nav"
+        aria-label="Primary navigation"
+      >
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#assessments">
+          Assessments
+        </a>
+
+        <a href="#ethics">
+          Ethics
+        </a>
+
+        <a href="#creator">
+          Creator
+        </a>
+      </nav>
+
+      <span class="header-status">
+        Prototype 1.0
+      </span>
+
+      <button
+        class="mobile-menu-button"
+        id="mobile-menu-button"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        ☰
+      </button>
+    </div>
+
+    <nav
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-label="Mobile navigation"
+    >
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#assessments">
+        Assessments
+      </a>
+
+      <a href="#ethics">
+        Ethics
+      </a>
+
+      <a href="#creator">
+        Creator
+      </a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section
+      class="hero"
+      id="top"
+    >
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">
+            A guided conflict self-awareness platform
+          </p>
+
+          <h1>
+            Understand how you
+            <span class="hero-highlight">
+              experience conflict.
+            </span>
+          </h1>
+
+          <p class="hero-description">
+            The Harrington Conflict Intelligence Assessment
+            is being developed to help people examine how they
+            communicate, listen, process emotions, make
+            decisions, respond under pressure, repair
+            relationships, and continue growing through conflict.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="#assessments"
+            >
+              Explore the Assessment Pathways
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="#about"
+            >
+              Learn How the HCIA Works
+            </a>
+          </div>
+
+          <p class="hero-note">
+            The current site is a development prototype.
+            Assessment participation will open after pilot review.
+          </p>
+        </div>
+
+        <aside
+          class="profile-preview"
+          aria-label="Example Harrington Profile structure"
+        >
+          <p class="preview-label">
+            Your Harrington Profile
+          </p>
+
+          <h2>
+            More than a score.
+          </h2>
+
+          <p>
+            The HCIA is designed to synthesize patterns across
+            your responses and translate them into a practical
+            learning profile.
+          </p>
+
+          <ul class="profile-list">
+            <li>
+              <span>Baseline approach</span>
+              <strong>Your ordinary tendencies</strong>
+            </li>
+
+            <li>
+              <span>Conflict activation</span>
+              <strong>Your pressure patterns</strong>
+            </li>
+
+            <li>
+              <span>Growth capacity</span>
+              <strong>Your pathways forward</strong>
+            </li>
+
+            <li>
+              <span>Learning guidance</span>
+              <strong>Practical next steps</strong>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section
+      class="section section-light"
+      id="about"
+    >
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-statement">
+            <p>
+              Conflict intelligence is not simply knowing what
+              conflict is. It is learning to recognize what
+              happens within us, between us, and around us when
+              disagreement becomes meaningful.
+            </p>
+          </div>
+
+          <div class="intro-copy">
+            <p>
+              The HCIA is an educational self-reflection system.
+              It is intended to help participants recognize
+              behavioral tendencies without reducing anyone to
+              one fixed personality category.
+            </p>
+
+            <p>
+              Instead of producing a simple grade or generic
+              summary, the completed system will examine patterns
+              across multiple answers. It will identify possible
+              strengths, tensions, stress responses, blind spots,
+              and growth opportunities.
+            </p>
+
+            <p>
+              Results will be presented as a learning profile that
+              can support personal reflection, difficult-
+              conversation preparation, mediation readiness,
+              conflict coaching, leadership development, and
+              continued conflict education.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="assessments"
+    >
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">
+            Choose your pathway
+          </p>
+
+          <h2>
+            Four ways to explore your conflict intelligence
+          </h2>
+
+          <p>
+            Participants will be able to complete one focused
+            module or combine all three modules into the Complete
+            HCIA. Each pathway will generate meaningful feedback
+            related to its specific purpose.
+          </p>
+        </div>
+
+        <div class="assessment-grid">
+          <article class="assessment-card">
+            <span
+              class="assessment-number"
+              aria-hidden="true"
+            >
+              01
+            </span>
+
+            <h3>
+              Baseline Profile
+            </h3>
+
+            <p>
+              Explore how you generally approach communication,
+              disagreement, listening, decisions, and
+              collaboration under ordinary conditions.
+            </p>
+
+            <ul class="assessment-details">
+              <li>Conflict approach</li>
+              <li>Communication tendencies</li>
+              <li>Listening orientation</li>
+              <li>Decision-making preferences</li>
+            </ul>
+
+            <div class="assessment-meta">
+              <span class="meta-pill">
+                Approximately 20–25 questions
+              </span>
+
+              <span class="meta-pill">
+                Approximately 6–8 minutes
+              </span>
+            </div>
+
+            <span
+              class="assessment-link"
+              aria-disabled="true"
+            >
+              Module in Development
+            </span>
+          </article>
+
+          <article class="assessment-card">
+            <span
+              class="assessment-number"
+              aria-hidden="true"
+            >
+              02
+            </span>
+
+            <h3>
+              Conflict Activation
+            </h3>
+
+            <p>
+              Examine what changes when conflict becomes
+              emotionally significant, uncertain, personal, or
+              difficult to control.
+            </p>
+
+            <ul class="assessment-details">
+              <li>Initial activation</li>
+              <li>Emotional processing</li>
+              <li>Stress behavior</li>
+              <li>Return and repair patterns</li>
+            </ul>
+
+            <div class="assessment-meta">
+              <span class="meta-pill">
+                Approximately 20–25 questions
+              </span>
+
+              <span class="meta-pill">
+                Approximately 6–8 minutes
+              </span>
+            </div>
+
+            <span
+              class="assessment-link"
+              aria-disabled="true"
+            >
+              Module in Development
+            </span>
+          </article>
+
+          <article class="assessment-card">
+            <span
+              class="assessment-number"
+              aria-hidden="true"
+            >
+              03
+            </span>
+
+            <h3>
+              Growth Capacity
+            </h3>
+
+            <p>
+              Consider how you adapt, receive feedback, practice
+              new skills, accept responsibility, repair harm, and
+              continue learning after conflict.
+            </p>
+
+            <ul class="assessment-details">
+              <li>Adaptability</li>
+              <li>Feedback orientation</li>
+              <li>Repair capacity</li>
+              <li>Learning and leadership</li>
+            </ul>
+
+            <div class="assessment-meta">
+              <span class="meta-pill">
+                Approximately 20–25 questions
+              </span>
+
+              <span class="meta-pill">
+                Approximately 6–8 minutes
+              </span>
+            </div>
+
+            <span
+              class="assessment-link"
+              aria-disabled="true"
+            >
+              Module in Development
+            </span>
+          </article>
+
+          <article
+            class="assessment-card assessment-card-featured"
+          >
+            <span
+              class="assessment-number"
+              aria-hidden="true"
+            >
+              04
+            </span>
+
+            <h3>
+              Complete HCIA
+            </h3>
+
+            <p>
+              Complete all three modules to receive the fullest
+              version of Your Harrington Profile and an integrated
+              analysis of how your ordinary and activated patterns
+              interact.
+            </p>
+
+            <ul class="assessment-details">
+              <li>All three assessment modules</li>
+              <li>Integrated conflict narrative</li>
+              <li>Strengths and possible blind spots</li>
+              <li>Prioritized learning recommendations</li>
+            </ul>
+
+            <div class="assessment-meta">
+              <span class="meta-pill">
+                Approximately 60–75 questions
+              </span>
+
+              <span class="meta-pill">
+                Approximately 18–24 minutes
+              </span>
+            </div>
+
+            <span
+              class="assessment-link"
+              aria-disabled="true"
+            >
+              Full Assessment in Development
+            </span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">
+            The HCIA approach
+          </p>
+
+          <h2>
+            A profile designed for understanding and growth
+          </h2>
+
+          <p>
+            The assessment is being built around several permanent
+            principles that govern how questions, scores, and
+            participant reports will be developed.
+          </p>
+        </div>
+
+        <div class="principle-grid">
+          <article class="principle-card">
+            <h3>
+              Patterns, Not Labels
+            </h3>
+
+            <p>
+              Results describe tendencies and interactions.
+              They are not intended to define a participant’s
+              permanent identity.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <h3>
+              Context Matters
+            </h3>
+
+            <p>
+              Conflict behavior may change according to
+              relationship, culture, power, safety, responsibility,
+              and emotional intensity.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <h3>
+              Insight Must Lead Somewhere
+            </h3>
+
+            <p>
+              Every profile should move beyond description by
+              identifying practical reflection questions,
+              exercises, and learning opportunities.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="ethics"
+    >
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">
+            Ethical boundaries
+          </p>
+
+          <h2>
+            What the HCIA is—and what it is not
+          </h2>
+
+          <p>
+            Responsible implementation requires clear limits,
+            transparent claims, voluntary participation, careful
+            data practices, and respect for each participant’s
+            dignity and agency.
+          </p>
+        </div>
+
+        <div class="ethics-grid">
+          <article class="ethics-panel">
+            <h3>
+              Intended Purpose
+            </h3>
+
+            <p>
+              The HCIA is being developed as an educational
+              conflict self-awareness and interpersonal-
+              development resource.
+            </p>
+
+            <ul>
+              <li>Support reflection and conflict literacy</li>
+              <li>Identify possible behavioral patterns</li>
+              <li>Prepare for difficult conversations</li>
+              <li>Connect participants with learning resources</li>
+              <li>Encourage practical growth without shaming</li>
+            </ul>
+          </article>
+
+          <article class="ethics-panel">
+            <h3>
+              Important Limitations
+            </h3>
+
+            <p>
+              The HCIA is not intended to function as a clinical,
+              psychological, forensic, legal, or employment-
+              selection instrument.
+            </p>
+
+            <ul>
+              <li>It does not diagnose mental-health conditions</li>
+              <li>It does not determine legal fitness or capacity</li>
+              <li>It does not predict violence or dangerousness</li>
+              <li>It does not establish relationship compatibility</li>
+              <li>It does not replace qualified professional care</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section section-light"
+      id="creator"
+    >
+      <div class="container">
+        <article class="creator-card">
+          <div
+            class="creator-placeholder"
+            aria-label="Robert Harrington Jr. placeholder emblem"
+          >
+            RH
+          </div>
+
+          <div class="creator-copy">
+            <p class="creator-role">
+              Creator and Project Developer
+            </p>
+
+            <h2>
+              Robert Harrington Jr.
+            </h2>
+
+            <p>
+              Robert Harrington Jr. created the Harrington
+              Conflict Intelligence Assessment as part of a
+              broader commitment to conflict literacy, mediation
+              education, self-awareness, and practical learning.
+            </p>
+
+            <p>
+              The HCIA draws upon mediation training,
+              conflict-resolution education, observation,
+              reflective practice, and continued study. It is
+              being developed through a structured process that
+              includes pilot testing, participant feedback,
+              professional review, usability evaluation, and
+              ongoing revision.
+            </p>
+
+            <p>
+              The project does not rely on authority through title
+              alone. Its credibility must develop through
+              transparency: explaining how the instrument was
+              built, what evidence supports it, what limitations
+              remain, and how each version changes over time.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="closing-panel">
+          <p class="eyebrow">
+            Current development status
+          </p>
+
+          <h2>
+            Building the foundation before inviting participation
+          </h2>
+
+          <p>
+            The first public prototype establishes the HCIA’s
+            identity, purpose, assessment pathways, ethical
+            boundaries, and participant experience. The next
+            development stages will add the assessment engine,
+            scoring architecture, profile generation, feedback
+            tools, and learning recommendations.
+          </p>
+
+          <span class="closing-status">
+            Assessment access is not yet active
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <strong>
+          Harrington Conflict Intelligence Assessment
+        </strong>
+
+        <p>
+          An educational self-awareness and conflict-development
+          platform. Understanding Precedes Resolution.
+        </p>
+      </div>
+
+      <p class="footer-meta">
+        Development Prototype 1.0<br>
+        © <span id="current-year"></span> Robert Harrington Jr.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton =
+      document.getElementById("mobile-menu-button");
+
+    const mobileMenu =
+      document.getElementById("mobile-menu");
+
+    menuButton.addEventListener("click", function () {
+      const isOpen =
+        mobileMenu.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      );
+
+      menuButton.textContent =
+        isOpen ? "×" : "☰";
+    });
+
+    mobileMenu
+      .querySelectorAll("a")
+      .forEach(function (link) {
+        link.addEventListener("click", function () {
+          mobileMenu.classList.remove("open");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+          );
+
+          menuButton.textContent = "☰";
+        });
+      });
+
+    document.getElementById(
+      "current-year"
+    ).textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
