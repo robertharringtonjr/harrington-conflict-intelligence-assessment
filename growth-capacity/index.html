@@ -1,0 +1,2693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Complete the HCIA Growth Capacity Assessment to explore how you learn from conflict, receive feedback, repair harm, adapt patterns, and build sustainable conflict skills."
+  >
+
+  <meta
+    name="author"
+    content="Robert Harrington Jr."
+  >
+
+  <title>
+    Growth Capacity Assessment | HCIA
+  </title>
+
+  <style>
+    :root {
+      --background: #f4f0e7;
+      --surface: #fffdf8;
+      --surface-soft: #ebe5d9;
+      --surface-dark: #17241f;
+
+      --primary: #264c40;
+      --primary-dark: #18372f;
+      --primary-soft: #dce7e1;
+
+      --accent: #b28b4d;
+      --accent-light: #dec48f;
+
+      --text: #202722;
+      --text-soft: #52605a;
+      --text-light: #f9f6ee;
+
+      --border: #d8d0c1;
+
+      --warning-background: #fff5dd;
+      --warning-border: #d5a84e;
+      --warning-text: #654b18;
+
+      --error: #9b342f;
+
+      --shadow:
+        0 18px 55px rgba(24, 39, 33, 0.12);
+
+      --radius-small: 12px;
+      --radius-medium: 20px;
+      --radius-large: 30px;
+
+      --content-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    a,
+    label {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    .container {
+      width: min(
+        calc(100% - 32px),
+        var(--content-width)
+      );
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 1000;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: var(--primary-dark);
+      color: white;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    .pilot-banner {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--warning-border);
+      background: var(--warning-background);
+      color: var(--warning-text);
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(244, 240, 231, 0.97);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 68px;
+      height: 52px;
+      flex: 0 0 auto;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+    }
+
+    .brand-subtitle {
+      margin-top: 5px;
+      color: var(--text-soft);
+      font-size: 0.67rem;
+      font-weight: 750;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-link {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      padding: 16px 0;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 34px 0 80px;
+    }
+
+    .assessment-shell {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .assessment-header {
+      padding: 48px;
+      background: var(--surface-dark);
+      color: var(--text-light);
+    }
+
+    .assessment-label {
+      margin-bottom: 12px;
+      color: var(--accent-light);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .assessment-header h1 {
+      margin-bottom: 18px;
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+    }
+
+    .assessment-header p {
+      max-width: 730px;
+      margin-bottom: 0;
+      color: #d5ddd8;
+      font-size: 1.05rem;
+    }
+
+    .assessment-meta {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta-pill {
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      color: #eef2ef;
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .stage {
+      display: none;
+      padding: 46px;
+    }
+
+    .stage.active {
+      display: block;
+    }
+
+    .stage-heading {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .stage-heading h2 {
+      margin-bottom: 14px;
+      color: var(--primary-dark);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .stage-heading p {
+      margin-bottom: 0;
+      color: var(--text-soft);
+    }
+
+    .notice {
+      margin: 24px 0;
+      padding: 22px;
+      border-left: 4px solid var(--accent);
+      border-radius:
+        0
+        var(--radius-small)
+        var(--radius-small)
+        0;
+      background: var(--surface-soft);
+      color: var(--text-soft);
+    }
+
+    .notice strong {
+      color: var(--primary-dark);
+    }
+
+    .field {
+      margin-top: 24px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    .field-hint {
+      margin: -4px 0 9px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .text-input {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: white;
+      color: var(--text);
+    }
+
+    .text-input:focus {
+      outline: 3px solid rgba(178, 139, 77, 0.35);
+      border-color: var(--accent);
+    }
+
+    .checkbox-list {
+      margin-top: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .checkbox-row {
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+    }
+
+    .checkbox-row input {
+      width: 19px;
+      height: 19px;
+      margin-top: 3px;
+      flex: 0 0 auto;
+      accent-color: var(--primary);
+    }
+
+    .checkbox-row label {
+      color: var(--text-soft);
+      cursor: pointer;
+    }
+
+    .checkbox-row strong {
+      color: var(--primary-dark);
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 18px;
+      color: var(--error);
+      font-weight: 750;
+    }
+
+    .error-message.visible {
+      display: block;
+    }
+
+    .progress-region {
+      padding: 25px 46px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+
+    .progress-copy {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .progress-track {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #d6d0c5;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          #467364
+        );
+      transition: width 220ms ease;
+    }
+
+    .question-card {
+      min-height: 410px;
+    }
+
+    .question-domain {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .question-text {
+      margin-bottom: 28px;
+      color: var(--primary-dark);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.3;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .answer-option {
+      position: relative;
+      display: block;
+    }
+
+    .answer-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .answer-content {
+      padding: 17px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+      color: var(--text-soft);
+      cursor: pointer;
+      transition:
+        border-color 150ms ease,
+        background-color 150ms ease,
+        transform 150ms ease;
+    }
+
+    .answer-content:hover {
+      transform: translateY(-1px);
+      border-color: rgba(38, 76, 64, 0.5);
+    }
+
+    .answer-letter {
+      width: 30px;
+      height: 30px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .answer-option input:checked + .answer-content {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      box-shadow:
+        0 0 0 3px rgba(38, 76, 64, 0.09);
+    }
+
+    .answer-option input:focus-visible + .answer-content {
+      outline: 3px solid rgba(178, 139, 77, 0.45);
+      outline-offset: 3px;
+    }
+
+    .controls {
+      margin-top: 34px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button {
+      min-height: 50px;
+      padding: 13px 21px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: var(--text-light);
+    }
+
+    .button-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .button-secondary {
+      border-color: var(--primary);
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .button-secondary:hover {
+      background: var(--primary-soft);
+    }
+
+    .button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .review-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .review-row {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+    }
+
+    .review-row strong {
+      color: var(--primary-dark);
+    }
+
+    .review-row span {
+      color: var(--text-soft);
+      text-align: right;
+    }
+
+    .submission-note {
+      margin-top: 24px;
+      color: var(--text-soft);
+      font-size: 0.86rem;
+    }
+
+    .site-footer {
+      padding: 38px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .footer-inner strong {
+      color: var(--primary);
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header-links {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .header-link {
+        text-align: center;
+      }
+
+      .assessment-header,
+      .stage {
+        padding: 30px 24px;
+      }
+
+      .progress-region {
+        padding: 20px 24px;
+      }
+
+      .controls {
+        flex-direction: column-reverse;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .review-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .review-row span {
+        text-align: left;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <div class="pilot-banner">
+    HCIA Public Pilot Beta — Participation is currently by invitation.
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a
+        class="brand"
+        href="../"
+        aria-label="Return to the HCIA homepage"
+      >
+        <span class="brand-logo" aria-hidden="true">
+          <img
+            src="../harrington-bridge-compass-logo.jpeg"
+            alt=""
+          >
+        </span>
+
+        <span class="brand-copy">
+          <span class="brand-title">
+            Harrington Conflict Intelligence Assessment
+          </span>
+
+          <span class="brand-subtitle">
+            Understanding Precedes Resolution
+          </span>
+        </span>
+      </a>
+
+      <nav
+        class="header-links"
+        aria-label="Assessment navigation"
+      >
+        <a class="header-link" href="../">
+          HCIA Home
+        </a>
+
+        <a
+          class="header-link"
+          href="https://robertharringtonjr.com/"
+        >
+          Harrington Mediation
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container breadcrumb">
+    <a href="https://robertharringtonjr.com/">
+      Harrington Mediation
+    </a>
+    &nbsp;›&nbsp;
+    <a href="../">
+      HCIA
+    </a>
+    &nbsp;›&nbsp;
+    Growth Capacity
+  </div>
+
+  <main id="main-content">
+    <div class="container">
+      <article class="assessment-shell">
+        <header class="assessment-header">
+          <p class="assessment-label">
+            HCIA Assessment 03
+          </p>
+
+          <h1>
+            Growth Capacity
+          </h1>
+
+          <p>
+            Explore how you receive feedback, reflect on your own
+            behavior, repair harm, revise assumptions, practice new
+            skills, and sustain change after conflict.
+          </p>
+
+          <div class="assessment-meta">
+            <span class="meta-pill">
+              20 pilot questions
+            </span>
+
+            <span class="meta-pill">
+              Approximately 6–8 minutes
+            </span>
+
+            <span class="meta-pill">
+              Version: Pilot Beta 1.0
+            </span>
+          </div>
+        </header>
+
+        <section
+          class="stage active"
+          id="intro-stage"
+          aria-labelledby="intro-heading"
+        >
+          <div class="stage-heading">
+            <h2 id="intro-heading">
+              Before You Begin
+            </h2>
+
+            <p>
+              Answer according to what you most commonly do after
+              conflict, especially when you recognize that your own
+              assumptions, choices, communication, or habits may
+              need to change.
+            </p>
+          </div>
+
+          <div class="notice">
+            <strong>Educational-use notice:</strong>
+            The HCIA is an educational self-awareness resource.
+            It is not a psychological diagnosis, clinical
+            evaluation, legal assessment, employment-selection
+            instrument, or substitute for qualified professional
+            care.
+          </div>
+
+          <div class="field">
+            <label for="preferred-name">
+              Preferred first name
+            </label>
+
+            <p class="field-hint">
+              This name will appear on your HCIA Results Profile.
+            </p>
+
+            <input
+              class="text-input"
+              id="preferred-name"
+              name="preferred-name"
+              type="text"
+              maxlength="60"
+              autocomplete="given-name"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="participant-email">
+              Email address
+              <span aria-hidden="true">(optional)</span>
+            </label>
+
+            <p class="field-hint">
+              Email delivery will be activated during Stage Two.
+              This prototype does not send or upload your email.
+            </p>
+
+            <input
+              class="text-input"
+              id="participant-email"
+              name="participant-email"
+              type="email"
+              maxlength="120"
+              autocomplete="email"
+            >
+          </div>
+
+          <div class="checkbox-list">
+            <div class="checkbox-row">
+              <input
+                id="acknowledge-educational"
+                type="checkbox"
+              >
+
+              <label for="acknowledge-educational">
+                <strong>I understand</strong> that this is an
+                educational self-assessment and not a clinical,
+                diagnostic, legal, or employment evaluation.
+              </label>
+            </div>
+
+            <div class="checkbox-row">
+              <input
+                id="acknowledge-self-report"
+                type="checkbox"
+              >
+
+              <label for="acknowledge-self-report">
+                <strong>I understand</strong> that my results are
+                based on self-report and may vary according to
+                context, relationship, power, safety, stress, and
+                recent experiences.
+              </label>
+            </div>
+
+            <div class="checkbox-row">
+              <input
+                id="acknowledge-pilot"
+                type="checkbox"
+              >
+
+              <label for="acknowledge-pilot">
+                <strong>I understand</strong> that this is a pilot
+                version and that its questions, scoring, and
+                interpretation may be revised.
+              </label>
+            </div>
+          </div>
+
+          <p
+            class="error-message"
+            id="intro-error"
+            role="alert"
+          >
+            Enter your preferred first name and complete all three
+            acknowledgments before beginning.
+          </p>
+
+          <div class="controls">
+            <a class="button button-secondary" href="../">
+              Return to HCIA Home
+            </a>
+
+            <button
+              class="button button-primary"
+              id="begin-button"
+              type="button"
+            >
+              Begin Growth Capacity Assessment
+            </button>
+          </div>
+        </section>
+
+        <div
+          class="progress-region"
+          id="progress-region"
+          hidden
+        >
+          <div class="progress-copy">
+            <span id="progress-label">
+              Question 1 of 20
+            </span>
+
+            <span id="progress-percent">
+              5% complete
+            </span>
+          </div>
+
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="5"
+            aria-labelledby="progress-label"
+          >
+            <div
+              class="progress-fill"
+              id="progress-fill"
+            ></div>
+          </div>
+        </div>
+
+        <section
+          class="stage"
+          id="question-stage"
+          aria-live="polite"
+        >
+          <div class="question-card">
+            <p
+              class="question-domain"
+              id="question-domain"
+            ></p>
+
+            <h2
+              class="question-text"
+              id="question-text"
+            ></h2>
+
+            <div
+              class="answer-list"
+              id="answer-list"
+            ></div>
+
+            <p
+              class="error-message"
+              id="question-error"
+              role="alert"
+            >
+              Select the answer that most closely reflects you
+              before continuing.
+            </p>
+          </div>
+
+          <div class="controls">
+            <button
+              class="button button-secondary"
+              id="back-button"
+              type="button"
+            >
+              Back
+            </button>
+
+            <button
+              class="button button-primary"
+              id="continue-button"
+              type="button"
+            >
+              Continue
+            </button>
+          </div>
+        </section>
+
+        <section
+          class="stage"
+          id="review-stage"
+          aria-labelledby="review-heading"
+        >
+          <div class="stage-heading">
+            <h2 id="review-heading">
+              Review and Submit
+            </h2>
+
+            <p>
+              Confirm that all 20 questions have been answered.
+              You may return to the final question before
+              submitting.
+            </p>
+          </div>
+
+          <div class="review-list" id="review-list"></div>
+
+          <p class="submission-note">
+            After submission, your results will be calculated in
+            this browser and stored temporarily for the shared
+            HCIA Results Profile page. No information is uploaded
+            during this Stage One prototype.
+          </p>
+
+          <div class="controls">
+            <button
+              class="button button-secondary"
+              id="return-to-questions-button"
+              type="button"
+            >
+              Return to Questions
+            </button>
+
+            <button
+              class="button button-primary"
+              id="submit-button"
+              type="button"
+            >
+              Submit Growth Capacity Assessment
+            </button>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>
+          Harrington Conflict Intelligence Assessment
+        </strong><br>
+        Understanding Precedes Resolution
+      </div>
+
+      <div>
+        Pilot Beta 1.0<br>
+        © <span id="current-year"></span> Robert Harrington Jr.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        domain: "Feedback Receptivity",
+        text:
+          "When someone gives me difficult feedback about my behavior in conflict, I am most likely to:",
+        options: [
+          {
+            text:
+              "Defend my intentions and explain why their interpretation is incomplete.",
+            scores: {
+              defensiveReception: 3,
+              cautiousReception: 1,
+              openReception: 0,
+              integrativeReception: 0
+            }
+          },
+          {
+            text:
+              "Listen carefully, but remain unsure whether the feedback is fair.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 3,
+              openReception: 1,
+              integrativeReception: 0
+            }
+          },
+          {
+            text:
+              "Consider the feedback and look for what I can learn from it.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 1,
+              openReception: 3,
+              integrativeReception: 1
+            }
+          },
+          {
+            text:
+              "Examine both intent and impact, then identify a concrete adjustment.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 0,
+              openReception: 1,
+              integrativeReception: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Self-Reflection",
+        text:
+          "After a conflict, I usually think about my own contribution by:",
+        options: [
+          {
+            text:
+              "Focusing mainly on what the other person did wrong.",
+            scores: {
+              externalFocus: 3,
+              episodicReflection: 0,
+              accountableReflection: 0,
+              systemicReflection: 0
+            }
+          },
+          {
+            text:
+              "Reviewing isolated moments where I may have handled things differently.",
+            scores: {
+              externalFocus: 1,
+              episodicReflection: 3,
+              accountableReflection: 1,
+              systemicReflection: 0
+            }
+          },
+          {
+            text:
+              "Identifying specific choices, assumptions, or reactions that were mine.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 1,
+              accountableReflection: 3,
+              systemicReflection: 1
+            }
+          },
+          {
+            text:
+              "Examining my role, the relationship pattern, and the broader conditions that shaped the conflict.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 0,
+              accountableReflection: 1,
+              systemicReflection: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Repair Orientation",
+        text:
+          "When I realize that my actions had a harmful impact, I am most likely to:",
+        options: [
+          {
+            text:
+              "Explain that harm was not my intention.",
+            scores: {
+              intentDefense: 3,
+              symbolicRepair: 1,
+              responsiveRepair: 0,
+              restorativeRepair: 0
+            }
+          },
+          {
+            text:
+              "Apologize so the conflict can move forward.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 3,
+              responsiveRepair: 1,
+              restorativeRepair: 0
+            }
+          },
+          {
+            text:
+              "Acknowledge the impact and ask what would help repair it.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 1,
+              responsiveRepair: 3,
+              restorativeRepair: 1
+            }
+          },
+          {
+            text:
+              "Acknowledge impact, make repair, and change the pattern that caused the harm.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 0,
+              responsiveRepair: 1,
+              restorativeRepair: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Change Sustainability",
+        text:
+          "When I decide to change a conflict habit, I usually:",
+        options: [
+          {
+            text:
+              "Rely on motivation and hope I remember next time.",
+            scores: {
+              intentionOnly: 3,
+              shortTermPractice: 1,
+              structuredPractice: 0,
+              sustainedIntegration: 0
+            }
+          },
+          {
+            text:
+              "Practice briefly, especially while the conflict is still fresh.",
+            scores: {
+              intentionOnly: 1,
+              shortTermPractice: 3,
+              structuredPractice: 1,
+              sustainedIntegration: 0
+            }
+          },
+          {
+            text:
+              "Create a specific practice, reminder, or accountability step.",
+            scores: {
+              intentionOnly: 0,
+              shortTermPractice: 1,
+              structuredPractice: 3,
+              sustainedIntegration: 1
+            }
+          },
+          {
+            text:
+              "Build the new behavior into repeated practice and review it over time.",
+            scores: {
+              intentionOnly: 0,
+              shortTermPractice: 0,
+              structuredPractice: 1,
+              sustainedIntegration: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Feedback Receptivity",
+        text:
+          "If feedback comes from someone I distrust or disagree with, I usually:",
+        options: [
+          {
+            text:
+              "Dismiss it because the source lacks credibility.",
+            scores: {
+              defensiveReception: 3,
+              cautiousReception: 1,
+              openReception: 0,
+              integrativeReception: 0
+            }
+          },
+          {
+            text:
+              "Remain guarded while considering whether any part may be useful.",
+            scores: {
+              defensiveReception: 1,
+              cautiousReception: 3,
+              openReception: 1,
+              integrativeReception: 0
+            }
+          },
+          {
+            text:
+              "Separate the message from the messenger and examine the substance.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 1,
+              openReception: 3,
+              integrativeReception: 1
+            }
+          },
+          {
+            text:
+              "Evaluate the substance, context, pattern, and possible blind spot before deciding what to use.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 0,
+              openReception: 1,
+              integrativeReception: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Self-Reflection",
+        text:
+          "When the same type of conflict happens repeatedly, I tend to:",
+        options: [
+          {
+            text:
+              "Assume I keep encountering difficult people or circumstances.",
+            scores: {
+              externalFocus: 3,
+              episodicReflection: 0,
+              accountableReflection: 0,
+              systemicReflection: 0
+            }
+          },
+          {
+            text:
+              "Think about what happened differently in each incident.",
+            scores: {
+              externalFocus: 1,
+              episodicReflection: 3,
+              accountableReflection: 1,
+              systemicReflection: 0
+            }
+          },
+          {
+            text:
+              "Look for a recurring response or assumption in my own behavior.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 1,
+              accountableReflection: 3,
+              systemicReflection: 1
+            }
+          },
+          {
+            text:
+              "Examine recurring roles, incentives, boundaries, and relationship dynamics.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 0,
+              accountableReflection: 1,
+              systemicReflection: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Repair Orientation",
+        text:
+          "A meaningful apology, in my view, should primarily:",
+        options: [
+          {
+            text:
+              "Clarify that the harm was not deliberate.",
+            scores: {
+              intentDefense: 3,
+              symbolicRepair: 1,
+              responsiveRepair: 0,
+              restorativeRepair: 0
+            }
+          },
+          {
+            text:
+              "Express regret and reduce tension.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 3,
+              responsiveRepair: 1,
+              restorativeRepair: 0
+            }
+          },
+          {
+            text:
+              "Acknowledge what happened and the effect it had.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 1,
+              responsiveRepair: 3,
+              restorativeRepair: 1
+            }
+          },
+          {
+            text:
+              "Acknowledge impact, address repair, and demonstrate changed behavior.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 0,
+              responsiveRepair: 1,
+              restorativeRepair: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Change Sustainability",
+        text:
+          "When a new conflict skill feels uncomfortable or unnatural, I usually:",
+        options: [
+          {
+            text:
+              "Return to my familiar approach.",
+            scores: {
+              intentionOnly: 3,
+              shortTermPractice: 0,
+              structuredPractice: 0,
+              sustainedIntegration: 0
+            }
+          },
+          {
+            text:
+              "Try it occasionally when conditions feel manageable.",
+            scores: {
+              intentionOnly: 1,
+              shortTermPractice: 3,
+              structuredPractice: 1,
+              sustainedIntegration: 0
+            }
+          },
+          {
+            text:
+              "Practice it deliberately despite the discomfort.",
+            scores: {
+              intentionOnly: 0,
+              shortTermPractice: 1,
+              structuredPractice: 3,
+              sustainedIntegration: 1
+            }
+          },
+          {
+            text:
+              "Treat discomfort as part of the learning process and track progress over time.",
+            scores: {
+              intentionOnly: 0,
+              shortTermPractice: 0,
+              structuredPractice: 1,
+              sustainedIntegration: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Feedback Receptivity",
+        text:
+          "When several people give me similar feedback, I am most likely to:",
+        options: [
+          {
+            text:
+              "Question whether they share the same misunderstanding.",
+            scores: {
+              defensiveReception: 3,
+              cautiousReception: 1,
+              openReception: 0,
+              integrativeReception: 0
+            }
+          },
+          {
+            text:
+              "Take the pattern seriously but remain uncertain about what it means.",
+            scores: {
+              defensiveReception: 1,
+              cautiousReception: 3,
+              openReception: 1,
+              integrativeReception: 0
+            }
+          },
+          {
+            text:
+              "Assume there is something important for me to examine.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 1,
+              openReception: 3,
+              integrativeReception: 1
+            }
+          },
+          {
+            text:
+              "Compare the feedback across contexts and identify the underlying behavior.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 0,
+              openReception: 1,
+              integrativeReception: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Self-Reflection",
+        text:
+          "When I remember a conflict differently than the other person, I usually:",
+        options: [
+          {
+            text:
+              "Trust my own account because I know what I intended and observed.",
+            scores: {
+              externalFocus: 3,
+              episodicReflection: 0,
+              accountableReflection: 0,
+              systemicReflection: 0
+            }
+          },
+          {
+            text:
+              "Compare specific details to determine whose account is more accurate.",
+            scores: {
+              externalFocus: 1,
+              episodicReflection: 3,
+              accountableReflection: 1,
+              systemicReflection: 0
+            }
+          },
+          {
+            text:
+              "Consider that both accounts may reflect different experiences of the same interaction.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 1,
+              accountableReflection: 3,
+              systemicReflection: 1
+            }
+          },
+          {
+            text:
+              "Examine memory, perspective, power, context, and meaning before drawing conclusions.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 0,
+              accountableReflection: 1,
+              systemicReflection: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Repair Orientation",
+        text:
+          "If the other person remains hurt after I apologize, I am most likely to:",
+        options: [
+          {
+            text:
+              "Feel frustrated because I already explained or apologized.",
+            scores: {
+              intentDefense: 3,
+              symbolicRepair: 1,
+              responsiveRepair: 0,
+              restorativeRepair: 0
+            }
+          },
+          {
+            text:
+              "Repeat the apology and hope time resolves the remaining hurt.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 3,
+              responsiveRepair: 1,
+              restorativeRepair: 0
+            }
+          },
+          {
+            text:
+              "Ask what remains unaddressed.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 1,
+              responsiveRepair: 3,
+              restorativeRepair: 1
+            }
+          },
+          {
+            text:
+              "Examine whether repair requires action, accountability, boundaries, or sustained change.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 0,
+              responsiveRepair: 1,
+              restorativeRepair: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Change Sustainability",
+        text:
+          "When I make progress but later repeat an old pattern, I usually:",
+        options: [
+          {
+            text:
+              "Assume the change did not work.",
+            scores: {
+              intentionOnly: 3,
+              shortTermPractice: 1,
+              structuredPractice: 0,
+              sustainedIntegration: 0
+            }
+          },
+          {
+            text:
+              "Try again when I feel motivated.",
+            scores: {
+              intentionOnly: 1,
+              shortTermPractice: 3,
+              structuredPractice: 1,
+              sustainedIntegration: 0
+            }
+          },
+          {
+            text:
+              "Review what triggered the setback and adjust the practice.",
+            scores: {
+              intentionOnly: 0,
+              shortTermPractice: 1,
+              structuredPractice: 3,
+              sustainedIntegration: 1
+            }
+          },
+          {
+            text:
+              "Treat relapse as information and continue a longer process of integration.",
+            scores: {
+              intentionOnly: 0,
+              shortTermPractice: 0,
+              structuredPractice: 1,
+              sustainedIntegration: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Feedback Receptivity",
+        text:
+          "When feedback challenges how I see myself, I am most likely to:",
+        options: [
+          {
+            text:
+              "Protect my self-understanding and explain why the feedback is inaccurate.",
+            scores: {
+              defensiveReception: 3,
+              cautiousReception: 1,
+              openReception: 0,
+              integrativeReception: 0
+            }
+          },
+          {
+            text:
+              "Hold the feedback at a distance until I can decide whether it fits.",
+            scores: {
+              defensiveReception: 1,
+              cautiousReception: 3,
+              openReception: 1,
+              integrativeReception: 0
+            }
+          },
+          {
+            text:
+              "Consider whether the feedback reveals a blind spot.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 1,
+              openReception: 3,
+              integrativeReception: 1
+            }
+          },
+          {
+            text:
+              "Compare identity, intention, behavior, and impact without reducing myself to one mistake.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 0,
+              openReception: 1,
+              integrativeReception: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Self-Reflection",
+        text:
+          "When I examine my own role in conflict, I am most able to:",
+        options: [
+          {
+            text:
+              "Identify how other people or circumstances limited my choices.",
+            scores: {
+              externalFocus: 3,
+              episodicReflection: 1,
+              accountableReflection: 0,
+              systemicReflection: 0
+            }
+          },
+          {
+            text:
+              "Identify specific moments I regret.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 3,
+              accountableReflection: 1,
+              systemicReflection: 0
+            }
+          },
+          {
+            text:
+              "Take responsibility without assuming responsibility for everything.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 1,
+              accountableReflection: 3,
+              systemicReflection: 1
+            }
+          },
+          {
+            text:
+              "Understand personal responsibility within a larger relational and structural system.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 0,
+              accountableReflection: 1,
+              systemicReflection: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Repair Orientation",
+        text:
+          "When trust has been damaged, I believe it is rebuilt primarily through:",
+        options: [
+          {
+            text:
+              "Explaining the misunderstanding and restoring accurate intent.",
+            scores: {
+              intentDefense: 3,
+              symbolicRepair: 1,
+              responsiveRepair: 0,
+              restorativeRepair: 0
+            }
+          },
+          {
+            text:
+              "Apologies, reassurance, and time.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 3,
+              responsiveRepair: 1,
+              restorativeRepair: 0
+            }
+          },
+          {
+            text:
+              "Consistent responsiveness to the concerns that were raised.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 1,
+              responsiveRepair: 3,
+              restorativeRepair: 1
+            }
+          },
+          {
+            text:
+              "Repeated evidence of accountability, reliability, and changed behavior.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 0,
+              responsiveRepair: 1,
+              restorativeRepair: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Change Sustainability",
+        text:
+          "The most reliable way for me to improve a conflict skill is to:",
+        options: [
+          {
+            text:
+              "Understand why the skill matters.",
+            scores: {
+              intentionOnly: 3,
+              shortTermPractice: 1,
+              structuredPractice: 0,
+              sustainedIntegration: 0
+            }
+          },
+          {
+            text:
+              "Use it during a few important conversations.",
+            scores: {
+              intentionOnly: 1,
+              shortTermPractice: 3,
+              structuredPractice: 1,
+              sustainedIntegration: 0
+            }
+          },
+          {
+            text:
+              "Practice it in specific situations and review the results.",
+            scores: {
+              intentionOnly: 0,
+              shortTermPractice: 1,
+              structuredPractice: 3,
+              sustainedIntegration: 1
+            }
+          },
+          {
+            text:
+              "Integrate it into routines, relationships, reflection, and accountability.",
+            scores: {
+              intentionOnly: 0,
+              shortTermPractice: 0,
+              structuredPractice: 1,
+              sustainedIntegration: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Feedback Receptivity",
+        text:
+          "If I believe feedback is partly unfair but partly accurate, I usually:",
+        options: [
+          {
+            text:
+              "Focus on the unfair part because it weakens the entire message.",
+            scores: {
+              defensiveReception: 3,
+              cautiousReception: 1,
+              openReception: 0,
+              integrativeReception: 0
+            }
+          },
+          {
+            text:
+              "Remain cautious and separate what I accept from what I reject.",
+            scores: {
+              defensiveReception: 1,
+              cautiousReception: 3,
+              openReception: 1,
+              integrativeReception: 0
+            }
+          },
+          {
+            text:
+              "Use the accurate part even if the delivery was imperfect.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 1,
+              openReception: 3,
+              integrativeReception: 1
+            }
+          },
+          {
+            text:
+              "Integrate the valid information while also naming distortion or unfairness.",
+            scores: {
+              defensiveReception: 0,
+              cautiousReception: 0,
+              openReception: 1,
+              integrativeReception: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Self-Reflection",
+        text:
+          "When I feel shame or embarrassment about how I handled conflict, I usually:",
+        options: [
+          {
+            text:
+              "Shift attention toward the other person’s behavior.",
+            scores: {
+              externalFocus: 3,
+              episodicReflection: 0,
+              accountableReflection: 0,
+              systemicReflection: 0
+            }
+          },
+          {
+            text:
+              "Replay the incident without knowing what to do differently.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 3,
+              accountableReflection: 1,
+              systemicReflection: 0
+            }
+          },
+          {
+            text:
+              "Identify the behavior, take responsibility, and separate it from my overall worth.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 1,
+              accountableReflection: 3,
+              systemicReflection: 1
+            }
+          },
+          {
+            text:
+              "Examine the behavior, emotional trigger, relationship context, and conditions for change.",
+            scores: {
+              externalFocus: 0,
+              episodicReflection: 0,
+              accountableReflection: 1,
+              systemicReflection: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Repair Orientation",
+        text:
+          "When repair is not accepted immediately, I am most likely to:",
+        options: [
+          {
+            text:
+              "Feel that the other person is refusing to move forward.",
+            scores: {
+              intentDefense: 3,
+              symbolicRepair: 1,
+              responsiveRepair: 0,
+              restorativeRepair: 0
+            }
+          },
+          {
+            text:
+              "Give the situation time and repeat my willingness to apologize.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 3,
+              responsiveRepair: 1,
+              restorativeRepair: 0
+            }
+          },
+          {
+            text:
+              "Respect the other person’s pace while remaining available for further repair.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 1,
+              responsiveRepair: 3,
+              restorativeRepair: 1
+            }
+          },
+          {
+            text:
+              "Respect their pace, continue changed behavior, and avoid demanding forgiveness.",
+            scores: {
+              intentDefense: 0,
+              symbolicRepair: 0,
+              responsiveRepair: 1,
+              restorativeRepair: 3
+            }
+          }
+        ]
+      },
+      {
+        domain: "Change Sustainability",
+        text:
+          "When I want lasting growth after conflict, I am most likely to:",
+        options: [
+          {
+            text:
+              "Make a personal commitment to do better.",
+            scores: {
+              intentionOnly: 3,
+              shortTermPractice: 1,
+              structuredPractice: 0,
+              sustainedIntegration: 0
+            }
+          },
+          {
+            text:
+              "Try a new approach during the next similar conflict.",
+            scores: {
+              intentionOnly: 1,
+              shortTermPractice: 3,
+              structuredPractice: 1,
+              sustainedIntegration: 0
+            }
+          },
+          {
+            text:
+              "Define the behavior, practice it, and review what happens.",
+            scores: {
+              intentionOnly: 0,
+              shortTermPractice: 1,
+              structuredPractice: 3,
+              sustainedIntegration: 1
+            }
+          },
+          {
+            text:
+              "Create an ongoing cycle of practice, feedback, reflection, repair, and adjustment.",
+            scores: {
+              intentionOnly: 0,
+              shortTermPractice: 0,
+              structuredPractice: 1,
+              sustainedIntegration: 3
+            }
+          }
+        ]
+      }
+    ];
+
+    const labels = {
+      defensiveReception:
+        "Defensive Feedback Reception",
+      cautiousReception:
+        "Cautious Feedback Reception",
+      openReception:
+        "Open Feedback Reception",
+      integrativeReception:
+        "Integrative Feedback Reception",
+
+      externalFocus:
+        "Externally Focused Reflection",
+      episodicReflection:
+        "Episodic Self-Reflection",
+      accountableReflection:
+        "Accountable Self-Reflection",
+      systemicReflection:
+        "Systemic Self-Reflection",
+
+      intentDefense:
+        "Intent-Centered Repair",
+      symbolicRepair:
+        "Symbolic Repair",
+      responsiveRepair:
+        "Responsive Repair",
+      restorativeRepair:
+        "Restorative Repair",
+
+      intentionOnly:
+        "Intention-Led Change",
+      shortTermPractice:
+        "Short-Term Practice",
+      structuredPractice:
+        "Structured Skill Practice",
+      sustainedIntegration:
+        "Sustained Integration"
+    };
+
+    const domains = {
+      conflictStyle: [
+        "defensiveReception",
+        "cautiousReception",
+        "openReception",
+        "integrativeReception"
+      ],
+
+      communicationStyle: [
+        "externalFocus",
+        "episodicReflection",
+        "accountableReflection",
+        "systemicReflection"
+      ],
+
+      listeningStyle: [
+        "intentDefense",
+        "symbolicRepair",
+        "responsiveRepair",
+        "restorativeRepair"
+      ],
+
+      decisionStyle: [
+        "intentionOnly",
+        "shortTermPractice",
+        "structuredPractice",
+        "sustainedIntegration"
+      ]
+    };
+
+    let currentQuestion = 0;
+
+    const responses =
+      new Array(questions.length).fill(null);
+
+    const introStage =
+      document.getElementById("intro-stage");
+
+    const questionStage =
+      document.getElementById("question-stage");
+
+    const reviewStage =
+      document.getElementById("review-stage");
+
+    const progressRegion =
+      document.getElementById("progress-region");
+
+    const preferredNameInput =
+      document.getElementById("preferred-name");
+
+    const participantEmailInput =
+      document.getElementById("participant-email");
+
+    const introError =
+      document.getElementById("intro-error");
+
+    const questionError =
+      document.getElementById("question-error");
+
+    const questionDomain =
+      document.getElementById("question-domain");
+
+    const questionText =
+      document.getElementById("question-text");
+
+    const answerList =
+      document.getElementById("answer-list");
+
+    const progressLabel =
+      document.getElementById("progress-label");
+
+    const progressPercent =
+      document.getElementById("progress-percent");
+
+    const progressFill =
+      document.getElementById("progress-fill");
+
+    const progressTrack =
+      document.querySelector(".progress-track");
+
+    const backButton =
+      document.getElementById("back-button");
+
+    const continueButton =
+      document.getElementById("continue-button");
+
+    function showStage(stage) {
+      [introStage, questionStage, reviewStage]
+        .forEach(function (section) {
+          section.classList.remove("active");
+        });
+
+      stage.classList.add("active");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function validateIntroduction() {
+      const nameIsPresent =
+        preferredNameInput.value.trim().length > 0;
+
+      const acknowledgmentsAreComplete =
+        document.getElementById(
+          "acknowledge-educational"
+        ).checked &&
+        document.getElementById(
+          "acknowledge-self-report"
+        ).checked &&
+        document.getElementById(
+          "acknowledge-pilot"
+        ).checked;
+
+      if (
+        !nameIsPresent ||
+        !acknowledgmentsAreComplete
+      ) {
+        introError.classList.add("visible");
+        return false;
+      }
+
+      introError.classList.remove("visible");
+      return true;
+    }
+
+    function renderQuestion() {
+      const question =
+        questions[currentQuestion];
+
+      questionDomain.textContent =
+        question.domain;
+
+      questionText.textContent =
+        question.text;
+
+      answerList.innerHTML = "";
+
+      question.options.forEach(
+        function (option, optionIndex) {
+          const wrapper =
+            document.createElement("label");
+
+          wrapper.className =
+            "answer-option";
+
+          const radio =
+            document.createElement("input");
+
+          radio.type = "radio";
+          radio.name = "current-answer";
+          radio.value = optionIndex;
+
+          if (
+            responses[currentQuestion] ===
+            optionIndex
+          ) {
+            radio.checked = true;
+          }
+
+          const content =
+            document.createElement("span");
+
+          content.className =
+            "answer-content";
+
+          const letter =
+            document.createElement("span");
+
+          letter.className =
+            "answer-letter";
+
+          letter.textContent =
+            String.fromCharCode(
+              65 + optionIndex
+            );
+
+          const text =
+            document.createElement("span");
+
+          text.textContent =
+            option.text;
+
+          content.appendChild(letter);
+          content.appendChild(text);
+
+          wrapper.appendChild(radio);
+          wrapper.appendChild(content);
+
+          answerList.appendChild(wrapper);
+        }
+      );
+
+      const questionNumber =
+        currentQuestion + 1;
+
+      const percent =
+        Math.round(
+          (
+            questionNumber /
+            questions.length
+          ) * 100
+        );
+
+      progressLabel.textContent =
+        "Question " +
+        questionNumber +
+        " of " +
+        questions.length;
+
+      progressPercent.textContent =
+        percent + "% complete";
+
+      progressFill.style.width =
+        percent + "%";
+
+      progressTrack.setAttribute(
+        "aria-valuenow",
+        String(percent)
+      );
+
+      backButton.disabled =
+        currentQuestion === 0;
+
+      continueButton.textContent =
+        currentQuestion ===
+        questions.length - 1
+          ? "Review Answers"
+          : "Continue";
+
+      questionError.classList.remove(
+        "visible"
+      );
+    }
+
+    function saveCurrentAnswer() {
+      const selected =
+        document.querySelector(
+          'input[name="current-answer"]:checked'
+        );
+
+      if (!selected) {
+        questionError.classList.add(
+          "visible"
+        );
+
+        return false;
+      }
+
+      responses[currentQuestion] =
+        Number(selected.value);
+
+      questionError.classList.remove(
+        "visible"
+      );
+
+      return true;
+    }
+
+    function createReview() {
+      const reviewList =
+        document.getElementById(
+          "review-list"
+        );
+
+      reviewList.innerHTML = "";
+
+      questions.forEach(
+        function (
+          question,
+          questionIndex
+        ) {
+          const row =
+            document.createElement("div");
+
+          row.className =
+            "review-row";
+
+          const questionLabel =
+            document.createElement(
+              "strong"
+            );
+
+          questionLabel.textContent =
+            "Question " +
+            (questionIndex + 1);
+
+          const answer =
+            document.createElement("span");
+
+          const selectedIndex =
+            responses[questionIndex];
+
+          answer.textContent =
+            question.options[
+              selectedIndex
+            ].text;
+
+          row.appendChild(
+            questionLabel
+          );
+
+          row.appendChild(answer);
+
+          reviewList.appendChild(row);
+        }
+      );
+    }
+
+    function calculateScores() {
+      const scores = {};
+
+      responses.forEach(
+        function (
+          selectedOption,
+          questionIndex
+        ) {
+          const selectedScores =
+            questions[questionIndex]
+              .options[selectedOption]
+              .scores;
+
+          Object.entries(
+            selectedScores
+          ).forEach(
+            function (entry) {
+              const key = entry[0];
+              const value = entry[1];
+
+              scores[key] =
+                (scores[key] || 0) +
+                value;
+            }
+          );
+        }
+      );
+
+      return scores;
+    }
+
+    function rankDomain(
+      scores,
+      domainKeys
+    ) {
+      return domainKeys
+        .map(function (key) {
+          return {
+            key: key,
+            label: labels[key],
+            score: scores[key] || 0
+          };
+        })
+        .sort(function (a, b) {
+          return b.score - a.score;
+        });
+    }
+
+    function buildResults() {
+      const scores =
+        calculateScores();
+
+      const feedbackRanking =
+        rankDomain(
+          scores,
+          domains.conflictStyle
+        );
+
+      const reflectionRanking =
+        rankDomain(
+          scores,
+          domains.communicationStyle
+        );
+
+      const repairRanking =
+        rankDomain(
+          scores,
+          domains.listeningStyle
+        );
+
+      const sustainabilityRanking =
+        rankDomain(
+          scores,
+          domains.decisionStyle
+        );
+
+      return {
+        participantName:
+          preferredNameInput
+            .value
+            .trim(),
+
+        participantEmail:
+          participantEmailInput
+            .value
+            .trim(),
+
+        assessmentType:
+          "growth-capacity",
+
+        assessmentTitle:
+          "Growth Capacity Assessment",
+
+        assessmentVersion:
+          "Pilot Beta 1.0",
+
+        completedAt:
+          new Date().toISOString(),
+
+        scores: scores,
+
+        domains: {
+          conflictStyle: {
+            displayName:
+              "Feedback Receptivity",
+
+            primary:
+              feedbackRanking[0],
+
+            secondary:
+              feedbackRanking[1],
+
+            ranking:
+              feedbackRanking
+          },
+
+          communicationStyle: {
+            displayName:
+              "Self-Reflection",
+
+            primary:
+              reflectionRanking[0],
+
+            secondary:
+              reflectionRanking[1],
+
+            ranking:
+              reflectionRanking
+          },
+
+          listeningStyle: {
+            displayName:
+              "Repair Orientation",
+
+            primary:
+              repairRanking[0],
+
+            secondary:
+              repairRanking[1],
+
+            ranking:
+              repairRanking
+          },
+
+          decisionStyle: {
+            displayName:
+              "Change Sustainability",
+
+            primary:
+              sustainabilityRanking[0],
+
+            secondary:
+              sustainabilityRanking[1],
+
+            ranking:
+              sustainabilityRanking
+          }
+        },
+
+        responses:
+          responses.map(
+            function (
+              selectedOption,
+              questionIndex
+            ) {
+              return {
+                questionNumber:
+                  questionIndex + 1,
+
+                domain:
+                  questions[
+                    questionIndex
+                  ].domain,
+
+                question:
+                  questions[
+                    questionIndex
+                  ].text,
+
+                selectedOption:
+                  selectedOption,
+
+                selectedAnswer:
+                  questions[
+                    questionIndex
+                  ].options[
+                    selectedOption
+                  ].text
+              };
+            }
+          )
+      };
+    }
+
+    document.getElementById(
+      "begin-button"
+    ).addEventListener(
+      "click",
+      function () {
+        if (
+          !validateIntroduction()
+        ) {
+          return;
+        }
+
+        currentQuestion = 0;
+
+        progressRegion.hidden =
+          false;
+
+        showStage(
+          questionStage
+        );
+
+        renderQuestion();
+      }
+    );
+
+    continueButton.addEventListener(
+      "click",
+      function () {
+        if (
+          !saveCurrentAnswer()
+        ) {
+          return;
+        }
+
+        if (
+          currentQuestion <
+          questions.length - 1
+        ) {
+          currentQuestion += 1;
+
+          renderQuestion();
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+
+          return;
+        }
+
+        createReview();
+
+        progressRegion.hidden =
+          true;
+
+        showStage(
+          reviewStage
+        );
+      }
+    );
+
+    backButton.addEventListener(
+      "click",
+      function () {
+        if (
+          currentQuestion === 0
+        ) {
+          return;
+        }
+
+        currentQuestion -= 1;
+
+        renderQuestion();
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    );
+
+    document.getElementById(
+      "return-to-questions-button"
+    ).addEventListener(
+      "click",
+      function () {
+        currentQuestion =
+          questions.length - 1;
+
+        progressRegion.hidden =
+          false;
+
+        showStage(
+          questionStage
+        );
+
+        renderQuestion();
+      }
+    );
+
+    document.getElementById(
+      "submit-button"
+    ).addEventListener(
+      "click",
+      function () {
+        const results =
+          buildResults();
+
+        try {
+          localStorage.setItem(
+            "hciaCurrentResults",
+            JSON.stringify(results)
+          );
+
+          localStorage.setItem(
+            "hciaGrowthCapacityDraft",
+            JSON.stringify({
+              participantName:
+                preferredNameInput
+                  .value
+                  .trim(),
+
+              participantEmail:
+                participantEmailInput
+                  .value
+                  .trim(),
+
+              responses:
+                responses
+            })
+          );
+        } catch (error) {
+          alert(
+            "Your browser could not temporarily save the assessment results. Please check your browser storage settings and try again."
+          );
+
+          return;
+        }
+
+        window.location.href =
+          "../profile/?source=growth-capacity";
+      }
+    );
+
+    document.getElementById(
+      "current-year"
+    ).textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
