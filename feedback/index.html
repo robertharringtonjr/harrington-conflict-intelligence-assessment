@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Share feedback about your Harrington Conflict Intelligence Assessment experience."
+  >
+
+  <meta
+    name="author"
+    content="Robert Harrington Jr."
+  >
+
+  <title>
+    HCIA Feedback & Review | Harrington Conflict Intelligence Assessment
+  </title>
+
+  <style>
+    :root {
+      --background: #f4f0e7;
+      --surface: #fffdf8;
+      --surface-soft: #ebe5d9;
+      --surface-dark: #17241f;
+
+      --primary: #264c40;
+      --primary-dark: #18372f;
+      --primary-soft: #dce7e1;
+
+      --accent: #b28b4d;
+      --accent-light: #dec48f;
+
+      --text: #202722;
+      --text-soft: #52605a;
+      --text-light: #f9f6ee;
+
+      --border: #d8d0c1;
+
+      --success-background: #e8f4ec;
+      --success-border: #7fac90;
+      --success-text: #214d35;
+
+      --error-background: #fff0ef;
+      --error-border: #b85a54;
+      --error-text: #7f2e29;
+
+      --shadow:
+        0 18px 55px rgba(24, 39, 33, 0.12);
+
+      --radius-small: 12px;
+      --radius-medium: 20px;
+      --radius-large: 30px;
+
+      --content-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      line-height: 1.65;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    a,
+    label {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .container {
+      width: min(
+        calc(100% - 32px),
+        var(--content-width)
+      );
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 1000;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: var(--primary-dark);
+      color: white;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(244, 240, 231, 0.97);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 68px;
+      height: 52px;
+      flex: 0 0 auto;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+    }
+
+    .brand-subtitle {
+      margin-top: 5px;
+      color: var(--text-soft);
+      font-size: 0.67rem;
+      font-weight: 750;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-link {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      padding: 16px 0;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 34px 0 80px;
+    }
+
+    .feedback-shell {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .feedback-header {
+      padding: 48px;
+      background: var(--surface-dark);
+      color: var(--text-light);
+    }
+
+    .feedback-label {
+      margin-bottom: 12px;
+      color: var(--accent-light);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .feedback-header h1 {
+      margin-bottom: 18px;
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+    }
+
+    .feedback-header p {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: #d5ddd8;
+      font-size: 1.05rem;
+    }
+
+    .feedback-meta {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta-pill {
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      color: #eef2ef;
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .form-body {
+      padding: 46px;
+    }
+
+    .intro-note {
+      margin-bottom: 30px;
+      padding: 22px;
+      border-left: 4px solid var(--accent);
+      border-radius:
+        0
+        var(--radius-small)
+        var(--radius-small)
+        0;
+      background: var(--surface-soft);
+      color: var(--text-soft);
+    }
+
+    .intro-note strong {
+      color: var(--primary-dark);
+    }
+
+    .form-section {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .form-section:first-of-type {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+    }
+
+    .section-heading p {
+      margin-bottom: 0;
+      color: var(--text-soft);
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .field {
+      min-width: 0;
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .field label,
+    .fieldset-legend {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    .field-hint {
+      margin: -3px 0 9px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .text-input,
+    .select-input,
+    .textarea-input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: white;
+      color: var(--text);
+    }
+
+    .text-input,
+    .select-input {
+      min-height: 50px;
+      padding: 12px 14px;
+    }
+
+    .textarea-input {
+      min-height: 130px;
+      padding: 14px;
+      resize: vertical;
+    }
+
+    .text-input:focus,
+    .select-input:focus,
+    .textarea-input:focus {
+      outline: 3px solid rgba(178, 139, 77, 0.35);
+      border-color: var(--accent);
+    }
+
+    fieldset {
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .rating-row {
+      display: grid;
+      grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .rating-option {
+      position: relative;
+    }
+
+    .rating-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .rating-option label {
+      min-height: 64px;
+      margin: 0;
+      padding: 10px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+      color: var(--text-soft);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .rating-number {
+      display: block;
+      color: var(--primary-dark);
+      font-size: 1.15rem;
+      font-weight: 850;
+    }
+
+    .rating-option input:checked + label {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      box-shadow:
+        0 0 0 3px rgba(38, 76, 64, 0.09);
+    }
+
+    .rating-option input:focus-visible + label {
+      outline: 3px solid rgba(178, 139, 77, 0.45);
+      outline-offset: 3px;
+    }
+
+    .checkbox-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .checkbox-row {
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: #fffefa;
+    }
+
+    .checkbox-row input {
+      width: 19px;
+      height: 19px;
+      margin-top: 3px;
+      flex: 0 0 auto;
+      accent-color: var(--primary);
+    }
+
+    .checkbox-row label {
+      margin: 0;
+      color: var(--text-soft);
+      cursor: pointer;
+    }
+
+    .checkbox-row strong {
+      color: var(--primary-dark);
+    }
+
+    .conditional-panel {
+      display: none;
+      margin-top: 18px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: var(--surface-soft);
+    }
+
+    .conditional-panel.visible {
+      display: block;
+    }
+
+    .file-input {
+      width: 100%;
+      padding: 12px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-small);
+      background: white;
+    }
+
+    .privacy-note {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: var(--radius-small);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      font-size: 0.88rem;
+    }
+
+    .form-actions {
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button {
+      min-height: 50px;
+      padding: 13px 21px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: var(--text-light);
+    }
+
+    .button-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .button-secondary {
+      border-color: var(--primary);
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .button-secondary:hover {
+      background: var(--primary-soft);
+    }
+
+    .button:disabled {
+      opacity: 0.55;
+      cursor: wait;
+    }
+
+    .status-message {
+      display: none;
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: var(--radius-small);
+      font-weight: 750;
+    }
+
+    .status-message.visible {
+      display: block;
+    }
+
+    .status-message.success {
+      border: 1px solid var(--success-border);
+      background: var(--success-background);
+      color: var(--success-text);
+    }
+
+    .status-message.error {
+      border: 1px solid var(--error-border);
+      background: var(--error-background);
+      color: var(--error-text);
+    }
+
+    .site-footer {
+      padding: 38px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .footer-inner strong {
+      color: var(--primary);
+    }
+
+    .honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header-links {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .header-link {
+        text-align: center;
+      }
+
+      .feedback-header,
+      .form-body {
+        padding: 30px 24px;
+      }
+
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field-full {
+        grid-column: auto;
+      }
+
+      .rating-row {
+        grid-template-columns: 1fr;
+      }
+
+      .rating-option label {
+        min-height: 52px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .form-actions {
+        align-items: stretch;
+        flex-direction: column-reverse;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a
+        class="brand"
+        href="../"
+        aria-label="Return to the HCIA homepage"
+      >
+        <span class="brand-logo" aria-hidden="true">
+          <img
+            src="../harrington-bridge-compass-logo.jpeg"
+            alt=""
+          >
+        </span>
+
+        <span class="brand-copy">
+          <span class="brand-title">
+            Harrington Conflict Intelligence Assessment
+          </span>
+
+          <span class="brand-subtitle">
+            Understanding Precedes Resolution
+          </span>
+        </span>
+      </a>
+
+      <nav
+        class="header-links"
+        aria-label="Feedback page navigation"
+      >
+        <a class="header-link" href="../">
+          HCIA Home
+        </a>
+
+        <a
+          class="header-link"
+          href="https://robertharringtonjr.com/"
+        >
+          Harrington Mediation
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container breadcrumb">
+    <a href="https://robertharringtonjr.com/">
+      Harrington Mediation
+    </a>
+    &nbsp;›&nbsp;
+    <a href="../">
+      HCIA
+    </a>
+    &nbsp;›&nbsp;
+    Feedback & Review
+  </div>
+
+  <main id="main-content">
+    <div class="container">
+      <article class="feedback-shell">
+        <header class="feedback-header">
+          <p class="feedback-label">
+            HCIA Feedback & Review
+          </p>
+
+          <h1>
+            Share Your HCIA Experience
+          </h1>
+
+          <p>
+            Your feedback helps strengthen future versions of the
+            Harrington Conflict Intelligence Assessment while
+            preserving its commitment to clarity, fairness,
+            accessibility, and educational integrity.
+          </p>
+
+          <div class="feedback-meta">
+            <span class="meta-pill">
+              Approximately 2–3 minutes
+            </span>
+
+            <span class="meta-pill">
+              Anonymous feedback welcome
+            </span>
+
+            <span class="meta-pill">
+              Only three required responses
+            </span>
+          </div>
+        </header>
+
+        <form
+          class="form-body"
+          id="feedback-form"
+          action="https://formspree.io/f/mrenrpqr"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New HCIA Feedback Submission"
+          >
+
+          <input
+            type="hidden"
+            name="form_name"
+            value="HCIA Feedback & Review"
+          >
+
+          <div class="honeypot" aria-hidden="true">
+            <label for="company-website">
+              Leave this field empty
+            </label>
+
+            <input
+              id="company-website"
+              name="_gotcha"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="intro-note">
+            <strong>
+              You do not have to answer every question.
+            </strong>
+            The required items identify which assessment you completed,
+            provide one overall rating, and record whether your
+            comments may be used publicly. Your name, email address,
+            and phone number are optional unless you request contact.
+          </div>
+
+          <section class="form-section">
+            <div class="section-heading">
+              <h2>
+                About Your Experience
+              </h2>
+
+              <p>
+                Identify the assessment you completed. Your name and
+                contact information remain optional unless you ask
+                us to contact you.
+              </p>
+            </div>
+
+            <div class="field-grid">
+              <div class="field field-full">
+                <label for="assessment">
+                  Which assessment did you take?
+                </label>
+
+                <select
+                  class="select-input"
+                  id="assessment"
+                  name="assessment_taken"
+                  required
+                >
+                  <option value="">
+                    Select one
+                  </option>
+
+                  <option value="Baseline Profile Assessment">
+                    Baseline Profile Assessment
+                  </option>
+
+                  <option value="Conflict Activation Assessment">
+                    Conflict Activation Assessment
+                  </option>
+
+                  <option value="Growth Capacity Assessment">
+                    Growth Capacity Assessment
+                  </option>
+
+                  <option value="Complete HCIA">
+                    Complete HCIA
+                  </option>
+
+                  <option value="Reviewed without completing an assessment">
+                    I reviewed the HCIA without completing an assessment
+                  </option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="name">
+                  Name
+                  <span aria-hidden="true">(optional)</span>
+                </label>
+
+                <input
+                  class="text-input"
+                  id="name"
+                  name="name"
+                  type="text"
+                  maxlength="100"
+                  autocomplete="name"
+                >
+              </div>
+
+              <div class="field">
+                <label for="email">
+                  Email address
+                  <span aria-hidden="true">(optional)</span>
+                </label>
+
+                <input
+                  class="text-input"
+                  id="email"
+                  name="email"
+                  type="email"
+                  maxlength="160"
+                  autocomplete="email"
+                >
+              </div>
+
+              <div class="field">
+                <label for="phone">
+                  Phone number
+                  <span aria-hidden="true">(optional)</span>
+                </label>
+
+                <input
+                  class="text-input"
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  maxlength="40"
+                  autocomplete="tel"
+                >
+              </div>
+
+              <fieldset class="field field-full">
+                <legend class="fieldset-legend">
+                  May selected portions of your feedback be used publicly?
+                </legend>
+
+                <p class="field-hint">
+                  Choose one. Selecting “No” keeps your written feedback
+                  for internal review only.
+                </p>
+
+                <div class="rating-row">
+                  <div class="rating-option">
+                    <input
+                      id="public-use-yes"
+                      name="public_feedback_permission"
+                      type="radio"
+                      value="Yes, selected feedback may be used publicly"
+                      required
+                    >
+
+                    <label for="public-use-yes">
+                      <span class="rating-number">Yes</span>
+                      Public use permitted
+                    </label>
+                  </div>
+
+                  <div class="rating-option">
+                    <input
+                      id="public-use-no"
+                      name="public_feedback_permission"
+                      type="radio"
+                      value="No, keep feedback private"
+                    >
+
+                    <label for="public-use-no">
+                      <span class="rating-number">No</span>
+                      Keep feedback private
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-heading">
+              <h2>
+                Overall Experience
+              </h2>
+
+              <p>
+                A few quick selections help us understand the overall
+                experience without asking you to complete another
+                lengthy questionnaire.
+              </p>
+            </div>
+
+            <fieldset>
+              <legend class="fieldset-legend">
+                Overall, how would you rate your HCIA experience?
+              </legend>
+
+              <div class="rating-row">
+                <div class="rating-option">
+                  <input
+                    id="rating-1"
+                    name="overall_rating"
+                    type="radio"
+                    value="1 - Poor"
+                    required
+                  >
+
+                  <label for="rating-1">
+                    <span class="rating-number">1</span>
+                    Poor
+                  </label>
+                </div>
+
+                <div class="rating-option">
+                  <input
+                    id="rating-2"
+                    name="overall_rating"
+                    type="radio"
+                    value="2 - Fair"
+                  >
+
+                  <label for="rating-2">
+                    <span class="rating-number">2</span>
+                    Fair
+                  </label>
+                </div>
+
+                <div class="rating-option">
+                  <input
+                    id="rating-3"
+                    name="overall_rating"
+                    type="radio"
+                    value="3 - Good"
+                  >
+
+                  <label for="rating-3">
+                    <span class="rating-number">3</span>
+                    Good
+                  </label>
+                </div>
+
+                <div class="rating-option">
+                  <input
+                    id="rating-4"
+                    name="overall_rating"
+                    type="radio"
+                    value="4 - Very Good"
+                  >
+
+                  <label for="rating-4">
+                    <span class="rating-number">4</span>
+                    Very Good
+                  </label>
+                </div>
+
+                <div class="rating-option">
+                  <input
+                    id="rating-5"
+                    name="overall_rating"
+                    type="radio"
+                    value="5 - Excellent"
+                  >
+
+                  <label for="rating-5">
+                    <span class="rating-number">5</span>
+                    Excellent
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="field-grid" style="margin-top: 22px;">
+              <div class="field">
+                <label for="clarity">
+                  The questions and instructions were:
+                </label>
+
+                <select
+                  class="select-input"
+                  id="clarity"
+                  name="clarity"
+                >
+                  <option value="">
+                    Optional
+                  </option>
+
+                  <option value="Very clear">
+                    Very clear
+                  </option>
+
+                  <option value="Mostly clear">
+                    Mostly clear
+                  </option>
+
+                  <option value="Mixed">
+                    Mixed
+                  </option>
+
+                  <option value="Somewhat unclear">
+                    Somewhat unclear
+                  </option>
+
+                  <option value="Very unclear">
+                    Very unclear
+                  </option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="length">
+                  The length felt:
+                </label>
+
+                <select
+                  class="select-input"
+                  id="length"
+                  name="assessment_length"
+                >
+                  <option value="">
+                    Optional
+                  </option>
+
+                  <option value="Too short">
+                    Too short
+                  </option>
+
+                  <option value="About right">
+                    About right
+                  </option>
+
+                  <option value="A little long">
+                    A little long
+                  </option>
+
+                  <option value="Much too long">
+                    Much too long
+                  </option>
+
+                  <option value="Not applicable">
+                    Not applicable
+                  </option>
+                </select>
+              </div>
+
+              <div class="field field-full">
+                <label for="usefulness">
+                  The profile of your results provided was:
+                </label>
+
+                <select
+                  class="select-input"
+                  id="usefulness"
+                  name="results_profile_usefulness"
+                >
+                  <option value="">
+                    Optional
+                  </option>
+
+                  <option value="Very useful">
+                    Very useful
+                  </option>
+
+                  <option value="Somewhat useful">
+                    Somewhat useful
+                  </option>
+
+                  <option value="Neutral">
+                    Neutral
+                  </option>
+
+                  <option value="Not very useful">
+                    Not very useful
+                  </option>
+
+                  <option value="Not useful">
+                    Not useful
+                  </option>
+
+                  <option value="Did not receive results">
+                    I did not receive or review a results profile
+                  </option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-heading">
+              <h2>
+                Tell Us More
+              </h2>
+
+              <p>
+                Answer only the questions that feel useful.
+              </p>
+            </div>
+
+            <div class="field-grid">
+              <div class="field field-full">
+                <label for="improvement">
+                  What could be improved?
+                  <span aria-hidden="true">(optional)</span>
+                </label>
+
+                <textarea
+                  class="textarea-input"
+                  id="improvement"
+                  name="what_could_be_improved"
+                  maxlength="2500"
+                  placeholder="Share anything that felt unclear, inaccurate, difficult, or incomplete."
+                ></textarea>
+              </div>
+
+              <div class="field field-full">
+                <label for="additional-comments">
+                  Anything else you would like us to know?
+                  <span aria-hidden="true">(optional)</span>
+                </label>
+
+                <textarea
+                  class="textarea-input"
+                  id="additional-comments"
+                  name="additional_comments"
+                  maxlength="2500"
+                ></textarea>
+              </div>
+            </div>
+          </section>
+
+
+
+          <section class="form-section">
+            <div class="section-heading">
+              <h2>
+                Contact Permission
+              </h2>
+
+              <p>
+                This is optional. If you ask to be contacted, provide
+                either an email address or phone number above.
+              </p>
+            </div>
+
+            <div class="checkbox-list">
+              <div class="checkbox-row">
+                <input
+                  id="contact-permission"
+                  name="contact_permission"
+                  type="checkbox"
+                  value="Yes, contact me about this feedback"
+                >
+
+                <label for="contact-permission">
+                  <strong>
+                    You may contact me about this feedback.
+                  </strong>
+                  An email address or phone number is required when
+                  this option is selected.
+                </label>
+              </div>
+            </div>
+
+            <div class="privacy-note">
+              Your feedback will be reviewed by Harrington Mediation
+              for HCIA improvement. Public use is governed only by
+              the permission choice you made at the beginning of this
+              form.
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <a
+              class="button button-secondary"
+              href="../"
+            >
+              Return to HCIA Home
+            </a>
+
+            <button
+              class="button button-primary"
+              id="submit-button"
+              type="submit"
+            >
+              Submit Feedback
+            </button>
+          </div>
+
+          <div
+            class="status-message"
+            id="form-status"
+            role="status"
+            aria-live="polite"
+          ></div>
+        </form>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>
+          Harrington Conflict Intelligence Assessment
+        </strong><br>
+        Understanding Precedes Resolution
+      </div>
+
+      <div>
+        HCIA Feedback & Review<br>
+        © <span id="current-year"></span> Robert Harrington Jr.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("feedback-form");
+    const submitButton = document.getElementById("submit-button");
+    const formStatus = document.getElementById("form-status");
+
+    const contactPermission =
+      document.getElementById("contact-permission");
+
+    const emailInput =
+      document.getElementById("email");
+
+    const phoneInput =
+      document.getElementById("phone");
+
+    function validateContactInformation() {
+      const contactRequested =
+        contactPermission.checked;
+
+      const hasEmail =
+        emailInput.value.trim() !== "";
+
+      const hasPhone =
+        phoneInput.value.trim() !== "";
+
+      emailInput.setCustomValidity("");
+      phoneInput.setCustomValidity("");
+
+      if (
+        contactRequested &&
+        !hasEmail &&
+        !hasPhone
+      ) {
+        phoneInput.setCustomValidity(
+          "Enter either an email address or phone number because you requested contact."
+        );
+
+        return false;
+      }
+
+      return true;
+    }
+
+    contactPermission.addEventListener(
+      "change",
+      validateContactInformation
+    );
+
+    emailInput.addEventListener(
+      "input",
+      validateContactInformation
+    );
+
+    phoneInput.addEventListener(
+      "input",
+      validateContactInformation
+    );
+
+    form.addEventListener(
+      "submit",
+      async function (event) {
+        event.preventDefault();
+
+        validateContactInformation();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting…";
+
+        formStatus.className = "status-message";
+        formStatus.textContent = "";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+              Accept: "application/json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(
+              "The feedback could not be submitted."
+            );
+          }
+
+          form.reset();
+          validateContactInformation();
+
+          formStatus.className =
+            "status-message success visible";
+
+          formStatus.textContent =
+            "Thank you. Your HCIA feedback was submitted successfully.";
+
+          formStatus.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+        } catch (error) {
+          formStatus.className =
+            "status-message error visible";
+
+          formStatus.textContent =
+            "Your feedback could not be submitted. Please check your connection and try again.";
+
+          formStatus.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "Submit Feedback";
+        }
+      }
+    );
+
+    document.getElementById(
+      "current-year"
+    ).textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
