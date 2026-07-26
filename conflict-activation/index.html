@@ -19,7 +19,7 @@
   >
 
   <title>
-    Conflict Activation Assessment | HCIA
+    Conflict Activation Assessment | Harrington Conflict Intelligence Assessment
   </title>
 
   <style>
@@ -616,6 +616,71 @@
       color: var(--primary);
     }
 
+
+    .resume-panel {
+      display: none;
+      margin: 24px 0;
+      padding: 20px;
+      border: 1px solid #8db79f;
+      border-radius: var(--radius-small);
+      background: #e9f4ee;
+      color: #244c39;
+    }
+
+    .resume-panel.visible {
+      display: block;
+    }
+
+    .resume-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .consent-group {
+      margin-top: 30px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .consent-group h3 {
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+      font-size: 1.35rem;
+    }
+
+    .consent-group > p {
+      margin-top: 0;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    .conditional-field {
+      display: none;
+      margin: 16px 0 0 31px;
+    }
+
+    .conditional-field.visible {
+      display: block;
+    }
+
+    .button-tertiary {
+      border-color: var(--border);
+      background: white;
+      color: var(--text-soft);
+    }
+
+    .question-card {
+      scroll-margin-top: 18px;
+    }
+
+    .question-guidance {
+      margin: -14px 0 24px;
+      color: var(--text-soft);
+      font-size: 0.88rem;
+    }
+
     @media (max-width: 760px) {
       .header-inner {
         padding: 12px 0;
@@ -662,6 +727,10 @@
       .footer-inner {
         flex-direction: column;
       }
+
+      .conditional-field {
+        margin-left: 0;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -686,7 +755,7 @@
   </a>
 
   <div class="pilot-banner">
-    HCIA Public Pilot Beta — Participation is currently by invitation.
+    Harrington Conflict Intelligence Assessment Prototype 2
   </div>
 
   <header class="site-header">
@@ -757,15 +826,14 @@
           </h1>
 
           <p>
-            Explore how emotional intensity, perceived threat,
-            urgency, power, and stress may alter the way you
-            communicate, process information, make decisions,
-            and re-engage during conflict.
+            Explore how stress, emotional intensity, urgency,
+            power, and perceived threat may change the way you
+            communicate, process emotions, and return to conflict.
           </p>
 
           <div class="assessment-meta">
             <span class="meta-pill">
-              20 pilot questions
+              20 questions
             </span>
 
             <span class="meta-pill">
@@ -773,7 +841,7 @@
             </span>
 
             <span class="meta-pill">
-              Version: Pilot Beta 1.0
+              Version: Prototype 2.0
             </span>
           </div>
         </header>
@@ -789,19 +857,40 @@
             </h2>
 
             <p>
-              Answer according to what you are most likely to do
-              when a conflict feels personally significant,
-              emotionally intense, or difficult to control.
+              Choose the answer that comes closest to how you
+              usually respond when conflict feels personally
+              significant, emotionally intense, or difficult to
+              control. No single response is automatically
+              healthier, better, or more desirable than another.
             </p>
           </div>
 
           <div class="notice">
-            <strong>Educational-use notice:</strong>
+            <strong>Important limitation:</strong>
             The HCIA is an educational self-awareness resource.
-            It is not a psychological diagnosis, trauma
-            assessment, clinical evaluation, legal assessment,
+            It is not clinically validated, diagnostically
+            accurate, population-normed, predictively validated,
+            established through test–retest reliability, or
+            construct-validated. It is not a psychological
+            diagnosis, trauma assessment, legal assessment,
             employment-selection instrument, or substitute for
-            qualified professional care.
+            qualified professional care. With participant consent,
+            aggregated pilot data may support future refinement
+            and study.
+          </div>
+
+          
+          <div class="resume-panel" id="resume-panel" role="status">
+            <strong>An unfinished Conflict Activation assessment was found on this device.</strong>
+            <p id="resume-copy">You may resume where you stopped or begin again.</p>
+            <div class="resume-actions">
+              <button class="button button-primary" id="resume-button" type="button">
+                Resume Assessment
+              </button>
+              <button class="button button-tertiary" id="start-over-button" type="button">
+                Start Over
+              </button>
+            </div>
           </div>
 
           <div class="field">
@@ -823,29 +912,7 @@
               required
             >
           </div>
-
-          <div class="field">
-            <label for="participant-email">
-              Email address
-              <span aria-hidden="true">(optional)</span>
-            </label>
-
-            <p class="field-hint">
-              Email delivery will be activated during Stage Two.
-              This prototype does not send or upload your email.
-            </p>
-
-            <input
-              class="text-input"
-              id="participant-email"
-              name="participant-email"
-              type="email"
-              maxlength="120"
-              autocomplete="email"
-            >
-          </div>
-
-          <div class="checkbox-list">
+<div class="checkbox-list">
             <div class="checkbox-row">
               <input
                 id="acknowledge-educational"
@@ -884,6 +951,48 @@
                 version and that its questions, scoring, and
                 interpretation may be revised.
               </label>
+            </div>
+          </div>
+
+          
+          <div class="consent-group">
+            <h3>Results and sharing choices</h3>
+            <p>
+              These choices are separate. The assessment will still
+              work locally if you do not select either option.
+              Secure email and creator-sharing will activate after
+              the Supabase submission system is connected.
+            </p>
+
+            <div class="checkbox-list">
+              <div class="checkbox-row">
+                <input id="request-participant-email" type="checkbox">
+                <label for="request-participant-email">
+                  Email a copy of my results to me when secure email
+                  delivery is active.
+                </label>
+              </div>
+
+              <div class="conditional-field" id="email-field">
+                <label for="participant-email">Email address</label>
+                <input
+                  class="text-input"
+                  id="participant-email"
+                  name="participant-email"
+                  type="email"
+                  maxlength="120"
+                  autocomplete="email"
+                >
+              </div>
+
+              <div class="checkbox-row">
+                <input id="consent-creator-sharing" type="checkbox">
+                <label for="consent-creator-sharing">
+                  I consent to sharing my assessment responses and
+                  results with the HCIA creator for pilot review and
+                  improvement when secure submission is active.
+                </label>
+              </div>
             </div>
           </div>
 
@@ -946,7 +1055,7 @@
           id="question-stage"
           aria-live="polite"
         >
-          <div class="question-card">
+          <div class="question-card" id="question-card">
             <p
               class="question-domain"
               id="question-domain"
@@ -955,7 +1064,12 @@
             <h2
               class="question-text"
               id="question-text"
+              tabindex="-1"
             ></h2>
+
+            <p class="question-guidance">
+              Choose the closest answer, even if none fits perfectly.
+            </p>
 
             <div
               class="answer-list"
@@ -997,7 +1111,7 @@
           aria-labelledby="review-heading"
         >
           <div class="stage-heading">
-            <h2 id="review-heading">
+            <h2 id="review-heading" tabindex="-1">
               Review and Submit
             </h2>
 
@@ -1010,11 +1124,19 @@
 
           <div class="review-list" id="review-list"></div>
 
+          <div class="notice">
+            <strong>How results should be read:</strong>
+            Higher scores do not necessarily indicate a healthier
+            or better pattern. They indicate stronger alignment
+            with a particular pattern in this assessment.
+          </div>
+
           <p class="submission-note">
-            After submission, your results will be calculated in
-            this browser and stored temporarily for the shared
-            HCIA Results Profile page. No information is uploaded
-            during this Stage One prototype.
+            Your results will be calculated in this browser and
+            stored locally for the shared HCIA Results Profile.
+            Secure uploading and email delivery are not yet active
+            in this file. The local version will continue to work
+            if the network is unavailable.
           </p>
 
           <div class="controls">
@@ -1049,7 +1171,7 @@
       </div>
 
       <div>
-        Pilot Beta 1.0<br>
+        Prototype 2.0<br>
         © <span id="current-year"></span> Robert Harrington Jr.
       </div>
     </div>
@@ -1058,942 +1180,442 @@
   <script>
     const questions = [
       {
-        domain: "Initial Stress Response",
-        text:
-          "When a conflict suddenly becomes emotionally intense, my first internal response is usually to:",
+        domain: 'Initial Stress Response',
+        text: 'When conflict suddenly becomes intense, what is your first reaction most likely to be?',
         options: [
           {
-            text:
-              "Move toward the issue and try to regain control of the conversation.",
-            scores: {
-              confront: 3,
-              withdraw: 0,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 1
-            }
+            text: 'Pull back so you can protect yourself and think.',
+            scores: { confront: 0, withdraw: 3, accommodateUnderStress: 0, regulateAndEngage: 1 }
           },
           {
-            text:
-              "Pull back so I can protect myself and think.",
-            scores: {
-              confront: 0,
-              withdraw: 3,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 1
-            }
+            text: 'Slow down, steady yourself, and stay involved.',
+            scores: { confront: 1, withdraw: 0, accommodateUnderStress: 0, regulateAndEngage: 3 }
           },
           {
-            text:
-              "Reduce tension by giving the other person more room.",
-            scores: {
-              confront: 0,
-              withdraw: 0,
-              accommodateUnderStress: 3,
-              regulateAndEngage: 0
-            }
+            text: 'Move toward the issue and try to regain control of the conversation.',
+            scores: { confront: 3, withdraw: 0, accommodateUnderStress: 0, regulateAndEngage: 1 }
           },
           {
-            text:
-              "Slow down, regulate myself, and remain engaged.",
-            scores: {
-              confront: 1,
-              withdraw: 0,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 3
-            }
+            text: 'Give the other person more room to reduce the tension.',
+            scores: { confront: 0, withdraw: 0, accommodateUnderStress: 3, regulateAndEngage: 0 }
           }
         ]
       },
       {
-        domain: "Activated Communication",
-        text:
-          "When I feel accused or misrepresented, I am most likely to:",
+        domain: 'Activated Communication',
+        text: 'When you feel accused or misrepresented, what are you most likely to do?',
         options: [
           {
-            text:
-              "Correct the record immediately and forcefully.",
-            scores: {
-              sharpen: 3,
-              silence: 0,
-              appease: 0,
-              clarify: 1
-            }
+            text: 'Clarify what you heard, then explain your view carefully.',
+            scores: { sharpen: 1, silence: 0, appease: 0, clarify: 3 }
           },
           {
-            text:
-              "Stop explaining because I do not expect to be understood.",
-            scores: {
-              sharpen: 0,
-              silence: 3,
-              appease: 0,
-              clarify: 0
-            }
+            text: 'Correct the record immediately and forcefully.',
+            scores: { sharpen: 3, silence: 0, appease: 0, clarify: 1 }
           },
           {
-            text:
-              "Soften my response to prevent the conflict from escalating.",
-            scores: {
-              sharpen: 0,
-              silence: 0,
-              appease: 3,
-              clarify: 1
-            }
+            text: 'Soften your response to keep the conflict from escalating.',
+            scores: { sharpen: 0, silence: 0, appease: 3, clarify: 1 }
           },
           {
-            text:
-              "Clarify what I heard, then explain my perspective deliberately.",
-            scores: {
-              sharpen: 1,
-              silence: 0,
-              appease: 0,
-              clarify: 3
-            }
+            text: 'Stop explaining because you do not expect to be understood.',
+            scores: { sharpen: 0, silence: 3, appease: 0, clarify: 0 }
           }
         ]
       },
       {
-        domain: "Emotional Processing",
-        text:
-          "When strong emotions arise during conflict, I usually process them by:",
+        domain: 'Emotional Processing',
+        text: 'When strong emotions arise during conflict, how do you usually handle them?',
         options: [
           {
-            text:
-              "Expressing them as they occur.",
-            scores: {
-              externalize: 3,
-              internalize: 0,
-              suppress: 0,
-              nameAndRegulate: 1
-            }
+            text: 'Push them aside so the conflict can end.',
+            scores: { externalize: 0, internalize: 0, suppress: 3, nameAndRegulate: 0 }
           },
           {
-            text:
-              "Holding them internally until I can make sense of them.",
-            scores: {
-              externalize: 0,
-              internalize: 3,
-              suppress: 0,
-              nameAndRegulate: 1
-            }
+            text: 'Express them as they occur.',
+            scores: { externalize: 3, internalize: 0, suppress: 0, nameAndRegulate: 1 }
           },
           {
-            text:
-              "Pushing them aside so the conflict can end.",
-            scores: {
-              externalize: 0,
-              internalize: 0,
-              suppress: 3,
-              nameAndRegulate: 0
-            }
+            text: 'Name what you feel and decide how you want to respond.',
+            scores: { externalize: 1, internalize: 1, suppress: 0, nameAndRegulate: 3 }
           },
           {
-            text:
-              "Naming what I feel and deciding how to respond.",
-            scores: {
-              externalize: 1,
-              internalize: 1,
-              suppress: 0,
-              nameAndRegulate: 3
-            }
+            text: 'Hold them internally until you can make sense of them.',
+            scores: { externalize: 0, internalize: 3, suppress: 0, nameAndRegulate: 1 }
           }
         ]
       },
       {
-        domain: "Re-Engagement",
-        text:
-          "After a difficult interaction, I am most likely to re-engage when:",
+        domain: 'Re-Engagement',
+        text: 'After a difficult interaction, when are you most likely to return to the issue?',
         options: [
           {
-            text:
-              "I am ready to address the issue directly and resolve it.",
-            scores: {
-              rapidReturn: 3,
-              delayedReturn: 0,
-              avoidReturn: 0,
-              structuredReturn: 1
-            }
+            text: 'After a clear time and process for continuing have been established.',
+            scores: { rapidReturn: 1, delayedReturn: 1, avoidReturn: 0, structuredReturn: 3 }
           },
           {
-            text:
-              "I have had enough time to understand what happened.",
-            scores: {
-              rapidReturn: 0,
-              delayedReturn: 3,
-              avoidReturn: 0,
-              structuredReturn: 1
-            }
+            text: 'When you are ready to address it directly and seek resolution.',
+            scores: { rapidReturn: 3, delayedReturn: 0, avoidReturn: 0, structuredReturn: 1 }
           },
           {
-            text:
-              "The other person reaches out first or the issue can no longer be avoided.",
-            scores: {
-              rapidReturn: 0,
-              delayedReturn: 0,
-              avoidReturn: 3,
-              structuredReturn: 0
-            }
+            text: 'After you have had enough time to understand what happened.',
+            scores: { rapidReturn: 0, delayedReturn: 3, avoidReturn: 0, structuredReturn: 1 }
           },
           {
-            text:
-              "A clear time and process for continuing the conversation have been established.",
-            scores: {
-              rapidReturn: 1,
-              delayedReturn: 1,
-              avoidReturn: 0,
-              structuredReturn: 3
-            }
+            text: 'When the other person reaches out first or the issue can no longer be avoided.',
+            scores: { rapidReturn: 0, delayedReturn: 0, avoidReturn: 3, structuredReturn: 0 }
           }
         ]
       },
       {
-        domain: "Initial Stress Response",
-        text:
-          "When I believe something important is being taken from me or decided without me, I tend to:",
+        domain: 'Initial Stress Response',
+        text: 'When something important may be decided without you, what do you usually do?',
         options: [
           {
-            text:
-              "Push harder to protect my position.",
-            scores: {
-              confront: 3,
-              withdraw: 0,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 0
-            }
+            text: 'Give some ground to reduce the pressure.',
+            scores: { confront: 0, withdraw: 0, accommodateUnderStress: 3, regulateAndEngage: 0 }
           },
           {
-            text:
-              "Step back because the situation feels unsafe or unproductive.",
-            scores: {
-              confront: 0,
-              withdraw: 3,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 1
-            }
+            text: 'Identify what you need to protect and communicate it carefully.',
+            scores: { confront: 1, withdraw: 0, accommodateUnderStress: 0, regulateAndEngage: 3 }
           },
           {
-            text:
-              "Give ground to reduce the pressure.",
-            scores: {
-              confront: 0,
-              withdraw: 0,
-              accommodateUnderStress: 3,
-              regulateAndEngage: 0
-            }
+            text: 'Push harder to protect your position.',
+            scores: { confront: 3, withdraw: 0, accommodateUnderStress: 0, regulateAndEngage: 0 }
           },
           {
-            text:
-              "Identify what I need to protect and communicate it carefully.",
-            scores: {
-              confront: 1,
-              withdraw: 0,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 3
-            }
+            text: 'Step back because the situation feels unsafe or unproductive.',
+            scores: { confront: 0, withdraw: 3, accommodateUnderStress: 0, regulateAndEngage: 1 }
           }
         ]
       },
       {
-        domain: "Activated Communication",
-        text:
-          "As conflict intensity rises, my communication usually becomes:",
+        domain: 'Activated Communication',
+        text: 'As conflict becomes more intense, how does your communication usually change?',
         options: [
           {
-            text:
-              "More forceful, precise, or challenging.",
-            scores: {
-              sharpen: 3,
-              silence: 0,
-              appease: 0,
-              clarify: 0
-            }
+            text: 'It becomes shorter, quieter, or less available.',
+            scores: { sharpen: 0, silence: 3, appease: 0, clarify: 0 }
           },
           {
-            text:
-              "Shorter, quieter, or less available.",
-            scores: {
-              sharpen: 0,
-              silence: 3,
-              appease: 0,
-              clarify: 0
-            }
+            text: 'It becomes slower and more deliberate.',
+            scores: { sharpen: 0, silence: 1, appease: 0, clarify: 3 }
           },
           {
-            text:
-              "More agreeable than I actually feel.",
-            scores: {
-              sharpen: 0,
-              silence: 0,
-              appease: 3,
-              clarify: 0
-            }
+            text: 'It becomes more forceful, precise, or challenging.',
+            scores: { sharpen: 3, silence: 0, appease: 0, clarify: 0 }
           },
           {
-            text:
-              "Slower and more intentional.",
-            scores: {
-              sharpen: 0,
-              silence: 1,
-              appease: 0,
-              clarify: 3
-            }
+            text: 'It becomes more agreeable than you actually feel.',
+            scores: { sharpen: 0, silence: 0, appease: 3, clarify: 0 }
           }
         ]
       },
       {
-        domain: "Emotional Processing",
-        text:
-          "When I am emotionally activated, I can usually identify what I am feeling:",
+        domain: 'Emotional Processing',
+        text: 'When you are emotionally activated, when do you usually understand what you are feeling?',
         options: [
           {
-            text:
-              "Immediately, and I tend to express it.",
-            scores: {
-              externalize: 3,
-              internalize: 0,
-              suppress: 0,
-              nameAndRegulate: 1
-            }
+            text: 'After you have had time alone to process.',
+            scores: { externalize: 0, internalize: 3, suppress: 0, nameAndRegulate: 1 }
           },
           {
-            text:
-              "Only after I have had time alone to process.",
-            scores: {
-              externalize: 0,
-              internalize: 3,
-              suppress: 0,
-              nameAndRegulate: 1
-            }
+            text: 'Immediately, and you tend to express it.',
+            scores: { externalize: 3, internalize: 0, suppress: 0, nameAndRegulate: 1 }
           },
           {
-            text:
-              "Only vaguely, because I focus on ending or escaping the conflict.",
-            scores: {
-              externalize: 0,
-              internalize: 0,
-              suppress: 3,
-              nameAndRegulate: 0
-            }
+            text: 'Well enough to separate the feeling from the action you choose.',
+            scores: { externalize: 1, internalize: 1, suppress: 0, nameAndRegulate: 3 }
           },
           {
-            text:
-              "Well enough to separate the feeling from the action I choose.",
-            scores: {
-              externalize: 1,
-              internalize: 1,
-              suppress: 0,
-              nameAndRegulate: 3
-            }
+            text: 'Only vaguely, because your attention is on ending or escaping the conflict.',
+            scores: { externalize: 0, internalize: 0, suppress: 3, nameAndRegulate: 0 }
           }
         ]
       },
       {
-        domain: "Re-Engagement",
-        text:
-          "When I ask for space during conflict, I usually:",
+        domain: 'Re-Engagement',
+        text: 'When you ask for space during conflict, what do you usually do afterward?',
         options: [
           {
-            text:
-              "Return quickly because unresolved tension is difficult for me.",
-            scores: {
-              rapidReturn: 3,
-              delayedReturn: 0,
-              avoidReturn: 0,
-              structuredReturn: 1
-            }
+            text: 'Return quickly because unresolved tension is difficult for you.',
+            scores: { rapidReturn: 3, delayedReturn: 0, avoidReturn: 0, structuredReturn: 1 }
           },
           {
-            text:
-              "Return after I have processed internally, even if that takes significant time.",
-            scores: {
-              rapidReturn: 0,
-              delayedReturn: 3,
-              avoidReturn: 0,
-              structuredReturn: 1
-            }
+            text: 'Give a specific time when you plan to continue.',
+            scores: { rapidReturn: 1, delayedReturn: 1, avoidReturn: 0, structuredReturn: 3 }
           },
           {
-            text:
-              "Hope the issue fades without another conversation.",
-            scores: {
-              rapidReturn: 0,
-              delayedReturn: 0,
-              avoidReturn: 3,
-              structuredReturn: 0
-            }
+            text: 'Hope the issue fades without another conversation.',
+            scores: { rapidReturn: 0, delayedReturn: 0, avoidReturn: 3, structuredReturn: 0 }
           },
           {
-            text:
-              "Give a specific time when I intend to continue.",
-            scores: {
-              rapidReturn: 1,
-              delayedReturn: 1,
-              avoidReturn: 0,
-              structuredReturn: 3
-            }
+            text: 'Return after you have processed internally, even if it takes significant time.',
+            scores: { rapidReturn: 0, delayedReturn: 3, avoidReturn: 0, structuredReturn: 1 }
           }
         ]
       },
       {
-        domain: "Initial Stress Response",
-        text:
-          "When another person raises their voice or becomes highly emotional, I am most likely to:",
+        domain: 'Initial Stress Response',
+        text: 'When another person raises their voice or becomes highly emotional, what are you most likely to do?',
         options: [
           {
-            text:
-              "Match their intensity so I am not overpowered.",
-            scores: {
-              confront: 3,
-              withdraw: 0,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 0
-            }
+            text: 'Lower your pace, maintain your boundaries, and stay focused on the issue.',
+            scores: { confront: 1, withdraw: 0, accommodateUnderStress: 0, regulateAndEngage: 3 }
           },
           {
-            text:
-              "Shut down or mentally leave the conversation.",
-            scores: {
-              confront: 0,
-              withdraw: 3,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 0
-            }
+            text: 'Match their intensity so you are not overpowered.',
+            scores: { confront: 3, withdraw: 0, accommodateUnderStress: 0, regulateAndEngage: 0 }
           },
           {
-            text:
-              "Try to calm them by conceding or reassuring.",
-            scores: {
-              confront: 0,
-              withdraw: 0,
-              accommodateUnderStress: 3,
-              regulateAndEngage: 1
-            }
+            text: 'Try to calm them by conceding or reassuring.',
+            scores: { confront: 0, withdraw: 0, accommodateUnderStress: 3, regulateAndEngage: 1 }
           },
           {
-            text:
-              "Lower my pace, maintain boundaries, and focus on the issue.",
-            scores: {
-              confront: 1,
-              withdraw: 0,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 3
-            }
+            text: 'Shut down or mentally leave the conversation.',
+            scores: { confront: 0, withdraw: 3, accommodateUnderStress: 0, regulateAndEngage: 0 }
           }
         ]
       },
       {
-        domain: "Activated Communication",
-        text:
-          "When I feel unheard, I tend to:",
+        domain: 'Activated Communication',
+        text: 'When you feel unheard, what do you tend to do?',
         options: [
           {
-            text:
-              "Repeat the point with greater intensity.",
-            scores: {
-              sharpen: 3,
-              silence: 0,
-              appease: 0,
-              clarify: 1
-            }
+            text: 'Stop speaking because continuing feels pointless.',
+            scores: { sharpen: 0, silence: 3, appease: 0, clarify: 0 }
           },
           {
-            text:
-              "Stop speaking because continuing feels pointless.",
-            scores: {
-              sharpen: 0,
-              silence: 3,
-              appease: 0,
-              clarify: 0
-            }
+            text: 'Check what the other person heard before restating the concern.',
+            scores: { sharpen: 1, silence: 0, appease: 0, clarify: 3 }
           },
           {
-            text:
-              "Change or soften my point so the other person will accept it.",
-            scores: {
-              sharpen: 0,
-              silence: 0,
-              appease: 3,
-              clarify: 1
-            }
+            text: 'Repeat the point with greater intensity.',
+            scores: { sharpen: 3, silence: 0, appease: 0, clarify: 1 }
           },
           {
-            text:
-              "Check what the other person heard before restating the concern.",
-            scores: {
-              sharpen: 1,
-              silence: 0,
-              appease: 0,
-              clarify: 3
-            }
+            text: 'Change or soften the point so the other person will accept it.',
+            scores: { sharpen: 0, silence: 0, appease: 3, clarify: 1 }
           }
         ]
       },
       {
-        domain: "Emotional Processing",
-        text:
-          "After conflict, my emotional understanding is usually:",
+        domain: 'Emotional Processing',
+        text: 'After conflict, when does your emotional understanding usually become clearest?',
         options: [
           {
-            text:
-              "Clear because I expressed most of it during the interaction.",
-            scores: {
-              externalize: 3,
-              internalize: 0,
-              suppress: 0,
-              nameAndRegulate: 1
-            }
+            text: 'During the interaction because you expressed most of it.',
+            scores: { externalize: 3, internalize: 0, suppress: 0, nameAndRegulate: 1 }
           },
           {
-            text:
-              "Clearer later, after private reflection.",
-            scores: {
-              externalize: 0,
-              internalize: 3,
-              suppress: 0,
-              nameAndRegulate: 1
-            }
+            text: 'Later, after private reflection.',
+            scores: { externalize: 0, internalize: 3, suppress: 0, nameAndRegulate: 1 }
           },
           {
-            text:
-              "Difficult to identify because I try not to remain with the feelings.",
-            scores: {
-              externalize: 0,
-              internalize: 0,
-              suppress: 3,
-              nameAndRegulate: 0
-            }
+            text: 'When you can connect your feelings, needs, and choices.',
+            scores: { externalize: 1, internalize: 1, suppress: 0, nameAndRegulate: 3 }
           },
           {
-            text:
-              "Clear enough for me to connect feelings, needs, and choices.",
-            scores: {
-              externalize: 1,
-              internalize: 1,
-              suppress: 0,
-              nameAndRegulate: 3
-            }
+            text: 'It often remains unclear because you try not to stay with the feelings.',
+            scores: { externalize: 0, internalize: 0, suppress: 3, nameAndRegulate: 0 }
           }
         ]
       },
       {
-        domain: "Re-Engagement",
-        text:
-          "When a conflict remains unresolved for several days, I am most likely to:",
+        domain: 'Re-Engagement',
+        text: 'When a conflict has been unresolved for several days, what are you most likely to do?',
         options: [
           {
-            text:
-              "Initiate contact because I want movement or closure.",
-            scores: {
-              rapidReturn: 3,
-              delayedReturn: 0,
-              avoidReturn: 0,
-              structuredReturn: 1
-            }
+            text: 'Avoid reopening it unless circumstances force the issue.',
+            scores: { rapidReturn: 0, delayedReturn: 0, avoidReturn: 3, structuredReturn: 0 }
           },
           {
-            text:
-              "Continue processing until I feel prepared.",
-            scores: {
-              rapidReturn: 0,
-              delayedReturn: 3,
-              avoidReturn: 0,
-              structuredReturn: 1
-            }
+            text: 'Propose a specific time and structure for returning to it.',
+            scores: { rapidReturn: 1, delayedReturn: 1, avoidReturn: 0, structuredReturn: 3 }
           },
           {
-            text:
-              "Avoid reopening it unless circumstances force the issue.",
-            scores: {
-              rapidReturn: 0,
-              delayedReturn: 0,
-              avoidReturn: 3,
-              structuredReturn: 0
-            }
+            text: 'Initiate contact because you want movement or closure.',
+            scores: { rapidReturn: 3, delayedReturn: 0, avoidReturn: 0, structuredReturn: 1 }
           },
           {
-            text:
-              "Propose a specific time and structure for returning to it.",
-            scores: {
-              rapidReturn: 1,
-              delayedReturn: 1,
-              avoidReturn: 0,
-              structuredReturn: 3
-            }
+            text: 'Continue processing until you feel prepared.',
+            scores: { rapidReturn: 0, delayedReturn: 3, avoidReturn: 0, structuredReturn: 1 }
           }
         ]
       },
       {
-        domain: "Initial Stress Response",
-        text:
-          "When I feel powerless in conflict, I most often regain a sense of control by:",
+        domain: 'Initial Stress Response',
+        text: 'When you feel powerless in conflict, how do you most often regain a sense of control?',
         options: [
           {
-            text:
-              "Becoming more assertive or forceful.",
-            scores: {
-              confront: 3,
-              withdraw: 0,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 0
-            }
+            text: 'Create distance from the interaction.',
+            scores: { confront: 0, withdraw: 3, accommodateUnderStress: 0, regulateAndEngage: 1 }
           },
           {
-            text:
-              "Creating distance from the interaction.",
-            scores: {
-              confront: 0,
-              withdraw: 3,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 1
-            }
+            text: 'Name what you can control and make a deliberate request.',
+            scores: { confront: 1, withdraw: 0, accommodateUnderStress: 0, regulateAndEngage: 3 }
           },
           {
-            text:
-              "Reducing my demands so the situation becomes less threatening.",
-            scores: {
-              confront: 0,
-              withdraw: 0,
-              accommodateUnderStress: 3,
-              regulateAndEngage: 0
-            }
+            text: 'Reduce your demands so the situation feels less threatening.',
+            scores: { confront: 0, withdraw: 0, accommodateUnderStress: 3, regulateAndEngage: 0 }
           },
           {
-            text:
-              "Naming what I can control and making a deliberate request.",
-            scores: {
-              confront: 1,
-              withdraw: 0,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 3
-            }
+            text: 'Become more assertive or forceful.',
+            scores: { confront: 3, withdraw: 0, accommodateUnderStress: 0, regulateAndEngage: 0 }
           }
         ]
       },
       {
-        domain: "Activated Communication",
-        text:
-          "During intense disagreement, my words are most likely to become:",
+        domain: 'Activated Communication',
+        text: 'During an intense disagreement, how are your words most likely to change?',
         options: [
           {
-            text:
-              "Sharper and more focused on proving the point.",
-            scores: {
-              sharpen: 3,
-              silence: 0,
-              appease: 0,
-              clarify: 0
-            }
+            text: 'They become more careful, concrete, and focused on one issue at a time.',
+            scores: { sharpen: 1, silence: 0, appease: 0, clarify: 3 }
           },
           {
-            text:
-              "Limited because I no longer know what to say safely.",
-            scores: {
-              sharpen: 0,
-              silence: 3,
-              appease: 0,
-              clarify: 0
-            }
+            text: 'They become limited because you no longer know what feels safe to say.',
+            scores: { sharpen: 0, silence: 3, appease: 0, clarify: 0 }
           },
           {
-            text:
-              "Reassuring, even when the reassurance does not fully reflect what I feel.",
-            scores: {
-              sharpen: 0,
-              silence: 0,
-              appease: 3,
-              clarify: 1
-            }
+            text: 'They become sharper and more focused on proving the point.',
+            scores: { sharpen: 3, silence: 0, appease: 0, clarify: 0 }
           },
           {
-            text:
-              "More careful, concrete, and focused on one issue at a time.",
-            scores: {
-              sharpen: 1,
-              silence: 0,
-              appease: 0,
-              clarify: 3
-            }
+            text: 'They become reassuring, even when the reassurance does not fully reflect what you feel.',
+            scores: { sharpen: 0, silence: 0, appease: 3, clarify: 1 }
           }
         ]
       },
       {
-        domain: "Emotional Processing",
-        text:
-          "When I notice anger, fear, hurt, or shame during conflict, I tend to:",
+        domain: 'Emotional Processing',
+        text: 'When anger, fear, hurt, or shame appears during conflict, what do you usually do?',
         options: [
           {
-            text:
-              "Let the feeling shape my response immediately.",
-            scores: {
-              externalize: 3,
-              internalize: 0,
-              suppress: 0,
-              nameAndRegulate: 0
-            }
+            text: 'Hold it privately and examine it later.',
+            scores: { externalize: 0, internalize: 3, suppress: 0, nameAndRegulate: 1 }
           },
           {
-            text:
-              "Hold it privately and analyze it later.",
-            scores: {
-              externalize: 0,
-              internalize: 3,
-              suppress: 0,
-              nameAndRegulate: 1
-            }
+            text: 'Let the feeling shape your response immediately.',
+            scores: { externalize: 3, internalize: 0, suppress: 0, nameAndRegulate: 0 }
           },
           {
-            text:
-              "Ignore or minimize it so I can get through the interaction.",
-            scores: {
-              externalize: 0,
-              internalize: 0,
-              suppress: 3,
-              nameAndRegulate: 0
-            }
+            text: 'Recognize it, steady yourself, and decide what information it provides.',
+            scores: { externalize: 1, internalize: 1, suppress: 0, nameAndRegulate: 3 }
           },
           {
-            text:
-              "Recognize it, regulate it, and decide what information it provides.",
-            scores: {
-              externalize: 1,
-              internalize: 1,
-              suppress: 0,
-              nameAndRegulate: 3
-            }
+            text: 'Ignore or minimize it so you can get through the interaction.',
+            scores: { externalize: 0, internalize: 0, suppress: 3, nameAndRegulate: 0 }
           }
         ]
       },
       {
-        domain: "Re-Engagement",
-        text:
-          "When I return to a conflict after a pause, I usually begin by:",
+        domain: 'Re-Engagement',
+        text: 'When you return to a conflict after a pause, how do you usually begin?',
         options: [
           {
-            text:
-              "Restating the issue and moving toward resolution.",
-            scores: {
-              rapidReturn: 3,
-              delayedReturn: 0,
-              avoidReturn: 0,
-              structuredReturn: 1
-            }
+            text: 'Explain what you understood during the time apart.',
+            scores: { rapidReturn: 0, delayedReturn: 3, avoidReturn: 0, structuredReturn: 1 }
           },
           {
-            text:
-              "Explaining what I understood during the time apart.",
-            scores: {
-              rapidReturn: 0,
-              delayedReturn: 3,
-              avoidReturn: 0,
-              structuredReturn: 1
-            }
+            text: 'Confirm the purpose, boundaries, and process for the conversation.',
+            scores: { rapidReturn: 1, delayedReturn: 1, avoidReturn: 0, structuredReturn: 3 }
           },
           {
-            text:
-              "Testing whether the other person still wants to discuss it.",
-            scores: {
-              rapidReturn: 0,
-              delayedReturn: 1,
-              avoidReturn: 3,
-              structuredReturn: 0
-            }
+            text: 'Restate the issue and move toward resolution.',
+            scores: { rapidReturn: 3, delayedReturn: 0, avoidReturn: 0, structuredReturn: 1 }
           },
           {
-            text:
-              "Confirming the purpose, boundaries, and process for the conversation.",
-            scores: {
-              rapidReturn: 1,
-              delayedReturn: 1,
-              avoidReturn: 0,
-              structuredReturn: 3
-            }
+            text: 'Check whether the other person still wants to discuss it.',
+            scores: { rapidReturn: 0, delayedReturn: 1, avoidReturn: 3, structuredReturn: 0 }
           }
         ]
       },
       {
-        domain: "Initial Stress Response",
-        text:
-          "When conflict feels emotionally unsafe but still must be addressed, I am most likely to:",
+        domain: 'Initial Stress Response',
+        text: 'When conflict feels emotionally unsafe but still must be addressed, what are you most likely to do?',
         options: [
           {
-            text:
-              "Take a strong position so I am not dominated.",
-            scores: {
-              confront: 3,
-              withdraw: 0,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 0
-            }
+            text: 'Limit your participation as much as possible.',
+            scores: { confront: 0, withdraw: 3, accommodateUnderStress: 0, regulateAndEngage: 0 }
           },
           {
-            text:
-              "Limit my participation as much as possible.",
-            scores: {
-              confront: 0,
-              withdraw: 3,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 0
-            }
+            text: 'Use boundaries, support, or structure to remain involved as safely as possible.',
+            scores: { confront: 1, withdraw: 1, accommodateUnderStress: 0, regulateAndEngage: 3 }
           },
           {
-            text:
-              "Agree with enough of the other person’s position to reduce the threat.",
-            scores: {
-              confront: 0,
-              withdraw: 0,
-              accommodateUnderStress: 3,
-              regulateAndEngage: 0
-            }
+            text: 'Take a strong position so you are not dominated.',
+            scores: { confront: 3, withdraw: 0, accommodateUnderStress: 0, regulateAndEngage: 0 }
           },
           {
-            text:
-              "Use boundaries, support, or structure to remain engaged safely.",
-            scores: {
-              confront: 1,
-              withdraw: 1,
-              accommodateUnderStress: 0,
-              regulateAndEngage: 3
-            }
+            text: "Agree with enough of the other person's position to reduce the pressure.",
+            scores: { confront: 0, withdraw: 0, accommodateUnderStress: 3, regulateAndEngage: 0 }
           }
         ]
       },
       {
-        domain: "Activated Communication",
-        text:
-          "When I realize my message is escalating the conflict, I usually:",
+        domain: 'Activated Communication',
+        text: 'When you notice that your message is escalating the conflict, what do you usually do?',
         options: [
           {
-            text:
-              "Continue because the point still needs to be made.",
-            scores: {
-              sharpen: 3,
-              silence: 0,
-              appease: 0,
-              clarify: 0
-            }
+            text: 'Pause, restate the concern, and adjust your delivery.',
+            scores: { sharpen: 0, silence: 1, appease: 0, clarify: 3 }
           },
           {
-            text:
-              "Stop talking without explaining why.",
-            scores: {
-              sharpen: 0,
-              silence: 3,
-              appease: 0,
-              clarify: 0
-            }
+            text: 'Continue because the point still needs to be made.',
+            scores: { sharpen: 3, silence: 0, appease: 0, clarify: 0 }
           },
           {
-            text:
-              "Withdraw the concern or agree to end the tension.",
-            scores: {
-              sharpen: 0,
-              silence: 0,
-              appease: 3,
-              clarify: 0
-            }
+            text: 'Withdraw the concern or agree so the tension will end.',
+            scores: { sharpen: 0, silence: 0, appease: 3, clarify: 0 }
           },
           {
-            text:
-              "Pause, restate the concern, and adjust my delivery.",
-            scores: {
-              sharpen: 0,
-              silence: 1,
-              appease: 0,
-              clarify: 3
-            }
+            text: 'Stop talking without explaining why.',
+            scores: { sharpen: 0, silence: 3, appease: 0, clarify: 0 }
           }
         ]
       },
       {
-        domain: "Emotional Processing",
-        text:
-          "My strongest emotions in conflict are most likely to become visible through:",
+        domain: 'Emotional Processing',
+        text: 'How are your strongest emotions most likely to become visible during conflict?',
         options: [
           {
-            text:
-              "My tone, volume, facial expression, or immediate words.",
-            scores: {
-              externalize: 3,
-              internalize: 0,
-              suppress: 0,
-              nameAndRegulate: 0
-            }
+            text: 'Through silence, distance, or a delayed response.',
+            scores: { externalize: 0, internalize: 3, suppress: 1, nameAndRegulate: 0 }
           },
           {
-            text:
-              "My silence, distance, or delayed response.",
-            scores: {
-              externalize: 0,
-              internalize: 3,
-              suppress: 1,
-              nameAndRegulate: 0
-            }
+            text: 'Through a direct statement about what you feel and need.',
+            scores: { externalize: 1, internalize: 0, suppress: 0, nameAndRegulate: 3 }
           },
           {
-            text:
-              "My effort to appear unaffected or agreeable.",
-            scores: {
-              externalize: 0,
-              internalize: 0,
-              suppress: 3,
-              nameAndRegulate: 0
-            }
+            text: 'Through tone, volume, facial expression, or immediate words.',
+            scores: { externalize: 3, internalize: 0, suppress: 0, nameAndRegulate: 0 }
           },
           {
-            text:
-              "A direct statement about what I am feeling and what I need.",
-            scores: {
-              externalize: 1,
-              internalize: 0,
-              suppress: 0,
-              nameAndRegulate: 3
-            }
+            text: 'Through an effort to appear unaffected or agreeable.',
+            scores: { externalize: 0, internalize: 0, suppress: 3, nameAndRegulate: 0 }
           }
         ]
       },
       {
-        domain: "Re-Engagement",
-        text:
-          "A productive return to conflict is easiest for me when:",
+        domain: 'Re-Engagement',
+        text: 'When is it easiest for you to return to a conflict productively?',
         options: [
           {
-            text:
-              "The other person is ready to address the issue immediately.",
-            scores: {
-              rapidReturn: 3,
-              delayedReturn: 0,
-              avoidReturn: 0,
-              structuredReturn: 1
-            }
+            text: 'After the emotional intensity has mostly faded on its own.',
+            scores: { rapidReturn: 0, delayedReturn: 0, avoidReturn: 3, structuredReturn: 0 }
           },
           {
-            text:
-              "I have had sufficient private processing time.",
-            scores: {
-              rapidReturn: 0,
-              delayedReturn: 3,
-              avoidReturn: 0,
-              structuredReturn: 1
-            }
+            text: 'When the timing, purpose, and boundaries are understood.',
+            scores: { rapidReturn: 1, delayedReturn: 1, avoidReturn: 0, structuredReturn: 3 }
           },
           {
-            text:
-              "The emotional intensity has mostly disappeared on its own.",
-            scores: {
-              rapidReturn: 0,
-              delayedReturn: 0,
-              avoidReturn: 3,
-              structuredReturn: 0
-            }
+            text: 'When the other person is ready to address the issue immediately.',
+            scores: { rapidReturn: 3, delayedReturn: 0, avoidReturn: 0, structuredReturn: 1 }
           },
           {
-            text:
-              "The timing, purpose, and boundaries are mutually understood.",
-            scores: {
-              rapidReturn: 1,
-              delayedReturn: 1,
-              avoidReturn: 0,
-              structuredReturn: 3
-            }
+            text: 'After you have had enough private processing time.',
+            scores: { rapidReturn: 0, delayedReturn: 3, avoidReturn: 0, structuredReturn: 1 }
           }
         ]
       }
@@ -2051,95 +1673,90 @@
       ]
     };
 
+    const STORAGE_KEYS = {
+      draft: "hciaConflictActivationPrototype2Draft",
+      results: "hciaCurrentResults"
+    };
+
     let currentQuestion = 0;
+    let responses = new Array(questions.length).fill(null);
 
-    const responses =
-      new Array(questions.length).fill(null);
+    const introStage = document.getElementById("intro-stage");
+    const questionStage = document.getElementById("question-stage");
+    const reviewStage = document.getElementById("review-stage");
+    const questionCard = document.getElementById("question-card");
+    const progressRegion = document.getElementById("progress-region");
+    const preferredNameInput = document.getElementById("preferred-name");
+    const participantEmailInput = document.getElementById("participant-email");
+    const requestParticipantEmail = document.getElementById("request-participant-email");
+    const consentCreatorSharing = document.getElementById("consent-creator-sharing");
+    const emailField = document.getElementById("email-field");
+    const introError = document.getElementById("intro-error");
+    const questionError = document.getElementById("question-error");
+    const questionDomain = document.getElementById("question-domain");
+    const questionText = document.getElementById("question-text");
+    const answerList = document.getElementById("answer-list");
+    const progressLabel = document.getElementById("progress-label");
+    const progressPercent = document.getElementById("progress-percent");
+    const progressFill = document.getElementById("progress-fill");
+    const progressTrack = document.querySelector(".progress-track");
+    const backButton = document.getElementById("back-button");
+    const continueButton = document.getElementById("continue-button");
+    const resumePanel = document.getElementById("resume-panel");
+    const resumeCopy = document.getElementById("resume-copy");
 
-    const introStage =
-      document.getElementById("intro-stage");
+    function scrollAndFocus(element, focusTarget) {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const questionStage =
-      document.getElementById("question-stage");
+      element.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "start"
+      });
 
-    const reviewStage =
-      document.getElementById("review-stage");
+      window.setTimeout(function () {
+        focusTarget.focus({ preventScroll: true });
+      }, reduceMotion ? 0 : 260);
+    }
 
-    const progressRegion =
-      document.getElementById("progress-region");
-
-    const preferredNameInput =
-      document.getElementById("preferred-name");
-
-    const participantEmailInput =
-      document.getElementById("participant-email");
-
-    const introError =
-      document.getElementById("intro-error");
-
-    const questionError =
-      document.getElementById("question-error");
-
-    const questionDomain =
-      document.getElementById("question-domain");
-
-    const questionText =
-      document.getElementById("question-text");
-
-    const answerList =
-      document.getElementById("answer-list");
-
-    const progressLabel =
-      document.getElementById("progress-label");
-
-    const progressPercent =
-      document.getElementById("progress-percent");
-
-    const progressFill =
-      document.getElementById("progress-fill");
-
-    const progressTrack =
-      document.querySelector(".progress-track");
-
-    const backButton =
-      document.getElementById("back-button");
-
-    const continueButton =
-      document.getElementById("continue-button");
-
-    function showStage(stage) {
-      [introStage, questionStage, reviewStage]
-        .forEach(function (section) {
-          section.classList.remove("active");
-        });
+    function showStage(stage, shouldFocus = true) {
+      [introStage, questionStage, reviewStage].forEach(function (section) {
+        section.classList.remove("active");
+      });
 
       stage.classList.add("active");
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      if (!shouldFocus) {
+        return;
+      }
+
+      if (stage === questionStage) {
+        scrollAndFocus(questionCard, questionText);
+      } else if (stage === reviewStage) {
+        scrollAndFocus(reviewStage, document.getElementById("review-heading"));
+      } else {
+        scrollAndFocus(introStage, document.getElementById("intro-heading"));
+      }
     }
 
     function validateIntroduction() {
-      const nameIsPresent =
-        preferredNameInput.value.trim().length > 0;
-
+      const nameIsPresent = preferredNameInput.value.trim().length > 0;
       const acknowledgmentsAreComplete =
-        document.getElementById(
-          "acknowledge-educational"
-        ).checked &&
-        document.getElementById(
-          "acknowledge-self-report"
-        ).checked &&
-        document.getElementById(
-          "acknowledge-pilot"
-        ).checked;
+        document.getElementById("acknowledge-educational").checked &&
+        document.getElementById("acknowledge-self-report").checked &&
+        document.getElementById("acknowledge-pilot").checked;
 
-      if (
-        !nameIsPresent ||
-        !acknowledgmentsAreComplete
-      ) {
+      const emailIsValid =
+        !requestParticipantEmail.checked ||
+        (
+          participantEmailInput.value.trim().length > 0 &&
+          participantEmailInput.checkValidity()
+        );
+
+      if (!nameIsPresent || !acknowledgmentsAreComplete || !emailIsValid) {
+        introError.textContent = emailIsValid
+          ? "Enter your preferred first name and complete all three acknowledgments before beginning."
+          : "Enter a valid email address or turn off email delivery before beginning.";
+
         introError.classList.add("visible");
         return false;
       }
@@ -2148,225 +1765,229 @@
       return true;
     }
 
+    function getDraftPayload() {
+      return {
+        version: "Prototype 2.0",
+        savedAt: new Date().toISOString(),
+        currentQuestion: currentQuestion,
+        participantName: preferredNameInput.value.trim(),
+        participantEmail: participantEmailInput.value.trim(),
+        requestParticipantEmail: requestParticipantEmail.checked,
+        consentCreatorSharing: consentCreatorSharing.checked,
+        responses: responses
+      };
+    }
+
+    function saveDraft() {
+      try {
+        localStorage.setItem(STORAGE_KEYS.draft, JSON.stringify(getDraftPayload()));
+      } catch (error) {
+        console.warn("HCIA draft could not be saved.", error);
+      }
+    }
+
+    function readDraft() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEYS.draft);
+
+        if (!raw) {
+          return null;
+        }
+
+        const draft = JSON.parse(raw);
+
+        if (!Array.isArray(draft.responses) || draft.responses.length !== questions.length) {
+          return null;
+        }
+
+        return draft;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function clearDraft() {
+      try {
+        localStorage.removeItem(STORAGE_KEYS.draft);
+      } catch (error) {
+        console.warn("HCIA draft could not be cleared.", error);
+      }
+    }
+
+    function restoreDraft(draft) {
+      preferredNameInput.value = draft.participantName || "";
+      participantEmailInput.value = draft.participantEmail || "";
+      requestParticipantEmail.checked = Boolean(draft.requestParticipantEmail);
+      consentCreatorSharing.checked = Boolean(draft.consentCreatorSharing);
+
+      emailField.classList.toggle("visible", requestParticipantEmail.checked);
+
+      responses = draft.responses.map(function (value) {
+        return Number.isInteger(value) ? value : null;
+      });
+
+      currentQuestion = Math.min(
+        Math.max(Number(draft.currentQuestion) || 0, 0),
+        questions.length - 1
+      );
+
+      progressRegion.hidden = false;
+      showStage(questionStage, false);
+      renderQuestion();
+      scrollAndFocus(questionCard, questionText);
+    }
+
+    function checkForDraft() {
+      const draft = readDraft();
+
+      if (!draft) {
+        return;
+      }
+
+      const completedCount = draft.responses.filter(function (value) {
+        return Number.isInteger(value);
+      }).length;
+
+      resumeCopy.textContent =
+        "You previously answered " +
+        completedCount +
+        " of " +
+        questions.length +
+        " questions on this device.";
+
+      resumePanel.classList.add("visible");
+
+      document.getElementById("resume-button").onclick = function () {
+        restoreDraft(draft);
+      };
+
+      document.getElementById("start-over-button").onclick = function () {
+        clearDraft();
+        resumePanel.classList.remove("visible");
+        responses = new Array(questions.length).fill(null);
+        currentQuestion = 0;
+      };
+    }
+
     function renderQuestion() {
-      const question =
-        questions[currentQuestion];
+      const question = questions[currentQuestion];
 
-      questionDomain.textContent =
-        question.domain;
-
-      questionText.textContent =
-        question.text;
-
+      questionDomain.textContent = question.domain;
+      questionText.textContent = question.text;
       answerList.innerHTML = "";
 
-      question.options.forEach(
-        function (option, optionIndex) {
-          const wrapper =
-            document.createElement("label");
+      question.options.forEach(function (option, optionIndex) {
+        const wrapper = document.createElement("label");
+        wrapper.className = "answer-option";
 
-          wrapper.className =
-            "answer-option";
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "current-answer";
+        radio.value = optionIndex;
 
-          const radio =
-            document.createElement("input");
-
-          radio.type = "radio";
-          radio.name = "current-answer";
-          radio.value = optionIndex;
-
-          if (
-            responses[currentQuestion] ===
-            optionIndex
-          ) {
-            radio.checked = true;
-          }
-
-          const content =
-            document.createElement("span");
-
-          content.className =
-            "answer-content";
-
-          const letter =
-            document.createElement("span");
-
-          letter.className =
-            "answer-letter";
-
-          letter.textContent =
-            String.fromCharCode(
-              65 + optionIndex
-            );
-
-          const text =
-            document.createElement("span");
-
-          text.textContent =
-            option.text;
-
-          content.appendChild(letter);
-          content.appendChild(text);
-
-          wrapper.appendChild(radio);
-          wrapper.appendChild(content);
-
-          answerList.appendChild(wrapper);
+        if (responses[currentQuestion] === optionIndex) {
+          radio.checked = true;
         }
-      );
 
-      const questionNumber =
-        currentQuestion + 1;
+        radio.addEventListener("change", function () {
+          responses[currentQuestion] = optionIndex;
+          questionError.classList.remove("visible");
+          saveDraft();
+        });
 
-      const percent =
-        Math.round(
-          (
-            questionNumber /
-            questions.length
-          ) * 100
-        );
+        const content = document.createElement("span");
+        content.className = "answer-content";
+
+        const letter = document.createElement("span");
+        letter.className = "answer-letter";
+        letter.textContent = String.fromCharCode(65 + optionIndex);
+
+        const text = document.createElement("span");
+        text.textContent = option.text;
+
+        content.appendChild(letter);
+        content.appendChild(text);
+        wrapper.appendChild(radio);
+        wrapper.appendChild(content);
+        answerList.appendChild(wrapper);
+      });
+
+      const questionNumber = currentQuestion + 1;
+      const percent = Math.round((questionNumber / questions.length) * 100);
 
       progressLabel.textContent =
-        "Question " +
-        questionNumber +
-        " of " +
-        questions.length;
+        "Question " + questionNumber + " of " + questions.length;
 
-      progressPercent.textContent =
-        percent + "% complete";
+      progressPercent.textContent = percent + "% complete";
+      progressFill.style.width = percent + "%";
+      progressTrack.setAttribute("aria-valuenow", String(percent));
 
-      progressFill.style.width =
-        percent + "%";
-
-      progressTrack.setAttribute(
-        "aria-valuenow",
-        String(percent)
-      );
-
-      backButton.disabled =
-        currentQuestion === 0;
-
+      backButton.disabled = currentQuestion === 0;
       continueButton.textContent =
-        currentQuestion ===
-        questions.length - 1
+        currentQuestion === questions.length - 1
           ? "Review Answers"
           : "Continue";
 
-      questionError.classList.remove(
-        "visible"
-      );
+      questionError.classList.remove("visible");
+      saveDraft();
     }
 
     function saveCurrentAnswer() {
-      const selected =
-        document.querySelector(
-          'input[name="current-answer"]:checked'
-        );
+      const selected = document.querySelector(
+        'input[name="current-answer"]:checked'
+      );
 
       if (!selected) {
-        questionError.classList.add(
-          "visible"
-        );
-
+        questionError.classList.add("visible");
         return false;
       }
 
-      responses[currentQuestion] =
-        Number(selected.value);
-
-      questionError.classList.remove(
-        "visible"
-      );
-
+      responses[currentQuestion] = Number(selected.value);
+      questionError.classList.remove("visible");
+      saveDraft();
       return true;
     }
 
     function createReview() {
-      const reviewList =
-        document.getElementById(
-          "review-list"
-        );
-
+      const reviewList = document.getElementById("review-list");
       reviewList.innerHTML = "";
 
-      questions.forEach(
-        function (
-          question,
-          questionIndex
-        ) {
-          const row =
-            document.createElement("div");
+      questions.forEach(function (question, questionIndex) {
+        const row = document.createElement("div");
+        row.className = "review-row";
 
-          row.className =
-            "review-row";
+        const questionLabel = document.createElement("strong");
+        questionLabel.textContent = "Question " + (questionIndex + 1);
 
-          const questionLabel =
-            document.createElement(
-              "strong"
-            );
+        const answer = document.createElement("span");
+        const selectedIndex = responses[questionIndex];
+        answer.textContent = question.options[selectedIndex].text;
 
-          questionLabel.textContent =
-            "Question " +
-            (questionIndex + 1);
-
-          const answer =
-            document.createElement("span");
-
-          const selectedIndex =
-            responses[questionIndex];
-
-          answer.textContent =
-            question.options[
-              selectedIndex
-            ].text;
-
-          row.appendChild(
-            questionLabel
-          );
-
-          row.appendChild(answer);
-
-          reviewList.appendChild(row);
-        }
-      );
+        row.appendChild(questionLabel);
+        row.appendChild(answer);
+        reviewList.appendChild(row);
+      });
     }
 
     function calculateScores() {
       const scores = {};
 
-      responses.forEach(
-        function (
-          selectedOption,
-          questionIndex
-        ) {
-          const selectedScores =
-            questions[questionIndex]
-              .options[selectedOption]
-              .scores;
+      responses.forEach(function (selectedOption, questionIndex) {
+        const selectedScores =
+          questions[questionIndex].options[selectedOption].scores;
 
-          Object.entries(
-            selectedScores
-          ).forEach(
-            function (entry) {
-              const key = entry[0];
-              const value = entry[1];
-
-              scores[key] =
-                (scores[key] || 0) +
-                value;
-            }
-          );
-        }
-      );
+        Object.entries(selectedScores).forEach(function (entry) {
+          const key = entry[0];
+          const value = entry[1];
+          scores[key] = (scores[key] || 0) + value;
+        });
+      });
 
       return scores;
     }
 
-    function rankDomain(
-      scores,
-      domainKeys
-    ) {
-      return domainKeys
+    function rankDomain(scores, domainKeys) {
+      const ranking = domainKeys
         .map(function (key) {
           return {
             key: key,
@@ -2377,301 +1998,180 @@
         .sort(function (a, b) {
           return b.score - a.score;
         });
+
+      const total = ranking.reduce(function (sum, item) {
+        return sum + item.score;
+      }, 0);
+
+      return ranking.map(function (item) {
+        return {
+          key: item.key,
+          label: item.label,
+          score: item.score,
+          percentage: total > 0
+            ? Math.round((item.score / total) * 100)
+            : 0
+        };
+      });
     }
 
     function buildResults() {
-      const scores =
-        calculateScores();
+      const scores = calculateScores();
 
-      const stressRanking =
-        rankDomain(
-          scores,
-          domains.conflictStyle
-        );
-
-      const communicationRanking =
-        rankDomain(
-          scores,
-          domains.communicationStyle
-        );
-
-      const processingRanking =
-        rankDomain(
-          scores,
-          domains.listeningStyle
-        );
-
-      const reengagementRanking =
-        rankDomain(
-          scores,
-          domains.decisionStyle
-        );
+      const stressRanking = rankDomain(scores, domains.conflictStyle);
+      const communicationRanking = rankDomain(scores, domains.communicationStyle);
+      const processingRanking = rankDomain(scores, domains.listeningStyle);
+      const reengagementRanking = rankDomain(scores, domains.decisionStyle);
 
       return {
-        participantName:
-          preferredNameInput
-            .value
-            .trim(),
+        participantName: preferredNameInput.value.trim(),
+        participantEmail: participantEmailInput.value.trim(),
+        requestParticipantEmail: requestParticipantEmail.checked,
+        consentCreatorSharing: consentCreatorSharing.checked,
 
-        participantEmail:
-          participantEmailInput
-            .value
-            .trim(),
+        deliveryMode: requestParticipantEmail.checked
+          ? "participant-email-requested"
+          : "local-only",
 
-        assessmentType:
-          "conflict-activation",
+        assessmentType: "conflict-activation",
+        assessmentTitle: "Conflict Activation Assessment",
+        assessmentVersion: "Prototype 2.0",
+        completedAt: new Date().toISOString(),
 
-        assessmentTitle:
-          "Conflict Activation Assessment",
+        scoreDisclaimer:
+          "Higher scores do not necessarily indicate a healthier or better pattern. They indicate stronger alignment with a particular pattern within this assessment dimension.",
 
-        assessmentVersion:
-          "Pilot Beta 1.0",
-
-        completedAt:
-          new Date().toISOString(),
+        validationDisclaimer:
+          "The HCIA is not clinically validated, diagnostically accurate, population-normed, predictively validated, established through test-retest reliability, or construct-validated. Consented pilot data may support future refinement and study.",
 
         scores: scores,
 
         domains: {
           conflictStyle: {
-            displayName:
-              "Initial Stress Response",
-
-            primary:
-              stressRanking[0],
-
-            secondary:
-              stressRanking[1],
-
-            ranking:
-              stressRanking
+            displayName: "Initial Stress Response",
+            primary: stressRanking[0],
+            secondary: stressRanking[1],
+            ranking: stressRanking
           },
 
           communicationStyle: {
-            displayName:
-              "Activated Communication",
-
-            primary:
-              communicationRanking[0],
-
-            secondary:
-              communicationRanking[1],
-
-            ranking:
-              communicationRanking
+            displayName: "Activated Communication",
+            primary: communicationRanking[0],
+            secondary: communicationRanking[1],
+            ranking: communicationRanking
           },
 
           listeningStyle: {
-            displayName:
-              "Emotional Processing",
-
-            primary:
-              processingRanking[0],
-
-            secondary:
-              processingRanking[1],
-
-            ranking:
-              processingRanking
+            displayName: "Emotional Processing",
+            primary: processingRanking[0],
+            secondary: processingRanking[1],
+            ranking: processingRanking
           },
 
           decisionStyle: {
-            displayName:
-              "Re-Engagement Pattern",
-
-            primary:
-              reengagementRanking[0],
-
-            secondary:
-              reengagementRanking[1],
-
-            ranking:
-              reengagementRanking
+            displayName: "Re-Engagement Pattern",
+            primary: reengagementRanking[0],
+            secondary: reengagementRanking[1],
+            ranking: reengagementRanking
           }
         },
 
-        responses:
-          responses.map(
-            function (
-              selectedOption,
-              questionIndex
-            ) {
-              return {
-                questionNumber:
-                  questionIndex + 1,
-
-                domain:
-                  questions[
-                    questionIndex
-                  ].domain,
-
-                question:
-                  questions[
-                    questionIndex
-                  ].text,
-
-                selectedOption:
-                  selectedOption,
-
-                selectedAnswer:
-                  questions[
-                    questionIndex
-                  ].options[
-                    selectedOption
-                  ].text
-              };
-            }
-          )
+        responses: responses.map(function (selectedOption, questionIndex) {
+          return {
+            questionNumber: questionIndex + 1,
+            domain: questions[questionIndex].domain,
+            question: questions[questionIndex].text,
+            selectedOption: selectedOption,
+            selectedAnswer:
+              questions[questionIndex].options[selectedOption].text
+          };
+        })
       };
     }
 
-    document.getElementById(
-      "begin-button"
-    ).addEventListener(
-      "click",
-      function () {
-        if (
-          !validateIntroduction()
-        ) {
-          return;
-        }
+    requestParticipantEmail.addEventListener("change", function () {
+      emailField.classList.toggle("visible", requestParticipantEmail.checked);
 
-        currentQuestion = 0;
+      if (requestParticipantEmail.checked) {
+        participantEmailInput.focus();
+      }
 
-        progressRegion.hidden =
-          false;
+      saveDraft();
+    });
 
-        showStage(
-          questionStage
-        );
+    consentCreatorSharing.addEventListener("change", saveDraft);
+    preferredNameInput.addEventListener("input", saveDraft);
+    participantEmailInput.addEventListener("input", saveDraft);
 
+    document.getElementById("begin-button").addEventListener("click", function () {
+      if (!validateIntroduction()) {
+        return;
+      }
+
+      currentQuestion = 0;
+      progressRegion.hidden = false;
+      showStage(questionStage, false);
+      renderQuestion();
+      scrollAndFocus(questionCard, questionText);
+    });
+
+    continueButton.addEventListener("click", function () {
+      if (!saveCurrentAnswer()) {
+        return;
+      }
+
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion += 1;
         renderQuestion();
+        scrollAndFocus(questionCard, questionText);
+        return;
       }
-    );
 
-    continueButton.addEventListener(
-      "click",
-      function () {
-        if (
-          !saveCurrentAnswer()
-        ) {
-          return;
-        }
+      createReview();
+      progressRegion.hidden = true;
+      showStage(reviewStage);
+    });
 
-        if (
-          currentQuestion <
-          questions.length - 1
-        ) {
-          currentQuestion += 1;
-
-          renderQuestion();
-
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          });
-
-          return;
-        }
-
-        createReview();
-
-        progressRegion.hidden =
-          true;
-
-        showStage(
-          reviewStage
-        );
+    backButton.addEventListener("click", function () {
+      if (currentQuestion === 0) {
+        return;
       }
-    );
 
-    backButton.addEventListener(
-      "click",
-      function () {
-        if (
-          currentQuestion === 0
-        ) {
-          return;
-        }
-
-        currentQuestion -= 1;
-
-        renderQuestion();
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      }
-    );
+      currentQuestion -= 1;
+      renderQuestion();
+      scrollAndFocus(questionCard, questionText);
+    });
 
     document.getElementById(
       "return-to-questions-button"
-    ).addEventListener(
-      "click",
-      function () {
-        currentQuestion =
-          questions.length - 1;
+    ).addEventListener("click", function () {
+      currentQuestion = questions.length - 1;
+      progressRegion.hidden = false;
+      showStage(questionStage, false);
+      renderQuestion();
+      scrollAndFocus(questionCard, questionText);
+    });
 
-        progressRegion.hidden =
-          false;
+    document.getElementById("submit-button").addEventListener("click", function () {
+      const results = buildResults();
 
-        showStage(
-          questionStage
+      try {
+        localStorage.setItem(STORAGE_KEYS.results, JSON.stringify(results));
+        clearDraft();
+      } catch (error) {
+        alert(
+          "Your browser could not save the assessment results. Check your browser storage settings and try again."
         );
-
-        renderQuestion();
+        return;
       }
-    );
 
-    document.getElementById(
-      "submit-button"
-    ).addEventListener(
-      "click",
-      function () {
-        const results =
-          buildResults();
+      window.location.href = "../profile/?source=conflict-activation";
+    });
 
-        try {
-          localStorage.setItem(
-            "hciaCurrentResults",
-            JSON.stringify(results)
-          );
-
-          localStorage.setItem(
-            "hciaConflictActivationDraft",
-            JSON.stringify({
-              participantName:
-                preferredNameInput
-                  .value
-                  .trim(),
-
-              participantEmail:
-                participantEmailInput
-                  .value
-                  .trim(),
-
-              responses:
-                responses
-            })
-          );
-        } catch (error) {
-          alert(
-            "Your browser could not temporarily save the assessment results. Please check your browser storage settings and try again."
-          );
-
-          return;
-        }
-
-        window.location.href =
-          "../profile/?source=conflict-activation";
-      }
-    );
-
-    document.getElementById(
-      "current-year"
-    ).textContent =
+    document.getElementById("current-year").textContent =
       new Date().getFullYear();
+
+    checkForDraft();
   </script>
 </body>
 </html>
