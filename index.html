@@ -1061,6 +1061,71 @@
       }
     }
   </style>
+
+  /* =========================
+   HCIA Feedback Callout
+   ========================= */
+
+.hcia-feedback-callout {
+  margin-top: 28px;
+  padding: 34px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-medium);
+  background: var(--surface-soft);
+  text-align: center;
+}
+
+.hcia-feedback-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hcia-feedback-content h2 {
+  margin-bottom: 14px;
+  color: var(--primary-dark);
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+}
+
+.hcia-feedback-content p {
+  margin-bottom: 12px;
+  color: var(--text-soft);
+}
+
+.hcia-feedback-content .feedback-button {
+  min-height: 50px;
+  margin-top: 12px;
+  padding: 13px 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--text-light);
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hcia-feedback-content .feedback-button:hover {
+  background: var(--primary-dark);
+}
+
+.hcia-feedback-content .feedback-button:focus-visible {
+  outline: 3px solid rgba(178, 139, 77, 0.45);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .hcia-feedback-callout {
+    padding: 26px 22px;
+  }
+
+  .hcia-feedback-content .feedback-button {
+    width: 100%;
+  }
+}
+
 </head>
 
 <body>
@@ -1724,7 +1789,38 @@
           </span>
         </div>
       </div>
-    </section>
+    </section>      
+<!-- =========================
+     HCIA Feedback & Review
+     ========================= -->
+
+<section class="hcia-feedback-callout">
+  <div class="hcia-feedback-content">
+
+    <h2>Share Your HCIA Experience</h2>
+
+    <p>
+      Your feedback helps improve future versions of the Harrington
+      Conflict Intelligence Assessment while preserving our commitment
+      to clarity, fairness, accessibility, and educational integrity.
+    </p>
+
+    <p>
+      Whether you completed an assessment, reviewed your results profile,
+      or simply explored the HCIA, we welcome your thoughts.
+    </p>
+
+    <a
+      href="feedback/"
+      class="primary-button"
+      aria-label="Leave feedback about the Harrington Conflict Intelligence Assessment"
+    >
+      Leave Feedback &amp; Review
+    </a>
+
+  </div>
+</section>      
+    
   </main>
 
   <footer class="site-footer">
