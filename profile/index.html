@@ -2,10 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="View your personalized Harrington Conflict Intelligence Assessment Results Profile.">
-  <meta name="author" content="Robert Harrington Jr.">
-  <title>HCIA Results Profile</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="View your personalized Harrington Conflict Intelligence Assessment Results Profile."
+  >
+
+  <meta
+    name="author"
+    content="Robert Harrington Jr."
+  >
+
+  <title>
+    HCIA Results Profile | Prototype 2
+  </title>
 
   <style>
     :root {
@@ -28,6 +43,9 @@
       --error-background: #fff0ef;
       --error-border: #b85a54;
       --error-text: #7f2e29;
+      --success-background: #e9f4ee;
+      --success-border: #8db79f;
+      --success-text: #244c39;
       --shadow-small: 0 8px 24px rgba(24, 39, 33, 0.07);
       --shadow-large: 0 24px 70px rgba(24, 39, 33, 0.15);
       --radius-small: 12px;
@@ -36,36 +54,67 @@
       --content-width: 1120px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       background: var(--background);
       color: var(--text);
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
       line-height: 1.65;
     }
 
-    body, button, a { -webkit-font-smoothing: antialiased; }
+    body,
+    button,
+    a {
+      -webkit-font-smoothing: antialiased;
+    }
 
-    img { max-width: 100%; display: block; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+    }
 
-    button, a { -webkit-tap-highlight-color: transparent; }
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-    button { font: inherit; }
+    button {
+      font: inherit;
+    }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       margin-top: 0;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
       font-weight: 500;
       line-height: 1.15;
     }
 
-    p { margin-top: 0; }
+    p {
+      margin-top: 0;
+    }
 
     .skip-link {
       position: absolute;
@@ -79,10 +128,15 @@
       text-decoration: none;
     }
 
-    .skip-link:focus { top: 20px; }
+    .skip-link:focus {
+      top: 20px;
+    }
 
     .container {
-      width: min(calc(100% - 36px), var(--content-width));
+      width: min(
+        calc(100% - 36px),
+        var(--content-width)
+      );
       margin: 0 auto;
     }
 
@@ -179,7 +233,9 @@
       text-decoration: none;
     }
 
-    main { padding: 34px 0 82px; }
+    main {
+      padding: 34px 0 82px;
+    }
 
     .error-panel {
       display: none;
@@ -191,7 +247,9 @@
       box-shadow: var(--shadow-small);
     }
 
-    .error-panel.visible { display: block; }
+    .error-panel.visible {
+      display: block;
+    }
 
     .error-panel h1 {
       margin-bottom: 14px;
@@ -206,9 +264,13 @@
       gap: 12px;
     }
 
-    .profile-shell { display: none; }
+    .profile-shell {
+      display: none;
+    }
 
-    .profile-shell.visible { display: block; }
+    .profile-shell.visible {
+      display: block;
+    }
 
     .profile-hero {
       overflow: hidden;
@@ -222,7 +284,9 @@
     .profile-hero-inner {
       padding: 52px;
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+      grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(260px, 0.75fr);
       align-items: center;
       gap: 48px;
     }
@@ -292,7 +356,7 @@
     }
 
     .section-heading {
-      max-width: 760px;
+      max-width: 820px;
       margin-bottom: 28px;
     }
 
@@ -307,10 +371,27 @@
       color: var(--text-soft);
     }
 
-    .pattern-grid,
-    .insight-grid {
+    .interpretation-notice {
+      margin-top: 28px;
+      padding: 22px;
+      border-left: 4px solid var(--accent);
+      border-radius:
+        0
+        var(--radius-small)
+        var(--radius-small)
+        0;
+      background: var(--warning-background);
+      color: var(--warning-text);
+    }
+
+    .interpretation-notice strong {
+      color: #4e3b14;
+    }
+
+    .pattern-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
 
@@ -331,7 +412,7 @@
     }
 
     .pattern-card h3 {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: var(--primary-dark);
       font-size: 1.55rem;
     }
@@ -349,12 +430,15 @@
     }
 
     .score-bars {
-      margin-top: 18px;
+      margin-top: 20px;
       display: grid;
-      gap: 12px;
+      gap: 13px;
     }
 
-    .score-row { display: grid; gap: 7px; }
+    .score-row {
+      display: grid;
+      gap: 7px;
+    }
 
     .score-copy {
       display: flex;
@@ -363,6 +447,10 @@
       color: var(--text-soft);
       font-size: 0.82rem;
       font-weight: 700;
+    }
+
+    .score-value {
+      white-space: nowrap;
     }
 
     .score-track {
@@ -375,13 +463,37 @@
     .score-fill {
       height: 100%;
       border-radius: inherit;
-      background: linear-gradient(90deg, var(--primary), #467364);
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          #467364
+        );
+    }
+
+    .card-interpretation {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .insight-card {
       padding: 24px;
       border-left: 4px solid var(--accent);
-      border-radius: 0 var(--radius-medium) var(--radius-medium) 0;
+      border-radius:
+        0
+        var(--radius-medium)
+        var(--radius-medium)
+        0;
       background: var(--surface-soft);
     }
 
@@ -400,7 +512,12 @@
       padding: 30px;
       border: 1px solid rgba(178, 139, 77, 0.65);
       border-radius: var(--radius-medium);
-      background: linear-gradient(135deg, rgba(38, 76, 64, 0.98), rgba(24, 55, 47, 0.98));
+      background:
+        linear-gradient(
+          135deg,
+          rgba(38, 76, 64, 0.98),
+          rgba(24, 55, 47, 0.98)
+        );
       color: var(--text-light);
     }
 
@@ -410,7 +527,9 @@
       font-size: 1.8rem;
     }
 
-    .growth-panel p { color: #dce4df; }
+    .growth-panel p {
+      color: #dce4df;
+    }
 
     .growth-panel ul {
       margin: 18px 0 0;
@@ -431,6 +550,37 @@
       color: var(--text-soft);
     }
 
+    .status-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .status-card {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      background: var(--surface-soft);
+    }
+
+    .status-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--primary-dark);
+    }
+
+    .status-card p {
+      margin-bottom: 0;
+      color: var(--text-soft);
+    }
+
+    .status-card.consent {
+      border-color: var(--success-border);
+      background: var(--success-background);
+      color: var(--success-text);
+    }
+
     .action-panel {
       margin-top: 28px;
       padding: 30px;
@@ -445,7 +595,9 @@
       font-size: 2rem;
     }
 
-    .action-panel p { color: var(--text-soft); }
+    .action-panel p {
+      color: var(--text-soft);
+    }
 
     .button {
       min-height: 50px;
@@ -465,7 +617,9 @@
       color: var(--text-light);
     }
 
-    .button-primary:hover { background: var(--primary-dark); }
+    .button-primary:hover {
+      background: var(--primary-dark);
+    }
 
     .button-secondary {
       border-color: var(--primary);
@@ -473,7 +627,9 @@
       color: var(--primary);
     }
 
-    .button-secondary:hover { background: var(--primary-soft); }
+    .button-secondary:hover {
+      background: var(--primary-soft);
+    }
 
     .button-muted {
       border-color: var(--border);
@@ -485,7 +641,11 @@
       margin-top: 28px;
       padding: 22px;
       border-left: 4px solid var(--accent);
-      border-radius: 0 var(--radius-small) var(--radius-small) 0;
+      border-radius:
+        0
+        var(--radius-small)
+        var(--radius-small)
+        0;
       background: var(--surface-soft);
       color: var(--text-soft);
       font-size: 0.9rem;
@@ -504,7 +664,9 @@
       font-size: 0.82rem;
     }
 
-    .footer-inner strong { color: var(--primary); }
+    .footer-inner strong {
+      color: var(--primary);
+    }
 
     @media (max-width: 860px) {
       .header-inner {
@@ -519,11 +681,14 @@
         flex-direction: column;
       }
 
-      .header-link { text-align: center; }
+      .header-link {
+        text-align: center;
+      }
 
       .profile-hero-inner,
       .pattern-grid,
-      .insight-grid {
+      .insight-grid,
+      .status-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -535,11 +700,17 @@
         padding: 26px 22px;
       }
 
-      .action-buttons { flex-direction: column; }
+      .action-buttons {
+        flex-direction: column;
+      }
 
-      .button { width: 100%; }
+      .button {
+        width: 100%;
+      }
 
-      .footer-inner { flex-direction: column; }
+      .footer-inner {
+        flex-direction: column;
+      }
     }
 
     @media print {
@@ -548,41 +719,77 @@
       .breadcrumb,
       .action-panel,
       .site-footer,
-      .pilot-note,
-      .skip-link {
+      .skip-link,
+      #consent-section {
         display: none !important;
       }
 
-      body { background: white; }
+      body {
+        background: white;
+      }
 
-      main { padding: 0; }
+      main {
+        padding: 0;
+      }
 
-      .container { width: 100%; }
+      .container {
+        width: 100%;
+      }
 
       .profile-hero,
       .section {
         box-shadow: none;
       }
 
-      .profile-hero { border-radius: 0; }
+      .profile-hero {
+        border-radius: 0;
+      }
 
-      .section { break-inside: avoid; }
+      .section,
+      .pattern-card,
+      .insight-card,
+      .growth-panel {
+        break-inside: avoid;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
 
   <div class="pilot-banner">
-    HCIA Public Pilot Beta — Results are educational and remain under evaluation.
+    HCIA Public Pilot Beta — Results Profile Prototype 2
   </div>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="../" aria-label="Return to the HCIA homepage">
+      <a
+        class="brand"
+        href="../"
+        aria-label="Return to the HCIA homepage"
+      >
         <span class="brand-logo" aria-hidden="true">
-          <img src="../harrington-bridge-compass-logo.jpeg" alt="">
+          <img
+            src="../harrington-bridge-compass-logo.jpeg"
+            alt=""
+          >
         </span>
 
         <span class="brand-copy">
@@ -596,10 +803,25 @@
         </span>
       </a>
 
-      <nav class="header-links" aria-label="Results profile navigation">
-        <a class="header-link" href="../">HCIA Home</a>
+      <nav
+        class="header-links"
+        aria-label="Results profile navigation"
+      >
+        <a class="header-link" href="../">
+          HCIA Home
+        </a>
 
-        <a class="header-link" href="https://robertharringtonjr.com/">
+        <a
+          class="header-link"
+          href="../feedback/"
+        >
+          Pilot Feedback
+        </a>
+
+        <a
+          class="header-link"
+          href="https://robertharringtonjr.com/"
+        >
           Harrington Mediation
         </a>
       </nav>
@@ -607,87 +829,155 @@
   </header>
 
   <div class="container breadcrumb">
-    <a href="https://robertharringtonjr.com/">Harrington Mediation</a>
+    <a href="https://robertharringtonjr.com/">
+      Harrington Mediation
+    </a>
     &nbsp;›&nbsp;
-    <a href="../">HCIA</a>
+    <a href="../">
+      HCIA
+    </a>
     &nbsp;›&nbsp;
     Results Profile
   </div>
 
   <main id="main-content">
     <div class="container">
-      <section class="error-panel" id="error-panel" aria-labelledby="error-heading">
-        <h1 id="error-heading">No assessment results were found</h1>
+      <section
+        class="error-panel"
+        id="error-panel"
+        aria-labelledby="error-heading"
+      >
+        <h1 id="error-heading">
+          No assessment results were found
+        </h1>
 
         <p>
-          This page needs completed HCIA assessment results from the same browser.
-          Return to the HCIA homepage and complete an assessment before opening the
-          results page.
+          This page needs completed HCIA results stored by the same
+          browser and device. Return to the HCIA homepage and
+          complete an assessment before opening the profile page.
         </p>
 
         <div class="error-actions">
-          <a class="button button-primary" href="../">Return to HCIA Home</a>
+          <a class="button button-primary" href="../">
+            Return to HCIA Home
+          </a>
 
-          <a class="button button-secondary" href="../baseline/">
-            Take the Baseline Profile Assessment
+          <a
+            class="button button-secondary"
+            href="../complete/"
+          >
+            Take the Complete HCIA
           </a>
         </div>
       </section>
 
-      <article class="profile-shell" id="profile-shell">
+      <article
+        class="profile-shell"
+        id="profile-shell"
+      >
         <header class="profile-hero">
           <div class="profile-hero-inner">
             <div>
-              <p class="profile-label">Your HCIA Results Profile</p>
+              <p class="profile-label">
+                Your HCIA Results Profile
+              </p>
 
-              <h1 id="profile-title">HCIA Results Profile</h1>
+              <h1 id="profile-title" tabindex="-1">
+                HCIA Results Profile
+              </h1>
 
-              <p class="profile-intro" id="profile-intro"></p>
+              <p
+                class="profile-intro"
+                id="profile-intro"
+              ></p>
 
               <div class="profile-meta">
-                <span class="meta-pill" id="assessment-type-pill"></span>
-                <span class="meta-pill" id="completion-date-pill"></span>
-                <span class="meta-pill" id="version-pill"></span>
+                <span
+                  class="meta-pill"
+                  id="assessment-type-pill"
+                ></span>
+
+                <span
+                  class="meta-pill"
+                  id="completion-date-pill"
+                ></span>
+
+                <span
+                  class="meta-pill"
+                  id="version-pill"
+                ></span>
               </div>
             </div>
 
             <aside class="summary-card">
-              <h2>Profile Summary</h2>
+              <h2>
+                Profile Summary
+              </h2>
+
               <p id="summary-text"></p>
             </aside>
           </div>
         </header>
 
+        <aside class="interpretation-notice">
+          <strong>
+            How to read this profile:
+          </strong>
+          These percentages show relative alignment among the four
+          patterns within each dimension. They are not grades,
+          diagnostic scores, population percentiles, or measures of
+          health, maturity, morality, competence, or permanent
+          personality.
+        </aside>
+
         <section class="section">
           <div class="section-heading">
-            <h2>Baseline Pattern Overview</h2>
+            <h2 id="overview-heading">
+              Pattern Overview
+            </h2>
+
             <p>
-              These results describe the strongest patterns reflected across your
-              answers. They are not fixed labels and may shift according to context,
-              relationship, power, safety, and stress.
+              These results describe the strongest patterns reflected
+              across your answers. They are not fixed labels and may
+              shift according to context, relationship, power, safety,
+              stress, and recent circumstances.
             </p>
           </div>
 
-          <div class="pattern-grid" id="pattern-grid"></div>
+          <div
+            class="pattern-grid"
+            id="pattern-grid"
+          ></div>
         </section>
 
         <section class="section">
           <div class="section-heading">
-            <h2>Strengths and Possible Overuse</h2>
+            <h2>
+              Strengths and Possible Overuse
+            </h2>
+
             <p>
-              A constructive pattern may become less effective when relied upon too
-              heavily or used without regard for context.
+              A pattern may be constructive in one setting and less
+              effective in another. The purpose of this section is to
+              support flexibility, not to identify a universally best
+              pattern.
             </p>
           </div>
 
           <div class="insight-grid">
             <article class="insight-card">
-              <h3>Likely Strengths</h3>
+              <h3>
+                Likely Strengths
+              </h3>
+
               <p id="strengths-text"></p>
             </article>
 
             <article class="insight-card">
-              <h3>Possible Overuse</h3>
+              <h3>
+                Possible Overuse
+              </h3>
+
               <p id="overuse-text"></p>
             </article>
           </div>
@@ -695,75 +985,168 @@
 
         <section class="section">
           <div class="section-heading">
-            <h2>Primary Growth Priority</h2>
+            <h2>
+              Primary Growth Priority
+            </h2>
+
             <p>
-              This recommendation is generated from the interaction among your
-              strongest baseline patterns.
+              This recommendation begins with the strongest pattern
+              in the first available assessment dimension and then
+              incorporates the supporting patterns shown elsewhere
+              in the profile.
             </p>
           </div>
 
           <div class="growth-panel">
             <h3 id="growth-title"></h3>
+
             <p id="growth-text"></p>
+
             <ul id="practice-list"></ul>
           </div>
         </section>
 
         <section class="section">
           <div class="section-heading">
-            <h2>Preparing for Mediation</h2>
+            <h2>
+              Preparing for Mediation
+            </h2>
+
             <p>
-              Your profile can help you prepare to participate more intentionally in
-              mediation or conflict coaching.
+              Your profile can help you prepare to participate more
+              intentionally in mediation or conflict coaching.
             </p>
           </div>
 
-          <ul class="mediation-list" id="mediation-list"></ul>
+          <ul
+            class="mediation-list"
+            id="mediation-list"
+          ></ul>
         </section>
 
         <section class="section">
           <div class="section-heading">
-            <h2>Continue Learning</h2>
+            <h2>
+              Continue Learning
+            </h2>
+
             <p>
-              These recommendations identify practical areas for continued reflection
-              and skill development.
+              These recommendations identify practical areas for
+              continued reflection and skill development.
             </p>
           </div>
 
-          <ul class="learning-list" id="learning-list"></ul>
+          <ul
+            class="learning-list"
+            id="learning-list"
+          ></ul>
+        </section>
+
+        <section
+          class="section"
+          id="consent-section"
+        >
+          <div class="section-heading">
+            <h2>
+              Your Results and Sharing Choices
+            </h2>
+
+            <p>
+              These statements reflect the choices stored with this
+              completed assessment. This page does not independently
+              upload or email results.
+            </p>
+          </div>
+
+          <div class="status-grid">
+            <article
+              class="status-card"
+              id="email-status-card"
+            >
+              <strong>
+                Participant email delivery
+              </strong>
+
+              <p id="email-status-text"></p>
+            </article>
+
+            <article
+              class="status-card"
+              id="creator-status-card"
+            >
+              <strong>
+                Pilot review sharing
+              </strong>
+
+              <p id="creator-status-text"></p>
+            </article>
+          </div>
         </section>
 
         <section class="action-panel">
-          <h2>Save or Continue</h2>
+          <h2>
+            Save or Continue
+          </h2>
 
           <p>
-            You may print this page or use your browser’s print menu to save it as a
-            PDF. Email delivery and secure result sharing will be added during Stage
-            Two.
+            Use the print option to save a private PDF copy. This
+            profile remains in this browser until it is replaced or
+            cleared. Secure email and database submission require
+            the future HCIA backend and are not simulated by this
+            page.
           </p>
 
           <div class="action-buttons">
-            <button class="button button-primary" id="print-button" type="button">
+            <button
+              class="button button-primary"
+              id="print-button"
+              type="button"
+            >
               Print or Save as PDF
             </button>
 
-            <a class="button button-secondary" href="../">Return to HCIA Home</a>
+            <a
+              class="button button-secondary"
+              href="../feedback/"
+            >
+              Provide Pilot Feedback
+            </a>
 
-            <a class="button button-secondary" href="https://robertharringtonjr.com/">
+            <a
+              class="button button-secondary"
+              href="../"
+            >
+              Return to HCIA Home
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="https://robertharringtonjr.com/"
+            >
               Return to Harrington Mediation
             </a>
 
-            <button class="button button-muted" id="clear-button" type="button">
+            <button
+              class="button button-muted"
+              id="clear-button"
+              type="button"
+            >
               Clear These Results
             </button>
           </div>
         </section>
 
         <aside class="pilot-note">
-          <strong>Pilot notice:</strong>
-          This profile was generated from a developmental HCIA assessment. It is
-          educational, nonclinical, and subject to revision as the item bank, scoring
-          system, and interpretation framework are tested.
+          <strong>
+            Validation notice:
+          </strong>
+          The HCIA is a developmental educational assessment. It is
+          not clinically validated, diagnostically accurate,
+          population-normed, predictively validated, established
+          through test–retest reliability, or construct-validated.
+          The item bank, scoring, and interpretation framework remain
+          subject to revision through pilot review and future
+          validation research.
         </aside>
       </article>
     </div>
@@ -772,12 +1155,14 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <strong>Harrington Conflict Intelligence Assessment</strong><br>
+        <strong>
+          Harrington Conflict Intelligence Assessment
+        </strong><br>
         Understanding Precedes Resolution
       </div>
 
       <div>
-        Pilot Beta 1.0<br>
+        Prototype 2.0<br>
         © <span id="current-year"></span> Robert Harrington Jr.
       </div>
     </div>
@@ -785,95 +1170,677 @@
 
   <script>
     const definitions = {
-      "Collaborative Conflict Approach": {
-        strength: "You are likely to look for shared understanding and outcomes that address more than one person’s concerns.",
-        overuse: "Collaboration can become exhausting or inefficient when every issue is treated as requiring full consensus.",
-        growthTitle: "Preserve collaboration while strengthening boundaries",
-        growthText: "Continue inviting understanding, but distinguish between issues that require shared exploration and issues that require a clear boundary or timely decision.",
-        practices: [
-          "State your nonnegotiable concern before beginning collaborative problem-solving.",
-          "Ask whether the situation requires understanding, agreement, or simply a decision."
-        ],
-        mediation: [
-          "Prepare a concise list of your essential interests before the session.",
-          "Separate the outcomes you prefer from the needs you must protect."
-        ],
-        learning: [
-          "Positions versus interests",
-          "Boundary-setting during collaborative dialogue"
-        ]
+      "Direct–Collaborative": {
+            "strength": "You are inclined to engage conflict directly while still searching for shared understanding and workable participation.",
+            "overuse": "Direct collaboration can become demanding when every issue is treated as requiring immediate engagement or broad agreement.",
+            "growthTitle": "Pair collaborative engagement with selective boundaries",
+            "growthText": "Continue addressing conflict openly, while distinguishing between situations that need joint exploration, a clear boundary, or a timely decision.",
+            "practices": [
+                  "Name the central issue in one sentence before expanding the discussion.",
+                  "Ask whether the present goal is understanding, agreement, repair, or decision."
+            ],
+            "mediation": [
+                  "Prepare your essential interests separately from your preferred solutions.",
+                  "Identify the issues that genuinely require joint problem-solving."
+            ],
+            "learning": [
+                  "Interest-based negotiation",
+                  "Collaborative boundary-setting"
+            ]
       },
-
-      "Directive Conflict Approach": {
-        strength: "You are likely to bring clarity, decisiveness, and momentum when conflict requires direct action.",
-        overuse: "Directness can be experienced as pressure when others need time, context, or participation before moving forward.",
-        growthTitle: "Pair clarity with curiosity",
-        growthText: "Preserve your directness while creating deliberate space for the other person’s perspective before announcing a conclusion or solution.",
-        practices: [
-          "Ask one genuine question before stating your preferred outcome.",
-          "Distinguish urgency from discomfort."
-        ],
-        mediation: [
-          "Prepare your key points in concise language.",
-          "Identify where you can remain flexible before entering the session."
-        ],
-        learning: [
-          "Assertive communication without escalation",
-          "Listening before responding"
-        ]
+      "Competitive–Protective": {
+            "strength": "You are inclined to protect important interests through firmness, persistence, and clear advocacy.",
+            "overuse": "Protective firmness can narrow the conversation when disagreement is interpreted primarily as a contest over control or legitimacy.",
+            "growthTitle": "Protect what matters without reducing participation",
+            "growthText": "Preserve decisive advocacy while creating enough room to test assumptions, hear competing interests, and recognize where flexibility is safe.",
+            "practices": [
+                  "State what you are protecting before defending your position.",
+                  "Ask one clarifying question before strengthening your argument."
+            ],
+            "mediation": [
+                  "Separate nonnegotiable interests from preferred outcomes.",
+                  "Prepare evidence without assuming that evidence alone will resolve the conflict."
+            ],
+            "learning": [
+                  "Assertive advocacy without escalation",
+                  "Positions, interests, and power"
+            ]
       },
-
-      "Accommodating Conflict Approach": {
-        strength: "You are likely to recognize when flexibility, generosity, or relational preservation matters more than winning a point.",
-        overuse: "Accommodation can conceal dissatisfaction or weaken boundaries when you agree outwardly but remain unresolved internally.",
-        growthTitle: "Preserve generosity without disappearing",
-        growthText: "Continue recognizing when flexibility is constructive while becoming more explicit about the needs and limits that should not be silently surrendered.",
-        practices: [
-          "Before agreeing, identify whether you are choosing flexibility or avoiding discomfort.",
-          "Name your own concern before considering compromise."
-        ],
-        mediation: [
-          "Write down the needs you may be tempted to minimize.",
-          "Distinguish voluntary compromise from pressure to preserve harmony."
-        ],
-        learning: [
-          "Self-advocacy and respectful boundaries",
-          "Agreement versus genuine resolution"
-        ]
+      "Accommodating–Relational": {
+            "strength": "You are inclined to preserve relationships, reduce strain, and make room for other people’s concerns.",
+            "overuse": "Relational accommodation can conceal dissatisfaction or weaken consent when harmony is preserved by minimizing your own needs.",
+            "growthTitle": "Preserve generosity without disappearing",
+            "growthText": "Continue recognizing when flexibility is constructive, while becoming more explicit about needs, limits, and the difference between choice and pressure.",
+            "practices": [
+                  "Name your concern before offering compromise.",
+                  "Pause before agreeing and ask whether the agreement is voluntary and sustainable."
+            ],
+            "mediation": [
+                  "Write down needs you may be tempted to minimize.",
+                  "Distinguish relational care from surrendering an essential boundary."
+            ],
+            "learning": [
+                  "Self-advocacy and relational boundaries",
+                  "Consent within compromise"
+            ]
       },
-
-      "Reflective Conflict Approach": {
-        strength: "You are likely to observe carefully, think before responding, and avoid impulsive conflict behavior.",
-        overuse: "Reflection can become delay when a necessary conversation remains unstarted while you wait for complete certainty.",
-        growthTitle: "Convert reflection into timely engagement",
-        growthText: "Preserve thoughtful preparation while identifying a reasonable point at which reflection must become communication.",
-        practices: [
-          "Set a specific deadline for initiating a necessary conversation.",
-          "Communicate that you are thinking and identify when you intend to return."
-        ],
-        mediation: [
-          "Prepare written notes before the session.",
-          "Request brief pauses when you need time to process."
-        ],
-        learning: [
-          "Preparing for difficult conversations",
-          "Accountable pauses"
-        ]
+      "Avoidant–Reflective": {
+            "strength": "You are inclined to observe carefully, reduce impulsive reactions, and seek clarity before engaging.",
+            "overuse": "Reflection can become avoidance when necessary communication remains delayed without a specific return point.",
+            "growthTitle": "Convert reflection into accountable re-engagement",
+            "growthText": "Preserve thoughtful preparation while setting a reasonable point at which analysis must become communication.",
+            "practices": [
+                  "Set a specific time for returning to an unresolved issue.",
+                  "Tell the other person what you need to consider and when you will re-engage."
+            ],
+            "mediation": [
+                  "Prepare written notes and questions in advance.",
+                  "Request structured pauses rather than withdrawing without explanation."
+            ],
+            "learning": [
+                  "Accountable pauses",
+                  "Preparing for difficult conversations"
+            ]
+      },
+      "Direct and Explicit": {
+            "strength": "You tend to communicate concerns plainly, making the central issue visible and reducing ambiguity.",
+            "overuse": "Clarity may be experienced as bluntness when timing, emotional context, or relational impact receives too little attention.",
+            "growthTitle": "Keep the message clear while widening receptivity",
+            "growthText": "Preserve direct language while attending to timing, tone, and the amount of context the listener needs to remain engaged.",
+            "practices": [
+                  "State the issue directly, then explain why it matters.",
+                  "Check how the message was received before repeating it more forcefully."
+            ],
+            "mediation": [
+                  "Prepare a concise opening statement.",
+                  "Translate accusations into observable concerns and requested outcomes."
+            ],
+            "learning": [
+                  "Clear requests",
+                  "Direct communication with emotional awareness"
+            ]
+      },
+      "Diplomatic and Relational": {
+            "strength": "You tend to communicate with attention to emotional impact, tone, and the preservation of working relationships.",
+            "overuse": "Diplomacy can obscure the central concern when careful language becomes indirect or leaves the requested change uncertain.",
+            "growthTitle": "Make relational care more explicit",
+            "growthText": "Continue protecting dignity and connection while stating the issue, request, or boundary with enough precision to be actionable.",
+            "practices": [
+                  "Use one clear sentence to name the concern.",
+                  "End sensitive communication with a specific request or question."
+            ],
+            "mediation": [
+                  "Prepare both the relational concern and the concrete issue.",
+                  "Notice where softened language could be misunderstood as agreement."
+            ],
+            "learning": [
+                  "Diplomacy without ambiguity",
+                  "Relationally responsive assertiveness"
+            ]
+      },
+      "Analytical and Structured": {
+            "strength": "You tend to organize information, clarify sequence, and use reasoning to make conflict more understandable.",
+            "overuse": "Structure can become explanation-heavy when analysis replaces emotional acknowledgment or overwhelms the central issue.",
+            "growthTitle": "Use structure in service of understanding",
+            "growthText": "Preserve careful reasoning while identifying what the other person most needs to understand, feel acknowledged, or decide.",
+            "practices": [
+                  "Lead with the conclusion before presenting supporting detail.",
+                  "Separate facts, interpretations, and emotional impact."
+            ],
+            "mediation": [
+                  "Bring a short timeline rather than an exhaustive history.",
+                  "Prioritize the facts that affect present decisions."
+            ],
+            "learning": [
+                  "Fact–interpretation distinction",
+                  "Concise conflict narratives"
+            ]
+      },
+      "Reserved and Selective": {
+            "strength": "You tend to communicate deliberately and limit disclosure until it feels relevant, useful, or sufficiently safe.",
+            "overuse": "Selective communication can leave others guessing when important concerns, intentions, or emotional reactions remain unspoken.",
+            "growthTitle": "Increase useful transparency without abandoning discretion",
+            "growthText": "Preserve discernment while communicating enough information for others to understand your concern, participation, and intended next step.",
+            "practices": [
+                  "Name what you can discuss now and what requires more time.",
+                  "Share one additional piece of context when silence may be misread."
+            ],
+            "mediation": [
+                  "Prepare statements you may find difficult to say spontaneously.",
+                  "Tell the mediator when safety or processing affects your participation."
+            ],
+            "learning": [
+                  "Selective disclosure",
+                  "Communicating internal processing"
+            ]
+      },
+      "External and Immediate": {
+            "strength": "You tend to recognize emotion through expression and may bring important reactions into the conversation quickly.",
+            "overuse": "Immediate expression can outpace reflection when emotion begins directing the interaction before its meaning is understood.",
+            "growthTitle": "Create a brief interval between feeling and action",
+            "growthText": "Continue treating emotion as meaningful information while adding enough regulation to choose how and when it should shape communication.",
+            "practices": [
+                  "Name the emotion before acting on its impulse.",
+                  "Use a brief pause to identify the need or value beneath the reaction."
+            ],
+            "mediation": [
+                  "Plan language for naming strong emotion without assigning motive.",
+                  "Request a pause before intensity becomes the message."
+            ],
+            "learning": [
+                  "Emotion labeling",
+                  "Regulation during expression"
+            ]
+      },
+      "Internal and Reflective": {
+            "strength": "You tend to process emotion privately, allowing time for complexity and meaning to become clearer.",
+            "overuse": "Private processing can create distance when others receive little information about what is happening internally or when you will return.",
+            "growthTitle": "Make internal processing visible enough to sustain connection",
+            "growthText": "Preserve reflective depth while communicating your need for time, your current level of participation, and your plan to re-engage.",
+            "practices": [
+                  "Say that you need time rather than becoming silently unavailable.",
+                  "Return with one identified feeling, need, and question."
+            ],
+            "mediation": [
+                  "Ask for short reflection periods when necessary.",
+                  "Use notes to translate internal processing into clear participation."
+            ],
+            "learning": [
+                  "Internal processing and relational communication",
+                  "Returning after emotional pauses"
+            ]
+      },
+      "Regulated and Integrated": {
+            "strength": "You tend to connect emotion with meaning, needs, and deliberate choices rather than treating feelings as commands.",
+            "overuse": "Regulation can become overmanagement if emotional complexity is packaged too quickly or vulnerability is replaced by composure.",
+            "growthTitle": "Preserve regulation while allowing authentic emotional information",
+            "growthText": "Continue responding deliberately while making room for feelings that are unresolved, relationally significant, or not yet fully organized.",
+            "practices": [
+                  "Acknowledge uncertainty when an emotion is still developing.",
+                  "Distinguish regulation from suppressing what needs expression."
+            ],
+            "mediation": [
+                  "Explain both your emotional concern and the practical issue.",
+                  "Notice when calm presentation could hide the seriousness of impact."
+            ],
+            "learning": [
+                  "Integrated emotional awareness",
+                  "Regulation without emotional minimization"
+            ]
+      },
+      "Suppressed or Deferred": {
+            "strength": "You may be able to remain functional during demanding interactions by postponing emotional processing.",
+            "overuse": "Deferred emotion can accumulate, reappear indirectly, or reduce awareness of needs and limits during the conflict itself.",
+            "growthTitle": "Build safe access to deferred emotional information",
+            "growthText": "Preserve short-term functioning while creating reliable opportunities to identify, process, and communicate what was set aside.",
+            "practices": [
+                  "Schedule a specific post-conflict reflection period.",
+                  "Use physical cues and recurring thoughts as signals that emotion remains unresolved."
+            ],
+            "mediation": [
+                  "Prepare a list of impacts that may be difficult to feel in the moment.",
+                  "Avoid making permanent agreements while emotionally disconnected from their consequences."
+            ],
+            "learning": [
+                  "Recognizing deferred emotion",
+                  "Post-conflict processing"
+            ]
+      },
+      "Logic and Evidence": {
+            "strength": "You tend to seek consistency, factual support, and practical reasoning when conflict requires judgment.",
+            "overuse": "Evidence-centered decisions can underweight relational meaning, unequal impact, or values that cannot be fully reduced to proof.",
+            "growthTitle": "Expand evidence-based judgment to include human impact",
+            "growthText": "Preserve rigor while considering whose information is available, what remains uncertain, and how the decision will be experienced.",
+            "practices": [
+                  "List relevant values beside the available facts.",
+                  "Ask what evidence may be missing because of power, access, or perspective."
+            ],
+            "mediation": [
+                  "Distinguish disputed facts from disputed values.",
+                  "Identify which decisions can proceed despite uncertainty."
+            ],
+            "learning": [
+                  "Decision-making under uncertainty",
+                  "Evidence, values, and impact"
+            ]
+      },
+      "Values and Relationships": {
+            "strength": "You tend to consider obligations, dignity, relationships, and human consequences when making conflict decisions.",
+            "overuse": "Relationship-centered decisions can become inconsistent or difficult to explain when standards and tradeoffs remain implicit.",
+            "growthTitle": "Make relational judgment transparent and consistent",
+            "growthText": "Preserve attention to people and values while articulating the principles, limits, and consequences supporting the decision.",
+            "practices": [
+                  "State the value guiding your decision.",
+                  "Test whether you would apply the same principle in a comparable situation."
+            ],
+            "mediation": [
+                  "Identify the relationships or values most at risk.",
+                  "Separate preserving a relationship from avoiding a necessary decision."
+            ],
+            "learning": [
+                  "Values-based decision frameworks",
+                  "Relational impact and consistency"
+            ]
+      },
+      "Balanced and Deliberative": {
+            "strength": "You tend to compare evidence, values, risks, and consequences before deciding.",
+            "overuse": "Deliberation can become slow or cognitively burdensome when all factors receive equal attention despite different levels of importance.",
+            "growthTitle": "Preserve balance while clarifying decision thresholds",
+            "growthText": "Continue considering competing factors while deciding what information is sufficient, what can remain uncertain, and when action is required.",
+            "practices": [
+                  "Identify the two factors that should carry the most weight.",
+                  "Set a deadline or decision rule before gathering more information."
+            ],
+            "mediation": [
+                  "Prepare preferred, acceptable, and unacceptable outcomes.",
+                  "Identify which tradeoffs are reversible."
+            ],
+            "learning": [
+                  "Decision thresholds",
+                  "Structured tradeoff analysis"
+            ]
+      },
+      "Rapid and Intuitive": {
+            "strength": "You tend to recognize patterns quickly and can act when delay carries its own cost.",
+            "overuse": "Rapid judgment may rely on untested assumptions when urgency, familiarity, or confidence is mistaken for accuracy.",
+            "growthTitle": "Add a brief verification step to intuitive judgment",
+            "growthText": "Preserve timely action while checking the most consequential assumption, risk, or missing perspective before committing.",
+            "practices": [
+                  "Name the pattern your intuition is recognizing.",
+                  "Ask what new information would cause you to revise the decision."
+            ],
+            "mediation": [
+                  "Avoid accepting or rejecting proposals before identifying their consequences.",
+                  "Use caucus or a short pause for irreversible decisions."
+            ],
+            "learning": [
+                  "Intuition calibration",
+                  "Fast and slow decision-making"
+            ]
+      },
+      "Confront and Mobilize": {
+            "strength": "Under stress, you may move toward the conflict with energy, advocacy, and a desire to regain control.",
+            "overuse": "Mobilization can intensify the encounter when speed, force, or certainty exceeds what the situation can safely hold.",
+            "growthTitle": "Channel activation into grounded advocacy",
+            "growthText": "Preserve your capacity to act while lowering pace, separating threat from disagreement, and monitoring the effect of intensity.",
+            "practices": [
+                  "Slow your speaking pace before increasing your argument.",
+                  "Name the boundary or risk you are trying to protect."
+            ],
+            "mediation": [
+                  "Agree in advance to pause signals and process boundaries.",
+                  "Direct energy toward specific issues rather than global judgments."
+            ],
+            "learning": [
+                  "Activation regulation",
+                  "Assertiveness under stress"
+            ]
+      },
+      "Withdraw and Protect": {
+            "strength": "Under stress, you may create distance to reduce exposure, regain clarity, and protect against escalation.",
+            "overuse": "Protective withdrawal can become disconnection when the pause has no explanation, return point, or pathway for resolution.",
+            "growthTitle": "Turn withdrawal into a structured protective pause",
+            "growthText": "Preserve safety and processing space while communicating what you need and how the issue can be revisited.",
+            "practices": [
+                  "State that you are pausing rather than ending participation.",
+                  "Give a realistic time or condition for re-engagement."
+            ],
+            "mediation": [
+                  "Request caucus or structured breaks when activation rises.",
+                  "Develop a written return plan for unresolved issues."
+            ],
+            "learning": [
+                  "Protective pauses",
+                  "Re-engagement after withdrawal"
+            ]
+      },
+      "Appease and Stabilize": {
+            "strength": "Under stress, you may quickly reduce tension and attend to the other person’s emotional state.",
+            "overuse": "Stabilization can become appeasement when immediate calm is purchased through unwanted agreement, self-silencing, or unclear consent.",
+            "growthTitle": "Stabilize without surrendering informed choice",
+            "growthText": "Preserve your sensitivity to tension while delaying agreements until you can identify your own needs and evaluate pressure.",
+            "practices": [
+                  "Use temporary language instead of immediate agreement.",
+                  "Ask for time before accepting a demand made under intensity."
+            ],
+            "mediation": [
+                  "Tell the mediator if pressure makes it difficult to disagree.",
+                  "Review proposed agreements after activation has decreased."
+            ],
+            "learning": [
+                  "Conflict appeasement",
+                  "Consent under pressure"
+            ]
+      },
+      "Regulate and Re-Engage": {
+            "strength": "Under stress, you tend to slow the interaction, regulate activation, maintain boundaries, and return intentionally.",
+            "overuse": "Regulation can become overly procedural if structure is used to control uncertainty or if others’ different recovery needs are minimized.",
+            "growthTitle": "Preserve regulation while remaining relationally flexible",
+            "growthText": "Continue using structure and boundaries while checking whether the other person needs acknowledgment, time, or a different route back into dialogue.",
+            "practices": [
+                  "Name both the boundary and the purpose of continued engagement.",
+                  "Ask what conditions would help each person participate safely."
+            ],
+            "mediation": [
+                  "Use the mediator to establish pace and process expectations.",
+                  "Clarify how breaks and re-entry will work before difficult topics."
+            ],
+            "learning": [
+                  "Co-regulation",
+                  "Structured re-engagement"
+            ]
+      },
+      "Analytical Listening": {
+            "strength": "You tend to hear sequence, evidence, distinctions, and inconsistencies that can clarify what happened.",
+            "overuse": "Analytical listening can feel evaluative when accuracy is pursued before the speaker experiences acknowledgment.",
+            "growthTitle": "Pair discernment with visible understanding",
+            "growthText": "Preserve careful analysis while reflecting meaning and impact before testing details or resolving inconsistencies.",
+            "practices": [
+                  "Summarize the speaker’s central concern before asking factual questions.",
+                  "Separate clarification from cross-examination."
+            ],
+            "mediation": [
+                  "Listen for interests as well as factual claims.",
+                  "Use notes without allowing documentation to replace presence."
+            ],
+            "learning": [
+                  "Analytical empathy",
+                  "Clarifying without interrogating"
+            ]
+      },
+      "Empathic Listening": {
+            "strength": "You tend to notice emotional meaning and help other people feel heard and understood.",
+            "overuse": "Empathic attention can absorb the conversation when validation is confused with agreement or when practical issues remain unaddressed.",
+            "growthTitle": "Connect emotional understanding with clear issue definition",
+            "growthText": "Preserve empathy while distinguishing acknowledgment, agreement, responsibility, and the next decision.",
+            "practices": [
+                  "Validate the experience without endorsing every conclusion.",
+                  "After acknowledgment, ask what outcome or change is being requested."
+            ],
+            "mediation": [
+                  "Use empathy to identify underlying interests.",
+                  "Track your own perspective while attending to another person’s experience."
+            ],
+            "learning": [
+                  "Validation without agreement",
+                  "Empathy and boundaries"
+            ]
+      },
+      "Solution-Oriented Listening": {
+            "strength": "You tend to identify actionable problems and move conversation toward practical next steps.",
+            "overuse": "Solution focus can become premature when the problem is defined too quickly or when acknowledgment and understanding are still incomplete.",
+            "growthTitle": "Delay solution-building until the problem is jointly understood",
+            "growthText": "Preserve momentum while confirming what each person believes the problem is and what a workable solution must address.",
+            "practices": [
+                  "Ask whether the speaker wants understanding, advice, or problem-solving.",
+                  "Restate the problem before proposing a solution."
+            ],
+            "mediation": [
+                  "Generate options only after interests are identified.",
+                  "Test whether a proposal addresses emotional and practical concerns."
+            ],
+            "learning": [
+                  "Problem definition",
+                  "Timing of solution generation"
+            ]
+      },
+      "Reflective Listening": {
+            "strength": "You tend to test your understanding, notice what may be missing, and make the listening process visible.",
+            "overuse": "Reflection can become formulaic or slow if every statement is mirrored without advancing clarification or decision.",
+            "growthTitle": "Use reflection selectively and purposefully",
+            "growthText": "Preserve accurate understanding while choosing reflections that clarify meaning, reduce misinterpretation, or open the next useful question.",
+            "practices": [
+                  "Reflect the meaning rather than repeating the exact words.",
+                  "Follow reflection with one focused question."
+            ],
+            "mediation": [
+                  "Use summaries at transition points.",
+                  "Check understanding before responding to disputed claims."
+            ],
+            "learning": [
+                  "Reflective summaries",
+                  "Strategic clarification"
+            ]
+      },
+      "Facilitative and Servant-Oriented": {
+            "strength": "You tend to support participation, distribute voice, and help groups work through issues collectively.",
+            "overuse": "Facilitation can become self-effacement when leadership avoids necessary direction, accountability, or difficult decisions.",
+            "growthTitle": "Combine service with visible leadership responsibility",
+            "growthText": "Preserve inclusive participation while becoming explicit about standards, decisions, and responsibilities that cannot be delegated.",
+            "practices": [
+                  "State when you are facilitating and when you are deciding.",
+                  "Invite input without implying that every decision will be shared."
+            ],
+            "mediation": [
+                  "Clarify decision authority before collaborative discussion.",
+                  "Notice whose voice is missing or carrying disproportionate weight."
+            ],
+            "learning": [
+                  "Facilitative leadership",
+                  "Shared process and retained authority"
+            ]
+      },
+      "Directive and Decisive": {
+            "strength": "You tend to provide direction, define priorities, and move groups toward action.",
+            "overuse": "Decisiveness can reduce ownership or conceal relevant information when others participate only after the direction is already fixed.",
+            "growthTitle": "Use authority with structured consultation",
+            "growthText": "Preserve decisiveness while identifying where participation improves information, legitimacy, and implementation.",
+            "practices": [
+                  "Explain which parts of a decision are open to influence.",
+                  "Invite dissent before finalizing high-impact decisions."
+            ],
+            "mediation": [
+                  "Distinguish authority from unilateral process control.",
+                  "Prepare to explain both the decision and the decision-making method."
+            ],
+            "learning": [
+                  "Consultative decision-making",
+                  "Authority and procedural fairness"
+            ]
+      },
+      "Protective and Stewardship-Oriented": {
+            "strength": "You tend to safeguard people, standards, resources, and long-term responsibilities.",
+            "overuse": "Protective stewardship can become paternalistic when protection is defined without enough participation from those affected.",
+            "growthTitle": "Protect responsibly while preserving agency",
+            "growthText": "Continue attending to risk and duty while involving affected people in defining needs, safeguards, and acceptable tradeoffs.",
+            "practices": [
+                  "Ask what protection means to the person most affected.",
+                  "Separate actual risk from discomfort with uncertainty."
+            ],
+            "mediation": [
+                  "Identify fiduciary, safety, or role-based obligations explicitly.",
+                  "Avoid treating responsibility as proof that only one perspective matters."
+            ],
+            "learning": [
+                  "Stewardship and autonomy",
+                  "Protective leadership without paternalism"
+            ]
+      },
+      "Visionary and Transformative": {
+            "strength": "You tend to connect immediate conflict with broader purpose, culture, and possibilities for meaningful change.",
+            "overuse": "Transformative vision can outrun present capacity when immediate harms, operational details, or incremental needs receive too little attention.",
+            "growthTitle": "Translate vision into staged and accountable action",
+            "growthText": "Preserve long-range imagination while identifying the next concrete behavior, resource, and responsibility required.",
+            "practices": [
+                  "Convert a broad goal into one observable next step.",
+                  "Check whether participants share the purpose before asking them to share the plan."
+            ],
+            "mediation": [
+                  "Separate immediate settlement needs from broader relational transformation.",
+                  "Define what meaningful change would look like in behavior."
+            ],
+            "learning": [
+                  "Transformative leadership",
+                  "Vision-to-action planning"
+            ]
+      },
+      "Experiential Practice": {
+            "strength": "You tend to learn by trying skills, receiving real-world feedback, and adjusting through repeated use.",
+            "overuse": "Practice-first learning can repeat avoidable errors when experimentation begins without enough conceptual preparation or safety planning.",
+            "growthTitle": "Strengthen practice with intentional review",
+            "growthText": "Continue learning through action while defining the skill, feedback signal, and reflection question before the attempt.",
+            "practices": [
+                  "Choose one behavior to practice in a low-risk conversation.",
+                  "Review what changed rather than judging the attempt only as success or failure."
+            ],
+            "mediation": [
+                  "Rehearse opening statements and requests before the session.",
+                  "Use role-play for difficult moments."
+            ],
+            "learning": [
+                  "Deliberate practice",
+                  "Behavioral rehearsal"
+            ]
+      },
+      "Conceptual and Analytical": {
+            "strength": "You tend to learn through models, definitions, comparison, and understanding how ideas fit together.",
+            "overuse": "Conceptual learning can remain abstract when understanding is mistaken for behavioral integration.",
+            "growthTitle": "Convert conceptual clarity into observable practice",
+            "growthText": "Preserve analytical depth while selecting one behavior that demonstrates the concept in an actual interaction.",
+            "practices": [
+                  "After learning a model, write one sentence describing what you will do differently.",
+                  "Test the concept in a specific conversation and review the result."
+            ],
+            "mediation": [
+                  "Use frameworks to organize interests and options.",
+                  "Avoid overexplaining theory when a concise request is needed."
+            ],
+            "learning": [
+                  "Concept-to-behavior translation",
+                  "Applied conflict frameworks"
+            ]
+      },
+      "Observational Modeling": {
+            "strength": "You tend to learn by watching how other people handle difficult situations and identifying effective patterns.",
+            "overuse": "Observation can delay personal experimentation or lead to copying behavior without accounting for differences in role, identity, or context.",
+            "growthTitle": "Move from observation to adapted practice",
+            "growthText": "Continue learning from examples while identifying which element fits your circumstances and how it should be modified.",
+            "practices": [
+                  "Name the specific behavior you observed rather than admiring the whole performance.",
+                  "Practice an adapted version in a low-risk setting."
+            ],
+            "mediation": [
+                  "Observe how the mediator reframes and summarizes.",
+                  "Notice which modeled behaviors are appropriate for a participant rather than a neutral."
+            ],
+            "learning": [
+                  "Behavioral modeling",
+                  "Context-sensitive adaptation"
+            ]
+      },
+      "Reflective and Integrative": {
+            "strength": "You tend to connect experience, feedback, concepts, and personal meaning into a broader understanding.",
+            "overuse": "Integration can become prolonged reflection when insights accumulate without a defined practice or measurement of change.",
+            "growthTitle": "Turn integrated insight into a repeatable behavior",
+            "growthText": "Preserve depth while identifying the smallest action that would demonstrate the learning in a future conflict.",
+            "practices": [
+                  "End reflection with one behavioral commitment.",
+                  "Review whether the new behavior appeared under actual pressure."
+            ],
+            "mediation": [
+                  "Use written reflection to identify recurring patterns before the session.",
+                  "Translate insight into a concrete participation goal."
+            ],
+            "learning": [
+                  "Reflective practice cycles",
+                  "Integration and transfer"
+            ]
+      },
+      "Defensive or Fixed": {
+            "strength": "This pattern may reflect a strong need for coherence, self-protection, or stability when feedback feels threatening.",
+            "overuse": "Defensiveness can block useful information when protecting identity becomes more urgent than examining behavior and impact.",
+            "growthTitle": "Create enough safety to examine one piece of feedback",
+            "growthText": "Growth does not require accepting every criticism. Begin by separating identity from behavior and identifying one claim that can be tested.",
+            "practices": [
+                  "Delay rebuttal long enough to restate the feedback accurately.",
+                  "Ask what observable behavior led to the concern."
+            ],
+            "mediation": [
+                  "Prepare to distinguish intention from impact.",
+                  "Use the mediator to clarify feedback without requiring immediate agreement."
+            ],
+            "learning": [
+                  "Receiving difficult feedback",
+                  "Identity, behavior, and impact"
+            ]
+      },
+      "Cautious and Emerging": {
+            "strength": "You show some willingness to reflect and change while remaining attentive to fairness, safety, and uncertainty.",
+            "overuse": "Caution can slow growth when insight is held at a distance or practice depends on ideal conditions.",
+            "growthTitle": "Move from consideration to one structured experiment",
+            "growthText": "Preserve discernment while choosing a limited, observable adjustment that can be tested without requiring total certainty.",
+            "practices": [
+                  "Select one repeated conflict pattern to examine.",
+                  "Try one small change and review its effect."
+            ],
+            "mediation": [
+                  "Identify feedback you are willing to consider without endorsing it completely.",
+                  "Ask for specific examples rather than global judgments."
+            ],
+            "learning": [
+                  "Incremental behavior change",
+                  "Feedback evaluation"
+            ]
+      },
+      "Open and Accountable": {
+            "strength": "You tend to examine your contribution, receive useful feedback, and connect accountability with specific behavioral change.",
+            "overuse": "Accountability can become overresponsibility when you absorb blame for factors beyond your role or treat every criticism as equally valid.",
+            "growthTitle": "Preserve accountability while maintaining proportion",
+            "growthText": "Continue taking responsibility for your contribution while distinguishing your actions from the entire relational or systemic problem.",
+            "practices": [
+                  "Name precisely what was yours and what was not.",
+                  "Choose a repair action linked to the actual impact."
+            ],
+            "mediation": [
+                  "Prepare both acknowledgments and boundaries.",
+                  "Avoid accepting responsibility merely to accelerate agreement."
+            ],
+            "learning": [
+                  "Proportionate accountability",
+                  "Repair linked to impact"
+            ]
+      },
+      "Integrative and Sustained": {
+            "strength": "You tend to connect feedback, reflection, repair, practice, and repeated adjustment over time.",
+            "overuse": "Sustained growth work can become self-monitoring without rest or can create expectations that others must engage change in the same way.",
+            "growthTitle": "Sustain growth without turning development into constant evaluation",
+            "growthText": "Continue using integrated practice while recognizing limits, celebrating stable gains, and allowing different pathways of change.",
+            "practices": [
+                  "Track one meaningful indicator rather than every possible improvement.",
+                  "Build review intervals that include progress as well as remaining work."
+            ],
+            "mediation": [
+                  "Identify what sustained repair would look like after the session.",
+                  "Distinguish immediate agreement from long-term behavioral follow-through."
+            ],
+            "learning": [
+                  "Sustained integration",
+                  "Maintenance and relapse planning"
+            ]
       }
-    };
+};
 
     const domainNames = {
-      conflictStyle: "Conflict Approach",
+      conflictStyle: "Conflict Style",
       communicationStyle: "Communication Style",
+      emotionalProcessing: "Emotional Processing",
+      decisionStyle: "Decision Style",
+      stressResponse: "Stress Response",
       listeningStyle: "Listening Style",
-      decisionStyle: "Decision Style"
+      leadershipOrientation: "Leadership Orientation",
+      learningStyle: "Learning Style",
+      growthCapacity: "Growth Capacity"
     };
 
     const fallback = {
-      strength: "Your responses suggest a meaningful pattern that should be interpreted alongside context and lived experience.",
-      overuse: "Any pattern may become less effective when used rigidly or without regard for context.",
-      growthTitle: "Practice flexible and intentional conflict behavior",
-      growthText: "Use this result as a starting point for reflection rather than a fixed conclusion.",
+      strength:
+        "Your responses suggest a meaningful pattern that should be interpreted alongside context and personal circumstances.",
+      overuse:
+        "Any pattern may become less effective when used rigidly or without regard for context.",
+      growthTitle:
+        "Practice flexible and intentional conflict behavior",
+      growthText:
+        "Use this result as a starting point for reflection rather than a fixed conclusion.",
       practices: [
         "Notice when this pattern is most useful.",
         "Identify situations in which another response may be more effective."
@@ -915,34 +1882,80 @@
       });
     }
 
-    function normalize(score, ranking) {
-      const max = Math.max(...ranking.map(item => item.score));
-      return max ? Math.round((score / max) * 100) : 0;
+    function calculatePercentages(ranking) {
+      const total = ranking.reduce(function (sum, item) {
+        return sum + (Number(item.score) || 0);
+      }, 0);
+
+      return ranking.map(function (item) {
+        const supplied = Number(item.percentage);
+
+        return {
+          key: item.key,
+          label: item.label,
+          score: Number(item.score) || 0,
+          percentage:
+            Number.isFinite(supplied) && supplied >= 0
+              ? supplied
+              : total > 0
+                ? Math.round(((Number(item.score) || 0) / total) * 100)
+                : 0
+        };
+      });
     }
 
-    function renderPatternCard(domainKey, domainResult) {
+    function normalizeDomainResult(domainResult) {
+      const ranking = calculatePercentages(
+        Array.isArray(domainResult.ranking)
+          ? domainResult.ranking
+          : []
+      );
+
+      const primary = domainResult.primary || ranking[0] || {
+        label: "Pattern unavailable"
+      };
+
+      const secondary = domainResult.secondary || ranking[1] || {
+        label: "Supporting pattern unavailable"
+      };
+
+      return {
+        displayName: domainResult.displayName,
+        primary: primary,
+        secondary: secondary,
+        ranking: ranking
+      };
+    }
+
+    function renderPatternCard(domainKey, rawDomainResult) {
+      const domainResult = normalizeDomainResult(rawDomainResult);
       const card = document.createElement("article");
       card.className = "pattern-card";
 
       const domain = document.createElement("p");
       domain.className = "pattern-domain";
-      domain.textContent = domainNames[domainKey] || domainKey;
+      domain.textContent =
+        domainResult.displayName ||
+        domainNames[domainKey] ||
+        domainKey;
 
       const heading = document.createElement("h3");
       heading.textContent = domainResult.primary.label;
 
       const primary = document.createElement("p");
       primary.className = "primary-result";
-      primary.textContent = "Primary pattern";
+      primary.textContent = "Strongest reflected pattern";
 
       const secondary = document.createElement("p");
       secondary.className = "secondary-result";
-      secondary.textContent = "Supporting pattern: " + domainResult.secondary.label;
+      secondary.textContent =
+        "Supporting pattern: " +
+        domainResult.secondary.label;
 
       const bars = document.createElement("div");
       bars.className = "score-bars";
 
-      domainResult.ranking.forEach(item => {
+      domainResult.ranking.forEach(function (item) {
         const row = document.createElement("div");
         row.className = "score-row";
 
@@ -952,153 +1965,312 @@
         const label = document.createElement("span");
         label.textContent = item.label;
 
-        const score = document.createElement("span");
-        score.textContent = String(item.score);
+        const percentage = document.createElement("span");
+        percentage.className = "score-value";
+        percentage.textContent =
+          Math.max(0, Math.min(100, item.percentage)) +
+          "% relative alignment";
 
-        copy.append(label, score);
+        copy.append(label, percentage);
 
         const track = document.createElement("div");
         track.className = "score-track";
+        track.setAttribute("aria-hidden", "true");
 
         const fill = document.createElement("div");
         fill.className = "score-fill";
-        fill.style.width = normalize(item.score, domainResult.ranking) + "%";
+        fill.style.width =
+          Math.max(0, Math.min(100, item.percentage)) +
+          "%";
 
         track.appendChild(fill);
         row.append(copy, track);
         bars.appendChild(row);
       });
 
-      card.append(domain, heading, primary, secondary, bars);
+      const interpretation = document.createElement("p");
+      interpretation.className = "card-interpretation";
+      interpretation.textContent =
+        getDefinition(domainResult.primary.label).strength;
+
+      card.append(
+        domain,
+        heading,
+        primary,
+        secondary,
+        bars,
+        interpretation
+      );
+
       return card;
     }
 
-    function buildSummary(results) {
-      const conflict = results.domains.conflictStyle.primary.label;
-      const communication = results.domains.communicationStyle.primary.label;
-      const listening = results.domains.listeningStyle.primary.label;
-      const decision = results.domains.decisionStyle.primary.label;
+    function getPrimaryDomains(results) {
+      return Object.entries(results.domains || {})
+        .map(function (entry) {
+          return {
+            key: entry[0],
+            value: normalizeDomainResult(entry[1])
+          };
+        })
+        .filter(function (entry) {
+          return entry.value.primary &&
+            entry.value.primary.label;
+        });
+    }
 
-      return (
-        "Your baseline responses suggest a " +
-        conflict +
-        " supported by " +
-        communication +
-        ", " +
-        listening +
-        ", and " +
-        decision +
-        ". This combination describes how you are most likely to approach ordinary disagreement before intense stress significantly changes your behavior."
-      );
+    function buildSummary(results) {
+      const domains = getPrimaryDomains(results);
+
+      if (domains.length === 0) {
+        return fallback.growthText;
+      }
+
+      const first = domains[0].value;
+      const supporting = domains
+        .slice(1, 4)
+        .map(function (entry) {
+          return entry.value.primary.label;
+        });
+
+      let summary =
+        "Your responses most strongly reflect " +
+        first.primary.label +
+        " within " +
+        (
+          first.displayName ||
+          domainNames[domains[0].key] ||
+          "the first measured dimension"
+        );
+
+      if (supporting.length > 0) {
+        summary +=
+          ", supported by " +
+          supporting.join(", ");
+      }
+
+      summary +=
+        ". The profile describes relative patterns across the dimensions measured by this assessment, not a single permanent type.";
+
+      return summary;
     }
 
     function addListItems(elementId, items) {
       const list = document.getElementById(elementId);
       list.innerHTML = "";
 
-      [...new Set(items)].forEach(text => {
-        const item = document.createElement("li");
-        item.textContent = text;
-        list.appendChild(item);
-      });
+      Array.from(new Set(items.filter(Boolean)))
+        .forEach(function (text) {
+          const item = document.createElement("li");
+          item.textContent = text;
+          list.appendChild(item);
+        });
+    }
+
+    function setConsentStatus(results) {
+      const emailRequested =
+        Boolean(results.requestParticipantEmail);
+      const creatorSharing =
+        Boolean(results.consentCreatorSharing);
+
+      const emailCard =
+        document.getElementById("email-status-card");
+      const creatorCard =
+        document.getElementById("creator-status-card");
+
+      document.getElementById("email-status-text").textContent =
+        emailRequested
+          ? "You requested participant email delivery. The address is stored with these local results, but this static profile page does not send email."
+          : "You did not request participant email delivery.";
+
+      document.getElementById("creator-status-text").textContent =
+        creatorSharing
+          ? "You consented to pilot review sharing when secure submission becomes active. This static page does not independently upload your responses."
+          : "You did not consent to sharing these results for pilot review.";
+
+      if (emailRequested) {
+        emailCard.classList.add("consent");
+      }
+
+      if (creatorSharing) {
+        creatorCard.classList.add("consent");
+      }
     }
 
     function renderProfile(results) {
-      const name = results.participantName || "Participant";
+      const name =
+        results.participantName || "Participant";
+      const assessmentTitle =
+        results.assessmentTitle || "HCIA Assessment";
+      const assessmentVersion =
+        results.assessmentVersion || "Version unavailable";
+      const primaryDomains =
+        getPrimaryDomains(results);
 
       document.getElementById("profile-title").textContent =
         "HCIA Results Profile for " + name;
 
       document.getElementById("profile-intro").textContent =
         "This profile summarizes the strongest patterns reflected in your " +
-        results.assessmentTitle +
+        assessmentTitle +
         " responses.";
 
       document.getElementById("assessment-type-pill").textContent =
-        results.assessmentTitle;
+        assessmentTitle;
 
       document.getElementById("completion-date-pill").textContent =
-        "Completed " + formatDate(results.completedAt);
+        "Completed " +
+        formatDate(results.completedAt);
 
       document.getElementById("version-pill").textContent =
-        "Version " + results.assessmentVersion;
+        assessmentVersion.startsWith("Version")
+          ? assessmentVersion
+          : "Version " + assessmentVersion;
 
       document.getElementById("summary-text").textContent =
         buildSummary(results);
 
-      const patternGrid = document.getElementById("pattern-grid");
+      document.getElementById("overview-heading").textContent =
+        primaryDomains.length >= 8
+          ? "Complete Conflict Intelligence Profile"
+          : primaryDomains.length > 0
+            ? "Assessment Pattern Overview"
+            : "Pattern Overview";
+
+      const patternGrid =
+        document.getElementById("pattern-grid");
       patternGrid.innerHTML = "";
 
-      Object.entries(results.domains).forEach(([key, value]) => {
-        patternGrid.appendChild(renderPatternCard(key, value));
-      });
+      Object.entries(results.domains)
+        .forEach(function (entry) {
+          patternGrid.appendChild(
+            renderPatternCard(entry[0], entry[1])
+          );
+        });
 
-      const conflict = getDefinition(results.domains.conflictStyle.primary.label);
-      const communication = getDefinition(results.domains.communicationStyle.primary.label);
-      const listening = getDefinition(results.domains.listeningStyle.primary.label);
-      const decision = getDefinition(results.domains.decisionStyle.primary.label);
+      const selectedDefinitions =
+        primaryDomains.map(function (entry) {
+          return getDefinition(
+            entry.value.primary.label
+          );
+        });
+
+      const mainDefinition =
+        selectedDefinitions[0] || fallback;
 
       document.getElementById("strengths-text").textContent =
-        [conflict.strength, communication.strength, listening.strength, decision.strength].join(" ");
+        selectedDefinitions
+          .slice(0, 4)
+          .map(function (definition) {
+            return definition.strength;
+          })
+          .join(" ");
 
       document.getElementById("overuse-text").textContent =
-        [conflict.overuse, communication.overuse, listening.overuse, decision.overuse].join(" ");
+        selectedDefinitions
+          .slice(0, 4)
+          .map(function (definition) {
+            return definition.overuse;
+          })
+          .join(" ");
 
       document.getElementById("growth-title").textContent =
-        conflict.growthTitle;
+        mainDefinition.growthTitle;
 
       document.getElementById("growth-text").textContent =
-        conflict.growthText;
+        mainDefinition.growthText;
 
-      addListItems("practice-list", [
-        conflict.practices[0],
-        communication.practices[0],
-        listening.practices[0]
-      ]);
+      addListItems(
+        "practice-list",
+        selectedDefinitions
+          .slice(0, 4)
+          .flatMap(function (definition) {
+            return definition.practices.slice(0, 1);
+          })
+      );
 
-      addListItems("mediation-list", [
-        conflict.mediation[0],
-        communication.mediation[0],
-        listening.mediation[0],
-        decision.mediation[0]
-      ]);
+      addListItems(
+        "mediation-list",
+        selectedDefinitions
+          .slice(0, 5)
+          .flatMap(function (definition) {
+            return definition.mediation.slice(0, 1);
+          })
+      );
 
-      addListItems("learning-list", [
-        conflict.learning[0],
-        communication.learning[0],
-        listening.learning[0],
-        decision.learning[0]
-      ]);
+      addListItems(
+        "learning-list",
+        selectedDefinitions
+          .slice(0, 5)
+          .flatMap(function (definition) {
+            return definition.learning.slice(0, 1);
+          })
+      );
 
-      document.getElementById("profile-shell").classList.add("visible");
+      setConsentStatus(results);
+
+      document
+        .getElementById("profile-shell")
+        .classList
+        .add("visible");
+
+      requestAnimationFrame(function () {
+        document
+          .getElementById("profile-title")
+          .focus({
+            preventScroll: true
+          });
+      });
     }
 
     const results = readResults();
 
-    if (!results || !results.domains || !results.assessmentTitle) {
-      document.getElementById("error-panel").classList.add("visible");
+    if (
+      !results ||
+      !results.domains ||
+      !results.assessmentTitle
+    ) {
+      document
+        .getElementById("error-panel")
+        .classList
+        .add("visible");
     } else {
       renderProfile(results);
     }
 
-    document.getElementById("print-button").addEventListener("click", () => {
-      window.print();
-    });
-
-    document.getElementById("clear-button").addEventListener("click", () => {
-      const confirmed = window.confirm(
-        "Clear the HCIA results stored in this browser?"
+    document
+      .getElementById("print-button")
+      .addEventListener(
+        "click",
+        function () {
+          window.print();
+        }
       );
 
-      if (!confirmed) {
-        return;
-      }
+    document
+      .getElementById("clear-button")
+      .addEventListener(
+        "click",
+        function () {
+          const confirmed = window.confirm(
+            "Clear the HCIA results stored in this browser? This cannot be undone."
+          );
 
-      localStorage.removeItem("hciaCurrentResults");
-      window.location.href = "../";
-    });
+          if (!confirmed) {
+            return;
+          }
 
-    document.getElementById("current-year").textContent =
+          localStorage.removeItem(
+            "hciaCurrentResults"
+          );
+
+          window.location.href = "../";
+        }
+      );
+
+    document.getElementById(
+      "current-year"
+    ).textContent =
       new Date().getFullYear();
   </script>
 </body>
